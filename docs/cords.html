@@ -71,13 +71,46 @@ footer a{color:var(--ember-core)}
 <header class="hero"><div class="wrap">
 <p class="label">Collections of relatable data</p>
 <h1>CORD catalog</h1>
-<p>Collections of relatable data (CORD) mapped for SENZING® entity resolution: 1 files, grouped by locale. Each has a download link, a curl command and the SHA-256 to check it.</p>
+<p>Collections of relatable data (CORD) mapped for SENZING® entity resolution: 2 files, grouped by locale. Each has a download link, a curl command and the SHA-256 to check it.</p>
 <ul class="toc"><li><a href="#las-vegas">Las Vegas</a></li><li><a href="#london">London</a></li><li><a href="#moscow">Moscow</a></li></ul>
 </div></header>
 <main>
 <section id="las-vegas"><div class="wrap">
 <p class="label">Locale</p>
 <h2>Las Vegas</h2>
+<article class="cord" id="ppp_loans_over_150k-lasvegas">
+<h3><a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a></h3>
+<p>Details of Paycheck Protection Program loans over $150,000, including recipient names, loan amounts, and locations.</p>
+<dl><div><dt>Locale</dt><dd>Las Vegas</dd></div><div><dt>Primary source</dt><dd><a href="https://data.sba.gov/dataset/ppp-foia">PPP Loan Data</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.0.2, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#002---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>2.1 MB (2,103,822 bytes)</dd></div><div><dt>Records</dt><dd>3,488 (0 persons, 3,488 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>PPP_LOANS</code></dd></div><div><dt>SHA-256</dt><dd><code>187702a220d35c003b048c1d76975dfa161a11014b40456d1f3633cc2b44e785</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="3,488">NAME</li><li title="3,488">ADDRESS</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.0.2/ppp_loans_over_150k-lasvegas.jsonl">Download ppp_loans_over_150k-lasvegas.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.0.2/ppp_loans_over_150k-lasvegas.jsonl
+echo "187702a220d35c003b048c1d76975dfa161a11014b40456d1f3633cc2b44e785  ppp_loans_over_150k-lasvegas.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;DATA_SOURCE&quot;: &quot;PPP_LOANS&quot;,
+  &quot;RECORD_ID&quot;: &quot;7017&quot;,
+  &quot;Loan_Range&quot;: &quot;c $1-2 million&quot;,
+  &quot;BUSINESS_NAME_ORG&quot;: &quot;INFINITY HOSPICE CARE OF LAS VEGAS, LLC&quot;,
+  &quot;BUSINESS_ADDR_LINE1&quot;: &quot;5110 N 40TH ST STE 107&quot;,
+  &quot;BUSINESS_ADDR_CITY&quot;: &quot;PHOENIX&quot;,
+  &quot;BUSINESS_ADDR_STATE&quot;: &quot;AZ&quot;,
+  &quot;BUSINESS_ADDR_POSTAL_CODE&quot;: &quot;85018&quot;,
+  &quot;NAICS_Code&quot;: &quot;623110&quot;,
+  &quot;Business_Type&quot;: &quot;Limited  Liability Company(LLC)&quot;,
+  &quot;OwnedByRaceEthnicity&quot;: &quot;Unanswered&quot;,
+  &quot;OwnedBy&quot;: &quot;Male Owned&quot;,
+  &quot;OwnedByVeteran&quot;: &quot;Unanswered&quot;,
+  &quot;NonProfit&quot;: &quot;&quot;,
+  &quot;JobsReported&quot;: &quot;137&quot;,
+  &quot;DateApproved&quot;: &quot;05/01/2020&quot;,
+  &quot;Lender&quot;: &quot;JPMorgan Chase Bank, National Association&quot;,
+  &quot;CD&quot;: &quot;AZ-09&quot;
+}</code></pre></details>
+<p>Related CORDs: <a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></p>
+</article>
 <article class="cord" id="us_labor_violations-lasvegas">
 <h3><a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></h3>
 <p>Records of concluded compliance actions since 2005, detailing violations, back wages owed, and penalties assessed.</p>
@@ -106,7 +139,7 @@ echo "160a12a46d426ba03f9bfeb629b9bf206fcbd58131fc8e106d796aa68d337080  us_labor
   &quot;findings_end_date&quot;: &quot;2012-06-05&quot;,
   &quot;ld_dt&quot;: &quot;2015-04-01 01:00:03 EDT&quot;
 }</code></pre></details>
-<p>Related CORDs: None yet.</p>
+<p>Related CORDs: <a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a></p>
 </article>
 </div></section>
 <section class="alt" id="london"><div class="wrap">
