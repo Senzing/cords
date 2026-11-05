@@ -9,12 +9,36 @@
       "source": "https://senzing.com/datasets/gleif-lasvegas.jsonl"
     },
     {
+      "name": "gleif-london.jsonl",
+      "size": 45162274,
+      "sha256": "46d2f256f5c4c3c0aa5f7d0b01b90b9eb139bd4b97251e6d1ebf6ad99890cf55",
+      "tag": "0.1.1",
+      "url": "https://github.com/Senzing/cords/releases/download/0.1.1/gleif-london.jsonl",
+      "source": "https://senzing.com/datasets/gleif-london.jsonl"
+    },
+    {
       "name": "gleif-moscow.jsonl",
       "size": 1169270,
       "sha256": "9dc289a12810eeeaea24f2894ae2317692267bda29a0f2f4153408569ca8c602",
       "tag": "0.1.0",
       "url": "https://github.com/Senzing/cords/releases/download/0.1.0/gleif-moscow.jsonl",
       "source": "https://senzing.com/datasets/gleif-moscow.jsonl"
+    },
+    {
+      "name": "globaldata-london_central_a.jsonl",
+      "size": 27592117,
+      "sha256": "38b1ffc929891bd0518b25ea8ab2ff55769fa3b7e05aee9506fa570a0a31fc4f",
+      "tag": "0.1.1",
+      "url": "https://github.com/Senzing/cords/releases/download/0.1.1/globaldata-london_central_a.jsonl",
+      "source": "https://senzing.com/datasets/globaldata-london_central_a.jsonl"
+    },
+    {
+      "name": "icij-london.jsonl",
+      "size": 19183306,
+      "sha256": "a7a153065eed4d267f99fc5974e4f0bb49beafdfbe42678ec70b868b6afe6df8",
+      "tag": "0.1.1",
+      "url": "https://github.com/Senzing/cords/releases/download/0.1.1/icij-london.jsonl",
+      "source": "https://senzing.com/datasets/icij-london.jsonl"
     },
     {
       "name": "icij-moscow.jsonl",
@@ -33,6 +57,14 @@
       "source": "https://senzing.com/datasets/nominodata_risk-moscow.jsonl"
     },
     {
+      "name": "ofac-london.jsonl",
+      "size": 102967,
+      "sha256": "2299bcaf6b9111fed771b3c54a56685f5239f75c57c47d322020f742c21eb40b",
+      "tag": "0.1.1",
+      "url": "https://github.com/Senzing/cords/releases/download/0.1.1/ofac-london.jsonl",
+      "source": "https://senzing.com/datasets/ofac-london.jsonl"
+    },
+    {
       "name": "ofac-moscow.jsonl",
       "size": 1643552,
       "sha256": "b238fb9f25b1474b5f4ea2d2181c8ed0e4bfd65e2db4eafd5bec7f4d9dddb39f",
@@ -47,6 +79,14 @@
       "tag": "0.1.0",
       "url": "https://github.com/Senzing/cords/releases/download/0.1.0/open_ownership-moscow.jsonl",
       "source": "https://senzing.com/datasets/open_ownership-moscow.jsonl"
+    },
+    {
+      "name": "open_sanctions-london.jsonl",
+      "size": 257591,
+      "sha256": "6013c5f33031f55f4fbc2e779beb34f8bec36e76d9c146a91c8db8a99b80794b",
+      "tag": "0.1.1",
+      "url": "https://github.com/Senzing/cords/releases/download/0.1.1/open_sanctions-london.jsonl",
+      "source": "https://senzing.com/datasets/open_sanctions-london.jsonl"
     },
     {
       "name": "open_sanctions-moscow.jsonl",
