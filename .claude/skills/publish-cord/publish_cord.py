@@ -854,7 +854,47 @@ def sha256_of_url(url):
     return digest.hexdigest()
 
 
-def publish(ctx, out):
+POLICY_REFUSAL = "base branch policy prohibits the merge"
+
+
+def checks_not_passed(ctx, number):
+    """Required status checks on the pull request that have not passed or been skipped."""
+    # gh exits non-zero when a check failed or is pending, but still prints the JSON.
+    result = subprocess.run(
+        ["gh", "pr", "checks", str(number), "--repo", f"{ctx.owner}/{ctx.repo}",
+         "--required", "--json", "name,bucket"],
+        capture_output=True, text=True, cwd=ctx.root, check=False,
+    )
+    if not result.stdout.strip():
+        if "no required checks" in result.stderr:
+            return []
+        raise StopError(f"gh pr checks failed: {result.stderr.strip()}")
+    return [f"{c['name']} ({c['bucket']})" for c in json.loads(result.stdout)
+            if c["bucket"] not in ("pass", "skipping")]
+
+
+def merge(ctx, pr, bypass):
+    """Squash-merge the release PR; with bypass, use the caller's ruleset bypass (--admin)."""
+    command = ["gh", "pr", "merge", str(pr["number"]), "--repo", f"{ctx.owner}/{ctx.repo}",
+               "--squash", "--delete-branch"]
+    if bypass:
+        # --bypass skips only what the caller's bypass covers (on Senzing/cords, the
+        # review); it never merges past a required check that has not passed.
+        not_passed = checks_not_passed(ctx, pr["number"])
+        if not_passed:
+            raise StopError(f"required checks have not passed on {pr['url']}: "
+                            f"{', '.join(not_passed)}; nothing merged")
+        command.append("--admin")
+    try:
+        run(*command, cwd=ctx.root)
+    except StopError as error:
+        if not bypass and POLICY_REFUSAL in str(error):
+            raise StopError(f"{error}\nblocked: branch policy prohibits the merge of "
+                            f"{pr['url']}; rerun with publish --bypass to use your bypass")
+        raise
+
+
+def publish(ctx, out, bypass=False):
     version = ctx.draft()
     if not version:
         raise StopError("no draft Release to publish; run prepare first")
@@ -864,8 +904,7 @@ def publish(ctx, out):
 
     # Step 5: merge.
     if pr["state"] == "OPEN":
-        run("gh", "pr", "merge", str(pr["number"]), "--squash", "--delete-branch",
-            cwd=ctx.root)
+        merge(ctx, pr, bypass)
         pr = ctx.pull_request(version)
     if pr["state"] != "MERGED":
         raise StopError(f"pull request {pr['url']} is {pr['state'].lower()}, not merged")
@@ -910,7 +949,11 @@ def main(argv=None):
     commands.add_parser("status")
     prepare_parser = commands.add_parser("prepare")
     prepare_parser.add_argument("--bump", choices=["major", "minor", "patch"])
-    commands.add_parser("publish")
+    publish_parser = commands.add_parser("publish")
+    publish_parser.add_argument(
+        "--bypass", action="store_true",
+        help="merge with gh pr merge --admin, using your ruleset bypass, "
+             "once every required check has passed")
     commands.add_parser("catalog")
     args = parser.parse_args(argv)
     out = sys.stdout
@@ -926,7 +969,7 @@ def main(argv=None):
             return status(ctx, out)
         if args.command == "prepare":
             return prepare(ctx, args.bump, out)
-        return publish(ctx, out)
+        return publish(ctx, out, args.bypass)
     except StopError as error:
         print(f"stopped: {error}", file=sys.stderr)
         return 2
