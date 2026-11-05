@@ -70,6 +70,7 @@ this action runs [super-linter] to run multiple linters against the code.
     - [.checkov.yaml]
     - [.jscpd.json]
     - [.yaml-lint.yml]
+    - [zizmor.yaml]
   - Uses: [senzing-factory/build-resources/.../lint-workflows.yaml]
 
 ## move-pr-to-done-dependabot.yaml
@@ -93,7 +94,8 @@ this action runs [cspell] against the repository.
 [.checkov.yaml]: ../linters/README.md#checkovyaml
 [.jscpd.json]: ../linters/README.md#jscpdjson
 [.vscode/cspell.json]: ../../.vscode/cspell.json
-[.yaml-lint.yml]: ../linters/README.md#yaml-lintyml
+
+[.yaml-lint.yml]: ../linters/README.md#yaml-lintyml\n[zizmor.yaml]: ../linters/zizmor.yaml
 [Add Labels Standardized GitHub Action]: add-labels-standardized.yaml
 [Add to Project Senzing Dependabot GitHub Action]: add-to-project-senzing-dependabot.yaml
 [Add to Project Senzing GitHub Action]: add-to-project-senzing.yaml

@@ -17,3 +17,5 @@ This project adheres to [Semantic Versioning].
 [CommonMark]: https://commonmark.org/
 [Keep a Changelog]: https://keepachangelog.com/
 [Semantic Versioning]: https://semver.org/
+[Unreleased]: https://github.com/Senzing/cords/compare/0.0.0...HEAD
+[0.0.0]: https://github.com/Senzing/cords/releases/tag/0.0.0

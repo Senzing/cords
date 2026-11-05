@@ -1,21 +1,12 @@
 # cords
 
-If you are beginning your journey with [Senzing], please start with [Senzing Quick Start guides].
+This repository holds the community artifacts for `cords` in the Senzing
+organization: README, CONTRIBUTING, CODE_OF_CONDUCT, LICENSE, CHANGELOG,
+SECURITY, documentation scaffolding and the GitHub workflows. Project content
+is added by the development team.
 
-You are in the [Senzing Garage] where projects are "tinkered" on.
-Although this GitHub repository may help you understand an approach to using Senzing,
-it's not considered to be "production ready" and is not considered to be part of the Senzing product.
-Heck, it may not even be appropriate for your application of Senzing!
-
-## Synopsis
-
-This repository contains exemplar artifacts (files) for Senzing repositories.
-It is not meant to be an example README.md for specific repositories.
-
-GitHub provides support for these artifacts.
-As an example, click on the following links on this GitHub repository:
-
-- "Insights" tab > "[Community]" on left-hand navigation bar
+Development work happens in
+<https://github.com/senzing-garage/cord-development>.
 
 ## Files
 
@@ -24,6 +15,7 @@ For directory structure, see [Directory layout].
 Senzing community files:
 
 1. .claude/
+   1. [CLAUDE.md]
    1. [commands/senzing.md]
    1. [settings.json]
 1. .github/
@@ -31,6 +23,7 @@ Senzing community files:
    1. [dependabot.yml]
    1. [senzing-corporate-contributor-license-agreement]
    1. [senzing-individual-contributor-license-agreement]
+   1. linters/
    1. workflows/
 1. .vscode
    1. [cspell.json]
@@ -255,7 +248,6 @@ This includes how to report a suspected vulnerability.
 [CODEOWNERS]: #githubcodeowners
 [commands/senzing.md]: #claudecommandssenzingmd
 [CommonMark]: https://commonmark.org/
-[Community]: https://github.com/Senzing/cords/graphs/community
 [CONTRIBUTING.md file]: CONTRIBUTING.md
 [CONTRIBUTING.md]: #contributingmd
 [Contributor Covenant]: https://www.contributor-covenant.org/version/3/0/code_of_conduct/
@@ -281,15 +273,13 @@ This includes how to report a suspected vulnerability.
 [SECURITY.md file]: SECURITY.md
 [SECURITY.md]: #securitymd
 [Semantic Versioning]: https://semver.org/spec/v2.0.0.html
-[Senzing Garage]: https://github.com/senzing-garage
-[Senzing Quick Start guides]: https://docs.senzing.com/quickstart/
 [senzing-corporate-contributor-license-agreement.pdf]: .github/senzing-corporate-contributor-license-agreement.pdf
 [senzing-corporate-contributor-license-agreement]: #githubsenzing-corporate-contributor-license-agreementpdf
 [senzing-individual-contributor-license-agreement.pdf]: .github/senzing-individual-contributor-license-agreement.pdf
 [senzing-individual-contributor-license-agreement]: #githubsenzing-individual-contributor-license-agreementpdf
-[Senzing]: https://senzing.com/
 [Setting guidelines for repository contributors]: https://help.github.com/articles/setting-guidelines-for-repository-contributors/
 [settings.json]: #claudesettingsjson
 [template-docker/README.md]: https://github.com/senzing-garage/template-docker/blob/main/README.md
 [template-go/README.md]: https://github.com/senzing-garage/template-go/blob/main/README.md
 [template-python/README.md]: https://github.com/senzing-garage/template-python/blob/main/README.md
+[CLAUDE.md]: .claude/CLAUDE.md
