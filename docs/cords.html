@@ -71,13 +71,67 @@ footer a{color:var(--ember-core)}
 <header class="hero"><div class="wrap">
 <p class="label">Collections of relatable data</p>
 <h1>CORD catalog</h1>
-<p>Collections of relatable data (CORD) mapped for SENZING® entity resolution: 14 files, grouped by locale. Each has a download link, a curl command and the SHA-256 to check it.</p>
+<p>Collections of relatable data (CORD) mapped for SENZING® entity resolution: 21 files, grouped by locale. Each has a download link, a curl command and the SHA-256 to check it.</p>
 <ul class="toc"><li><a href="#las-vegas">Las Vegas</a></li><li><a href="#london">London</a></li><li><a href="#moscow">Moscow</a></li></ul>
 </div></header>
 <main>
 <section id="las-vegas"><div class="wrap">
 <p class="label">Locale</p>
 <h2>Las Vegas</h2>
+<article class="cord" id="equifax-lasvegas">
+<h3><a href="#equifax-lasvegas">equifax-lasvegas.jsonl</a></h3>
+<p>Business and people records for the Las Vegas area from Equifax commercial data, including company names, legal names, addresses, phone numbers, websites, NAICS industry codes, years established and corporate family links.</p>
+<dl><div><dt>Locale</dt><dd>Las Vegas</dd></div><div><dt>Primary source</dt><dd><a href="https://www.equifax.com/business/">Equifax</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.2, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#012---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>476.8 MB (476,799,997 bytes)</dd></div><div><dt>Records</dt><dd>816,011 (382,176 persons, 433,835 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>EQUIFAX</code></dd></div><div><dt>SHA-256</dt><dd><code>fe71eb800526fefea458f76ade393a6a8974e2d3a090301434ec2158ed27b01a</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="876,180">NAME</li><li title="25,804">GENDER</li><li title="454,158">ADDRESS</li><li title="470,443">PHONE</li><li title="39,268">EMAIL</li><li title="184,092">WEBSITE</li><li title="433,835">TRUSTED_ID</li><li title="433,835">REL_ANCHOR</li><li title="443,929">REL_POINTER</li><li title="427,340">GEO_LOC</li><li title="382,176">EMPLOYER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.2/equifax-lasvegas.jsonl">Download equifax-lasvegas.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.2/equifax-lasvegas.jsonl
+echo "fe71eb800526fefea458f76ade393a6a8974e2d3a090301434ec2158ed27b01a  equifax-lasvegas.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;EQUIFAX&quot;,
+  &quot;RECORD_ID&quot;: &quot;105223571&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;TRUSTED_ID_TYPE&quot;: &quot;EFX_ID&quot;,
+  &quot;TRUSTED_ID_NUMBER&quot;: &quot;105223571&quot;,
+  &quot;REL_ANCHOR_DOMAIN&quot;: &quot;EFX_ID&quot;,
+  &quot;REL_ANCHOR_KEY&quot;: &quot;105223571&quot;,
+  &quot;PRIMARY_NAME_ORG&quot;: &quot;BRIDGESTONE AMERICAS&quot;,
+  &quot;LEGAL_NAME_ORG&quot;: &quot;BRIDGESTONE RETAIL OPERATIONS, LLC&quot;,
+  &quot;BUSINESS_ADDR_LINE1&quot;: &quot;4640 W ANN RD&quot;,
+  &quot;BUSINESS_ADDR_CITY&quot;: &quot;NORTH LAS VEGAS&quot;,
+  &quot;BUSINESS_ADDR_STATE&quot;: &quot;NV&quot;,
+  &quot;BUSINESS_ADDR_POSTAL_CODE&quot;: &quot;89031-3834&quot;,
+  &quot;BUSINESS_GEO_LATITUDE&quot;: &quot;36.261761&quot;,
+  &quot;BUSINESS_GEO_LONGITUDE&quot;: &quot;-115.204491&quot;,
+  &quot;BUSINESS_GEO_PRECISION&quot;: &quot;255&quot;,
+  &quot;BUSINESS_ADDR_COUNTRY&quot;: &quot;USA&quot;,
+  &quot;PRIMARY_PHONE_NUMBER&quot;: &quot;7023551258&quot;,
+  &quot;EFX_PRIMNAICSCODE&quot;: &quot;441330&quot;,
+  &quot;EFX_PRIMNAICSDESC&quot;: &quot;Automotive Parts and Accessories Retailers&quot;,
+  &quot;RELATIONSHIPS&quot;: [
+    {
+      &quot;REL_POINTER_DOMAIN&quot;: &quot;EFX_ID&quot;,
+      &quot;REL_POINTER_KEY&quot;: &quot;18347787&quot;,
+      &quot;REL_POINTER_ROLE&quot;: &quot;GLOBAL PARENT&quot;
+    },
+    {
+      &quot;REL_POINTER_DOMAIN&quot;: &quot;EFX_ID&quot;,
+      &quot;REL_POINTER_KEY&quot;: &quot;28912327&quot;,
+      &quot;REL_POINTER_ROLE&quot;: &quot;DOMESTIC PARENT&quot;
+    },
+    {
+      &quot;REL_POINTER_DOMAIN&quot;: &quot;EFX_ID&quot;,
+      &quot;REL_POINTER_KEY&quot;: &quot;7154233&quot;,
+      &quot;REL_POINTER_ROLE&quot;: &quot;SUBSIDIARY OF&quot;
+    }
+  ],
+  &quot;EFX_LEGLINKEDIND&quot;: &quot;Y&quot;,
+  &quot;EFX_CREDITSCORE&quot;: &quot;0&quot;,
+  &quot;EFX_EXTRACT_DATE&quot;: &quot;05/06/2025&quot;
+}</code></pre></details>
+<p>Related CORDs: <a href="#gleif-lasvegas">gleif-lasvegas.jsonl</a>, <a href="#icij-lasvegas">icij-lasvegas.jsonl</a>, <a href="#nominodata_combined-lasvegas">nominodata_combined-lasvegas.jsonl</a>, <a href="#npi-lasvegas">npi-lasvegas.jsonl</a>, <a href="#open_ownership-lasvegas">open_ownership-lasvegas.jsonl</a>, <a href="#opendata-lasvegas">opendata-lasvegas.jsonl</a>, <a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a>, <a href="#profound-lasvegas">profound-lasvegas.jsonl</a>, <a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></p>
+</article>
 <article class="cord" id="gleif-lasvegas">
 <h3><a href="#gleif-lasvegas">gleif-lasvegas.jsonl</a></h3>
 <p>Legal Entity Identifier (LEI) records for organizations with a business address in the Las Vegas area, including legal names, addresses, registration dates and LEI numbers.</p>
@@ -126,7 +180,254 @@ echo "b8440f12378ce06d3c5417bd25eae0755de36cef49836ba995d3064c4c6bf9d4  gleif-la
   ],
   &quot;URL&quot;: &quot;https://www.opensanctions.org/entities/lei-14CKXV7T1M327VH4DM16&quot;
 }</code></pre></details>
-<p>Related CORDs: <a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a>, <a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></p>
+<p>Related CORDs: <a href="#equifax-lasvegas">equifax-lasvegas.jsonl</a>, <a href="#icij-lasvegas">icij-lasvegas.jsonl</a>, <a href="#nominodata_combined-lasvegas">nominodata_combined-lasvegas.jsonl</a>, <a href="#npi-lasvegas">npi-lasvegas.jsonl</a>, <a href="#open_ownership-lasvegas">open_ownership-lasvegas.jsonl</a>, <a href="#opendata-lasvegas">opendata-lasvegas.jsonl</a>, <a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a>, <a href="#profound-lasvegas">profound-lasvegas.jsonl</a>, <a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></p>
+</article>
+<article class="cord" id="icij-lasvegas">
+<h3><a href="#icij-lasvegas">icij-lasvegas.jsonl</a></h3>
+<p>Companies, officers and intermediaries with a Las Vegas connection from ICIJ&#x27;s Offshore Leaks Database, mostly from the Panama Papers, with jurisdictions, incorporation dates and status.</p>
+<dl><div><dt>Locale</dt><dd>Las Vegas</dd></div><div><dt>Primary source</dt><dd><a href="https://offshoreleaks.icij.org/">ICIJ Offshore Leaks Database</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.2, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#012---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>164.5 kB (164,513 bytes)</dd></div><div><dt>Records</dt><dd>199 (65 persons, 134 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>ICIJ</code></dd></div><div><dt>SHA-256</dt><dd><code>04357e04cc8e13c8afc0cb7c4e0f5d41323be4fac97fc10bc369637ac4a21909</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="199">NAME</li><li title="215">ADDRESS</li><li title="81">GROUP_ASSOCIATION</li><li title="314">COUNTRY_OF_ASSOCIATION</li><li title="199">REL_ANCHOR</li><li title="433">REL_POINTER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.2/icij-lasvegas.jsonl">Download icij-lasvegas.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.2/icij-lasvegas.jsonl
+echo "04357e04cc8e13c8afc0cb7c4e0f5d41323be4fac97fc10bc369637ac4a21909  icij-lasvegas.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;ICIJ&quot;,
+  &quot;RECORD_ID&quot;: &quot;10003049&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;PRIMARY_NAME_ORG&quot;: &quot;PENELOPE LLC&quot;,
+  &quot;ICIJ_SOURCE&quot;: &quot;Panama Papers&quot;,
+  &quot;NODE_TYPE&quot;: &quot;ENTITY&quot;,
+  &quot;Jurisdiction&quot;: &quot;NEV&quot;,
+  &quot;COUNTRIES&quot;: [
+    {
+      &quot;COUNTRY_OF_ASSOCIATION&quot;: &quot;NEV&quot;
+    },
+    {
+      &quot;COUNTRY_OF_ASSOCIATION&quot;: &quot;USA&quot;
+    }
+  ],
+  &quot;Status&quot;: &quot;Defaulted&quot;,
+  &quot;INCORPORATED&quot;: &quot;25-AUG-2005&quot;,
+  &quot;INACTIVATED&quot;: &quot;05-OCT-2011&quot;,
+  &quot;STRUCK_OFF&quot;: &quot;01-SEP-2007&quot;,
+  &quot;REL_ANCHOR_DOMAIN&quot;: &quot;ICIJ_ID&quot;,
+  &quot;REL_ANCHOR_KEY&quot;: &quot;10003049&quot;,
+  &quot;ADDRESSES&quot;: [
+    {
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;,
+      &quot;ADDR_FULL&quot;: &quot;PENELOPE LLC 520 S. 7TH STREET SUITE C LAS VEGAS, NV 89101 U.  S.  A.&quot;
+    }
+  ],
+  &quot;RELATIONSHIPS&quot;: [
+    {
+      &quot;REL_POINTER_DOMAIN&quot;: &quot;ICIJ_ID&quot;,
+      &quot;REL_POINTER_KEY&quot;: 10005946,
+      &quot;REL_POINTER_ROLE&quot;: &quot;same name and registration date as&quot;
+    },
+    {
+      &quot;REL_POINTER_DOMAIN&quot;: &quot;ICIJ_ID&quot;,
+      &quot;REL_POINTER_KEY&quot;: 14104230,
+      &quot;REL_POINTER_ROLE&quot;: &quot;registered address&quot;
+    }
+  ]
+}</code></pre></details>
+<p>Related CORDs: <a href="#equifax-lasvegas">equifax-lasvegas.jsonl</a>, <a href="#gleif-lasvegas">gleif-lasvegas.jsonl</a>, <a href="#nominodata_combined-lasvegas">nominodata_combined-lasvegas.jsonl</a>, <a href="#npi-lasvegas">npi-lasvegas.jsonl</a>, <a href="#open_ownership-lasvegas">open_ownership-lasvegas.jsonl</a>, <a href="#opendata-lasvegas">opendata-lasvegas.jsonl</a>, <a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a>, <a href="#profound-lasvegas">profound-lasvegas.jsonl</a>, <a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></p>
+</article>
+<article class="cord" id="nominodata_combined-lasvegas">
+<h3><a href="#nominodata_combined-lasvegas">nominodata_combined-lasvegas.jsonl</a></h3>
+<p>Las Vegas-area organizations and people from public registers and risk lists compiled by Nominodata, mostly IRS tax-exempt charities, plus Nevada Department of Taxation, SAM exclusions, FinCEN money services business and cannabis license records.</p>
+<dl><div><dt>Locale</dt><dd>Las Vegas</dd></div><div><dt>Primary source</dt><dd><a href="https://www.nominodata.com/">Nominodata</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.2, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#012---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>10.9 MB (10,907,715 bytes)</dd></div><div><dt>Records</dt><dd>14,119 (824 persons, 13,295 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>NOMINO-RISK</code></dd></div><div><dt>SHA-256</dt><dd><code>32cbd6fbe929e9b98e34e8a5fe67fc71efaf5cbe1b7b72817fcc18ed319df0ba</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="23,812">NAME</li><li title="37">DOB</li><li title="37">GENDER</li><li title="23,790">ADDRESS</li><li title="599">PHONE</li><li title="353">EMAIL</li><li title="440">WEBSITE</li><li title="3">CITIZENSHIP</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.2/nominodata_combined-lasvegas.jsonl">Download nominodata_combined-lasvegas.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.2/nominodata_combined-lasvegas.jsonl
+echo "32cbd6fbe929e9b98e34e8a5fe67fc71efaf5cbe1b7b72817fcc18ed319df0ba  nominodata_combined-lasvegas.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;NOMINO-RISK&quot;,
+  &quot;RECORD_ID&quot;: &quot;938afb9c6fce8ba4f44642f026cb9987&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;NAME_LIST&quot;: [
+    {
+      &quot;PRIMARY_NAME_ORG&quot;: &quot;SANTA FILOMENA MISSION LAS VEGAS&quot;
+    }
+  ],
+  &quot;ADDRESS_LIST&quot;: [
+    {
+      &quot;ADDR_LINE1&quot;: &quot;2960 S DURANGO DR STE 116&quot;,
+      &quot;ADDR_CITY&quot;: &quot;LAS VEGAS&quot;,
+      &quot;ADDR_STATE&quot;: &quot;NV&quot;,
+      &quot;ADDR_POSTAL_CODE&quot;: &quot;89117-4422&quot;,
+      &quot;ADDR_COUNTRY&quot;: &quot;US&quot;
+    }
+  ],
+  &quot;CONTACT_LIST&quot;: [],
+  &quot;IDENTIFIER_LIST&quot;: [],
+  &quot;ATTRIBUTE_LIST&quot;: [],
+  &quot;OriginalID&quot;: &quot;990373701&quot;,
+  &quot;page_URL&quot;: &quot;https://www.irs.gov/charities-non-profits/tax-exempt-organization-search-bulk-data-downloads&quot;,
+  &quot;Source&quot;: &quot;IRS Charity database&quot;,
+  &quot;type&quot;: &quot;IRS Revoked Charity&quot;,
+  &quot;Listingdate&quot;: &quot;16/8/2017&quot;,
+  &quot;remarks&quot;: &quot;15-May-17&quot;,
+  &quot;riskcode&quot;: &quot;RF&quot;,
+  &quot;active&quot;: &quot;1&quot;,
+  &quot;timestamp&quot;: &quot;17/1/2025 11:10:14&quot;
+}</code></pre></details>
+<p>Related CORDs: <a href="#equifax-lasvegas">equifax-lasvegas.jsonl</a>, <a href="#gleif-lasvegas">gleif-lasvegas.jsonl</a>, <a href="#icij-lasvegas">icij-lasvegas.jsonl</a>, <a href="#npi-lasvegas">npi-lasvegas.jsonl</a>, <a href="#open_ownership-lasvegas">open_ownership-lasvegas.jsonl</a>, <a href="#opendata-lasvegas">opendata-lasvegas.jsonl</a>, <a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a>, <a href="#profound-lasvegas">profound-lasvegas.jsonl</a>, <a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></p>
+</article>
+<article class="cord" id="npi-lasvegas">
+<h3><a href="#npi-lasvegas">npi-lasvegas.jsonl</a></h3>
+<p>Health care providers in the Las Vegas area from the National Provider Identifier (NPI) registry, both individual practitioners and organizations, with names, former and other names, practice and mailing addresses, phone numbers, license numbers and taxonomy codes.</p>
+<dl><div><dt>Locale</dt><dd>Las Vegas</dd></div><div><dt>Primary source</dt><dd><a href="https://npiregistry.cms.hhs.gov/">CMS NPPES NPI Registry</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.2, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#012---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>67.8 MB (67,818,080 bytes)</dd></div><div><dt>Records</dt><dd>71,060 (58,486 persons, 12,574 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>NPI-PROVIDERS</code></dd></div><div><dt>SHA-256</dt><dd><code>e71bd63d6fda3ed0aea4fef811e98d0efab8a8dbab2155fd04f2f5e1c0ab1e1b</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="76,538">NAME</li><li title="58,486">GENDER</li><li title="142,120">ADDRESS</li><li title="168,599">PHONE</li><li title="1,293">EMAIL</li><li title="802">WEBSITE</li><li title="71,060">NPI_NUMBER</li><li title="71,060">REL_ANCHOR</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.2/npi-lasvegas.jsonl">Download npi-lasvegas.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.2/npi-lasvegas.jsonl
+echo "e71bd63d6fda3ed0aea4fef811e98d0efab8a8dbab2155fd04f2f5e1c0ab1e1b  npi-lasvegas.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;NPI-PROVIDERS&quot;,
+  &quot;RECORD_ID&quot;: &quot;1669475612&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;PERSON&quot;,
+  &quot;NPI_NUMBER&quot;: &quot;1669475612&quot;,
+  &quot;REL_ANCHOR_KEY&quot;: &quot;1669475612&quot;,
+  &quot;REL_ANCHOR_DOMAIN&quot;: &quot;NPI&quot;,
+  &quot;PRIMARY_NAME_LAST&quot;: &quot;TROTCHIE&quot;,
+  &quot;PRIMARY_NAME_FIRST&quot;: &quot;DEBRA&quot;,
+  &quot;PRIMARY_NAME_MIDDLE&quot;: &quot;CHARLENE&quot;,
+  &quot;FORMER_NAME_LAST&quot;: &quot;MUDDER&quot;,
+  &quot;FORMER_NAME_FIRST&quot;: &quot;DEBRA&quot;,
+  &quot;FORMER_NAME_MIDDLE&quot;: &quot;C&quot;,
+  &quot;MAILING_ADDR_LINE1&quot;: &quot;8906 SPANISH RIDGE AVE STE 202&quot;,
+  &quot;MAILING_ADDR_CITY&quot;: &quot;LAS VEGAS&quot;,
+  &quot;MAILING_ADDR_STATE&quot;: &quot;NV&quot;,
+  &quot;MAILING_ADDR_POSTAL_CODE&quot;: &quot;891481319&quot;,
+  &quot;MAILING_ADDR_COUNTRY&quot;: &quot;US&quot;,
+  &quot;PRIMARY_ADDR_LINE1&quot;: &quot;8876 SPANISH RIDGE AVE STE 103&quot;,
+  &quot;PRIMARY_ADDR_CITY&quot;: &quot;LAS VEGAS&quot;,
+  &quot;PRIMARY_ADDR_STATE&quot;: &quot;NV&quot;,
+  &quot;PRIMARY_ADDR_POSTAL_CODE&quot;: &quot;891481502&quot;,
+  &quot;PRIMARY_ADDR_COUNTRY&quot;: &quot;US&quot;,
+  &quot;MAILING-LOCATION_PHONE_NUMBER&quot;: &quot;7023303102&quot;,
+  &quot;MAILING-FAX_PHONE_NUMBER&quot;: &quot;7029124994&quot;,
+  &quot;BUSINESS-LOCATION_PHONE_NUMBER&quot;: &quot;7023420858&quot;,
+  &quot;BUSINESS-FAX_PHONE_NUMBER&quot;: &quot;7023420858&quot;,
+  &quot;GENDER&quot;: &quot;F&quot;,
+  &quot;Taxonomy Code_1&quot;: &quot;363L00000X (primary)&quot;,
+  &quot;PROVIDER_LICENSE_NUMS&quot;: [
+    {
+      &quot;PROVIDER_LICENSE_NUMBER&quot;: &quot;APRN00355&quot;,
+      &quot;PROVIDER_LICENSE_STATE&quot;: &quot;NV&quot;
+    }
+  ],
+  &quot;Provider Enumeration Date&quot;: &quot;05/23/2005&quot;,
+  &quot;Last Update Date&quot;: &quot;03/20/2021&quot;
+}</code></pre></details>
+<p>Related CORDs: <a href="#equifax-lasvegas">equifax-lasvegas.jsonl</a>, <a href="#gleif-lasvegas">gleif-lasvegas.jsonl</a>, <a href="#icij-lasvegas">icij-lasvegas.jsonl</a>, <a href="#nominodata_combined-lasvegas">nominodata_combined-lasvegas.jsonl</a>, <a href="#open_ownership-lasvegas">open_ownership-lasvegas.jsonl</a>, <a href="#opendata-lasvegas">opendata-lasvegas.jsonl</a>, <a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a>, <a href="#profound-lasvegas">profound-lasvegas.jsonl</a>, <a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></p>
+</article>
+<article class="cord" id="open_ownership-lasvegas">
+<h3><a href="#open_ownership-lasvegas">open_ownership-lasvegas.jsonl</a></h3>
+<p>Beneficial ownership records linking Las Vegas-based people and organizations to the companies they own or control, mostly from UK Companies House persons-with-significant-control filings, with ownership roles and relationships.</p>
+<dl><div><dt>Locale</dt><dd>Las Vegas</dd></div><div><dt>Primary source</dt><dd><a href="https://www.openownership.org/">Open Ownership</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.2, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#012---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>1.5 MB (1,518,843 bytes)</dd></div><div><dt>Records</dt><dd>2,039 (37 persons, 2,002 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>OPEN-OWNERSHIP</code></dd></div><div><dt>SHA-256</dt><dd><code>0e3bbf04172c2db4fd34dff0a3566e526f5d2fbddd9fa1e38929cf08d9000b07</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="2,039">NAME</li><li title="37">DOB</li><li title="3,739">ADDRESS</li><li title="1,284">NATIONAL_ID</li><li title="2,041">OTHER_ID</li><li title="47">NATIONALITY</li><li title="953">REGISTRATION_DATE</li><li title="1,993">REGISTRATION_COUNTRY</li><li title="1,973">LEI_NUMBER</li><li title="300">REL_ANCHOR</li><li title="571">REL_POINTER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.2/open_ownership-lasvegas.jsonl">Download open_ownership-lasvegas.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.2/open_ownership-lasvegas.jsonl
+echo "0e3bbf04172c2db4fd34dff0a3566e526f5d2fbddd9fa1e38929cf08d9000b07  open_ownership-lasvegas.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;OPEN-OWNERSHIP&quot;,
+  &quot;RECORD_ID&quot;: &quot;gb-coh-psc-03729497-kuwl11ehdfp-zlo-dvkcxifd3ie&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;PERSON&quot;,
+  &quot;LAST_CHANGE&quot;: &quot;2024-11-13T13:59:38&quot;,
+  &quot;NAMES&quot;: [
+    {
+      &quot;NAME_TYPE&quot;: &quot;PRIMARY&quot;,
+      &quot;NAME_FULL&quot;: &quot;Mrs Erica Syrdal&quot;
+    }
+  ],
+  &quot;ADDRESSES&quot;: [
+    {
+      &quot;ADDR_FULL&quot;: &quot;2576 La Cara Avenue, Las Vegas, Nevada NV 89121, United States&quot;
+    }
+  ],
+  &quot;DATES&quot;: [
+    {
+      &quot;DATE_OF_BIRTH&quot;: &quot;1963-06&quot;
+    }
+  ],
+  &quot;COUNTRIES&quot;: [
+    {
+      &quot;NATIONALITY&quot;: &quot;us&quot;
+    }
+  ],
+  &quot;RELATIONSHIPS&quot;: [
+    {
+      &quot;REL_POINTER_ROLE&quot;: &quot;Right to appoint and remove directors&quot;,
+      &quot;REL_POINTER_DOMAIN&quot;: &quot;OPEN_SANCTIONS&quot;,
+      &quot;REL_POINTER_KEY&quot;: &quot;oc-companies-gb-03729497&quot;
+    }
+  ],
+  &quot;IDENTIFIERS&quot;: [
+    {
+      &quot;OTHER_ID_TYPE&quot;: &quot;OPEN_SANCTIONS&quot;,
+      &quot;OTHER_ID_NUMBER&quot;: &quot;gb-coh-psc-03729497-kuwl11ehdfp-zlo-dvkcxifd3ie&quot;
+    }
+  ],
+  &quot;URL&quot;: &quot;https://www.opensanctions.org/entities/gb-coh-psc-03729497-kuwl11ehdfp-zlo-dvkcxifd3ie&quot;
+}</code></pre></details>
+<p>Related CORDs: <a href="#equifax-lasvegas">equifax-lasvegas.jsonl</a>, <a href="#gleif-lasvegas">gleif-lasvegas.jsonl</a>, <a href="#icij-lasvegas">icij-lasvegas.jsonl</a>, <a href="#nominodata_combined-lasvegas">nominodata_combined-lasvegas.jsonl</a>, <a href="#npi-lasvegas">npi-lasvegas.jsonl</a>, <a href="#opendata-lasvegas">opendata-lasvegas.jsonl</a>, <a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a>, <a href="#profound-lasvegas">profound-lasvegas.jsonl</a>, <a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></p>
+</article>
+<article class="cord" id="opendata-lasvegas">
+<h3><a href="#opendata-lasvegas">opendata-lasvegas.jsonl</a></h3>
+<p>Las Vegas-area business locations, companies and the people linked to them, with names, addresses, map coordinates, websites, LinkedIn pages, and LEI and NPI numbers where known.</p>
+<dl><div><dt>Locale</dt><dd>Las Vegas</dd></div><div><dt>Primary source</dt><dd>OpenData</dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.2, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#012---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>980.7 MB (980,688,237 bytes)</dd></div><div><dt>Records</dt><dd>2,026,444 (358,076 persons, 1,668,368 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>OPENDATA</code></dd></div><div><dt>SHA-256</dt><dd><code>eed5ff8d46bea3ad24bf369541f35339968e646ea3b8af2ce3c02146ffae56b7</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="2,363,611">NAME</li><li title="1,993,948">ADDRESS</li><li title="326,525">WEBSITE</li><li title="28,548">OTHER_ID</li><li title="394,055">LINKEDIN</li><li title="350,908">GROUP_ASSN_ID</li><li title="7,430">NPI_NUMBER</li><li title="447">LEI_NUMBER</li><li title="631,846">REL_ANCHOR</li><li title="1,394,598">REL_POINTER</li><li title="1,654,959">GEO_LOC</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.2/opendata-lasvegas.jsonl">Download opendata-lasvegas.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.2/opendata-lasvegas.jsonl
+echo "eed5ff8d46bea3ad24bf369541f35339968e646ea3b8af2ce3c02146ffae56b7  opendata-lasvegas.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;OPENDATA&quot;,
+  &quot;RECORD_ID&quot;: &quot;100067215322&quot;,
+  &quot;bq_dataset&quot;: &quot;COMPANY&quot;,
+  &quot;FEATURES&quot;: [
+    {
+      &quot;NAME_ORG&quot;: &quot;Z-CRETE CONCRETE CREATIONS, LLC&quot;,
+      &quot;NAME_TYPE&quot;: &quot;PRIMARY&quot;
+    },
+    {
+      &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;
+    },
+    {
+      &quot;ADDR_CITY&quot;: &quot;Las Vegas&quot;,
+      &quot;ADDR_COUNTRY&quot;: &quot;USA&quot;,
+      &quot;ADDR_LINE1&quot;: &quot;PO Box 27740&quot;,
+      &quot;ADDR_POSTAL_CODE&quot;: &quot;89126&quot;,
+      &quot;ADDR_STATE&quot;: &quot;NV&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    },
+    {
+      &quot;GEO_LATITUDE&quot;: &quot;36.151130000000002&quot;,
+      &quot;GEO_LONGITUDE&quot;: &quot;-115.20805&quot;
+    },
+    {
+      &quot;REL_ANCHOR_DOMAIN&quot;: &quot;BQ&quot;,
+      &quot;REL_ANCHOR_KEY&quot;: 100067215322
+    },
+    {
+      &quot;BQ_ID&quot;: &quot;100067215322&quot;
+    },
+    {
+      &quot;PLACEKEY&quot;: &quot;1melzuufpc@5yv-j8b-s3q&quot;
+    }
+  ]
+}</code></pre></details>
+<p>Related CORDs: <a href="#equifax-lasvegas">equifax-lasvegas.jsonl</a>, <a href="#gleif-lasvegas">gleif-lasvegas.jsonl</a>, <a href="#icij-lasvegas">icij-lasvegas.jsonl</a>, <a href="#nominodata_combined-lasvegas">nominodata_combined-lasvegas.jsonl</a>, <a href="#npi-lasvegas">npi-lasvegas.jsonl</a>, <a href="#open_ownership-lasvegas">open_ownership-lasvegas.jsonl</a>, <a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a>, <a href="#profound-lasvegas">profound-lasvegas.jsonl</a>, <a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></p>
 </article>
 <article class="cord" id="ppp_loans_over_150k-lasvegas">
 <h3><a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a></h3>
@@ -159,7 +460,44 @@ echo "187702a220d35c003b048c1d76975dfa161a11014b40456d1f3633cc2b44e785  ppp_loan
   &quot;Lender&quot;: &quot;JPMorgan Chase Bank, National Association&quot;,
   &quot;CD&quot;: &quot;AZ-09&quot;
 }</code></pre></details>
-<p>Related CORDs: <a href="#gleif-lasvegas">gleif-lasvegas.jsonl</a>, <a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></p>
+<p>Related CORDs: <a href="#equifax-lasvegas">equifax-lasvegas.jsonl</a>, <a href="#gleif-lasvegas">gleif-lasvegas.jsonl</a>, <a href="#icij-lasvegas">icij-lasvegas.jsonl</a>, <a href="#nominodata_combined-lasvegas">nominodata_combined-lasvegas.jsonl</a>, <a href="#npi-lasvegas">npi-lasvegas.jsonl</a>, <a href="#open_ownership-lasvegas">open_ownership-lasvegas.jsonl</a>, <a href="#opendata-lasvegas">opendata-lasvegas.jsonl</a>, <a href="#profound-lasvegas">profound-lasvegas.jsonl</a>, <a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></p>
+</article>
+<article class="cord" id="profound-lasvegas">
+<h3><a href="#profound-lasvegas">profound-lasvegas.jsonl</a></h3>
+<p>Las Vegas businesses identified by their website domain, with names, addresses, phone numbers, websites and social media accounts, plus web hosting, CMS, mail and cloud providers, domain registration dates and a website risk score.</p>
+<dl><div><dt>Locale</dt><dd>Las Vegas</dd></div><div><dt>Primary source</dt><dd>Profound</dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.2, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#012---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>18.5 MB (18,495,735 bytes)</dd></div><div><dt>Records</dt><dd>28,040 (0 persons, 28,040 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>PROFOUND</code></dd></div><div><dt>SHA-256</dt><dd><code>82ced042c55a433ded4aea135d3c4c25b321fbc231b4ba0d0418d4650d36b570</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="28,036">NAME</li><li title="25,096">ADDRESS</li><li title="21,137">PHONE</li><li title="16,901">WEBSITE</li><li title="1,411">LINKEDIN</li><li title="5,219">FACEBOOK</li><li title="3,424">TWITTER</li><li title="28,040">REL_ANCHOR</li><li title="4,211">REL_POINTER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.2/profound-lasvegas.jsonl">Download profound-lasvegas.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.2/profound-lasvegas.jsonl
+echo "82ced042c55a433ded4aea135d3c4c25b321fbc231b4ba0d0418d4650d36b570  profound-lasvegas.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;PROFOUND&quot;,
+  &quot;RECORD_ID&quot;: &quot;vegasphotobooth.com&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;REL_ANCHOR_DOMAIN&quot;: &quot;DOMAIN&quot;,
+  &quot;REL_ANCHOR_KEY&quot;: &quot;vegasphotobooth.com&quot;,
+  &quot;PRIMARY_NAME_ORG&quot;: &quot;Las Vegas Photo Booth&quot;,
+  &quot;BUSINESS_ADDR_LINE1&quot;: &quot;3315 E Russell rd. A-4 #153&quot;,
+  &quot;BUSINESS_ADDR_CITY&quot;: &quot;Las Vegas&quot;,
+  &quot;BUSINESS_ADDR_STATE&quot;: &quot;NV&quot;,
+  &quot;BUSINESS_ADDR_POSTAL_CODE&quot;: &quot;89120&quot;,
+  &quot;BUSINESS_ADDR_COUNTRY&quot;: &quot;US&quot;,
+  &quot;PRIMARY_PHONE_NUMBER&quot;: &quot;702-417-1036&quot;,
+  &quot;WEBSITE_ADDRESS&quot;: &quot;https://vegasphotobooth.com/&quot;,
+  &quot;FACEBOOK&quot;: &quot;VegasPhotoBooth&quot;,
+  &quot;domain_classification&quot;: &quot;business&quot;,
+  &quot;web_server_type&quot;: &quot;nginx&quot;,
+  &quot;cms_type&quot;: &quot;WordPress;Wordpress Plugins&quot;,
+  &quot;cloud_provider&quot;: &quot;GOOGLE INC.&quot;,
+  &quot;mail_server_provider&quot;: &quot;Microsoft&quot;,
+  &quot;whois_created_date&quot;: &quot;20070426&quot;,
+  &quot;website_risk_propensity&quot;: &quot;0.0145026265857016&quot;,
+  &quot;organization_type&quot;: &quot;S&quot;,
+  &quot;RELATIONSHIPS&quot;: []
+}</code></pre></details>
+<p>Related CORDs: <a href="#equifax-lasvegas">equifax-lasvegas.jsonl</a>, <a href="#gleif-lasvegas">gleif-lasvegas.jsonl</a>, <a href="#icij-lasvegas">icij-lasvegas.jsonl</a>, <a href="#nominodata_combined-lasvegas">nominodata_combined-lasvegas.jsonl</a>, <a href="#npi-lasvegas">npi-lasvegas.jsonl</a>, <a href="#open_ownership-lasvegas">open_ownership-lasvegas.jsonl</a>, <a href="#opendata-lasvegas">opendata-lasvegas.jsonl</a>, <a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a>, <a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></p>
 </article>
 <article class="cord" id="us_labor_violations-lasvegas">
 <h3><a href="#us_labor_violations-lasvegas">us_labor_violations-lasvegas.jsonl</a></h3>
@@ -189,7 +527,7 @@ echo "160a12a46d426ba03f9bfeb629b9bf206fcbd58131fc8e106d796aa68d337080  us_labor
   &quot;findings_end_date&quot;: &quot;2012-06-05&quot;,
   &quot;ld_dt&quot;: &quot;2015-04-01 01:00:03 EDT&quot;
 }</code></pre></details>
-<p>Related CORDs: <a href="#gleif-lasvegas">gleif-lasvegas.jsonl</a>, <a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a></p>
+<p>Related CORDs: <a href="#equifax-lasvegas">equifax-lasvegas.jsonl</a>, <a href="#gleif-lasvegas">gleif-lasvegas.jsonl</a>, <a href="#icij-lasvegas">icij-lasvegas.jsonl</a>, <a href="#nominodata_combined-lasvegas">nominodata_combined-lasvegas.jsonl</a>, <a href="#npi-lasvegas">npi-lasvegas.jsonl</a>, <a href="#open_ownership-lasvegas">open_ownership-lasvegas.jsonl</a>, <a href="#opendata-lasvegas">opendata-lasvegas.jsonl</a>, <a href="#ppp_loans_over_150k-lasvegas">ppp_loans_over_150k-lasvegas.jsonl</a>, <a href="#profound-lasvegas">profound-lasvegas.jsonl</a></p>
 </article>
 </div></section>
 <section class="alt" id="london"><div class="wrap">
