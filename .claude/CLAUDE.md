@@ -23,7 +23,7 @@ Each one is described in [.github/workflows/README.md](../.github/workflows/READ
 - **claude-pr-review.yaml**: automated review comment on opened and updated PRs
 - **dependabot-approve-and-merge.yaml**: auto-approves and merges Dependabot PRs
 - **link-issues-to-pr-post-merge.yaml**: links referenced issues when a PR merges
-- **lint-workflows.yaml**: runs super-linter on pushes to non-main branches and PRs to main
+- **lint-workflows.yaml**: runs super-linter on pull requests to main
 - **move-pr-to-done-dependabot.yaml**: moves a merged PR to "Done" on the project board
 - **spellcheck.yaml**: runs cspell on PRs to main
 

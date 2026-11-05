@@ -25,14 +25,6 @@ this action adds the issue to the Senzing organization project board as "Backlog
 - [Add to Project Senzing GitHub Action]
   - Uses: [senzing-factory/build-resources/.../add-to-project.yaml]
 
-## claude-pr-review.yaml
-
-When a Pull Request is opened or updated,
-this action posts an automated review of the diff as a comment on the PR.
-
-- [Claude PR Review GitHub Action]
-  - Uses: [senzing-factory/build-resources/.../claude-pr-review.yaml]
-
 ## check-claude-attribution.yaml
 
 When a Pull Request is opened, updated, reopened or its description is edited,
@@ -42,6 +34,14 @@ description after a clean run would leave the required check green.
 
 - [Check Claude Attribution GitHub Action]
   - Uses: [senzing-factory/build-resources/.../check-claude-attribution.yaml]
+
+## claude-pr-review.yaml
+
+When a Pull Request is opened or updated,
+this action posts an automated review of the diff as a comment on the PR.
+
+- [Claude PR Review GitHub Action]
+  - Uses: [senzing-factory/build-resources/.../claude-pr-review.yaml]
 
 ## dependabot-approve-and-merge.yaml
 
@@ -62,7 +62,7 @@ this action links the issues the PR references so they close with it.
 
 ## lint-workflows.yaml
 
-When a change is committed to GitHub or a Pull Request is made against the `main` branch,
+When a Pull Request is made against the `main` branch,
 this action runs [super-linter] to run multiple linters against the code.
 
 - [Lint Workflows GitHub Action]
@@ -109,10 +109,10 @@ this action runs [cspell] against the repository.
 [senzing-factory/build-resources/.../add-to-project-dependabot.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/add-to-project-dependabot.yaml
 [senzing-factory/build-resources/.../add-to-project.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/add-to-project.yaml
 [senzing-factory/build-resources/.../check-claude-attribution.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/check-claude-attribution.yaml
-[senzing-factory/build-resources/.../claude-pr-review.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/claude-pr-review.yaml
+[senzing-factory/build-resources/.../claude-pr-review.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/claude-pull-request-review.yaml
 [senzing-factory/build-resources/.../cspell.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/cspell.yaml
 [senzing-factory/build-resources/.../dependabot-approve-and-merge.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/dependabot-approve-and-merge.yaml
-[senzing-factory/build-resources/.../link-issues-to-pr-post-merge.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/link-issues-to-pr-post-merge.yaml
+[senzing-factory/build-resources/.../link-issues-to-pr-post-merge.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/link-issues-to-pull-request-post-merge.yaml
 [senzing-factory/build-resources/.../lint-workflows.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/lint-workflows.yaml
 [senzing-factory/build-resources/.../move-pr-to-done-dependabot.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/move-pr-to-done-dependabot.yaml
 [Spellcheck GitHub Action]: spellcheck.yaml

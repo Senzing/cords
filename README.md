@@ -111,7 +111,7 @@ The [.vscode/cspell.json file] is used to maintain a list of acceptable spelling
 
 The contents of the [CHANGELOG.md file] are meant to be consumed by users of the repository.
 As such, they need to know what changes affect them as users.
-In general, changes that do not effect users should not be captured in `CHANGELOG.md`.
+In general, changes that do not affect users should not be captured in `CHANGELOG.md`.
 
 The format of `CHANGELOG.md` is based on [Keep a Changelog] and [CommonMark].
 Also, projects adhere to [Semantic Versioning].
@@ -211,6 +211,7 @@ This includes how to report a suspected vulnerability.
 │       ├── add-labels-standardized.yaml
 │       ├── add-to-project-senzing-dependabot.yaml
 │       ├── add-to-project-senzing.yaml
+│       ├── check-claude-attribution.yaml
 │       ├── claude-pr-review.yaml
 │       ├── dependabot-approve-and-merge.yaml
 │       ├── link-issues-to-pr-post-merge.yaml
@@ -272,7 +273,7 @@ This includes how to report a suspected vulnerability.
 [github.com]: https://github.com/
 [github.com/orgs/Senzing/teams]: https://github.com/orgs/Senzing/teams
 [GitHub's dependabot]: https://docs.github.com/en/code-security/dependabot
-[Keep a Changelog]: https://keepachangelog.com/en/1.0.0/
+[Keep a Changelog]: https://keepachangelog.com/en/1.1.0/
 [LICENSE file]: LICENSE
 [LICENSE]: #license
 [Open Source Guide]: https://opensource.guide/code-of-conduct/
