@@ -7,6 +7,16 @@ This project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-05
+
+### Added
+
+- `gleif-london.jsonl` (45,162,274 bytes, SHA-256 `46d2f256f5c4c3c0aa5f7d0b01b90b9eb139bd4b97251e6d1ebf6ad99890cf55`)
+- `globaldata-london_central_a.jsonl` (27,592,117 bytes, SHA-256 `38b1ffc929891bd0518b25ea8ab2ff55769fa3b7e05aee9506fa570a0a31fc4f`)
+- `icij-london.jsonl` (19,183,306 bytes, SHA-256 `a7a153065eed4d267f99fc5974e4f0bb49beafdfbe42678ec70b868b6afe6df8`)
+- `ofac-london.jsonl` (102,967 bytes, SHA-256 `2299bcaf6b9111fed771b3c54a56685f5239f75c57c47d322020f742c21eb40b`)
+- `open_sanctions-london.jsonl` (257,591 bytes, SHA-256 `6013c5f33031f55f4fbc2e779beb34f8bec36e76d9c146a91c8db8a99b80794b`)
+
 ## [0.1.0] - 2026-11-05
 
 ### Added
@@ -43,7 +53,8 @@ This project adheres to [Semantic Versioning].
 - Initial repository content: community artifacts, GitHub workflows and
   documentation scaffolding.
 
-[Unreleased]: https://github.com/Senzing/cords/compare/0.1.0...HEAD
+[Unreleased]: https://github.com/Senzing/cords/compare/0.1.1...HEAD
+[0.1.1]: https://github.com/Senzing/cords/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/Senzing/cords/compare/0.0.3...0.1.0
 [0.0.3]: https://github.com/Senzing/cords/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/Senzing/cords/compare/0.0.1...0.0.2

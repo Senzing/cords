@@ -47,6 +47,54 @@
       "URL": "https://www.opensanctions.org/entities/lei-14CKXV7T1M327VH4DM16"
     }
   },
+  "gleif-london.jsonl": {
+    "synopsis": "Legal Entity Identifier (LEI) records for organizations with a business address in London, including legal names, addresses, registration dates and LEI numbers.",
+    "primary_source": {
+      "name": "GLEIF (Global LEI)",
+      "url": "https://www.gleif.org/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "GLEIF",
+    "sample_record": {
+      "DATA_SOURCE": "GLEIF",
+      "RECORD_ID": "lei-03EINY24LQ6IXW124R72",
+      "RECORD_TYPE": "ORGANIZATION",
+      "LAST_CHANGE": "2024-07-10T08:08:08",
+      "NAMES": [
+        {
+          "NAME_TYPE": "PRIMARY",
+          "NAME_ORG": "THE BARCLAYS BANK UK RETIREMENT FUND"
+        }
+      ],
+      "ADDRESSES": [
+        {
+          "ADDR_FULL": "C/O BARCLAYS PENSION FUNDS TRUSTEES LIMITED, LONDON E14 5HP, GB-LND",
+          "ADDR_TYPE": "BUSINESS"
+        }
+      ],
+      "DATES": [
+        {
+          "REGISTRATION_DATE": "2012-09-24"
+        }
+      ],
+      "COUNTRIES": [
+        {
+          "REGISTRATION_COUNTRY": "gb"
+        }
+      ],
+      "IDENTIFIERS": [
+        {
+          "LEI_NUMBER": "03EINY24LQ6IXW124R72"
+        },
+        {
+          "OTHER_ID_TYPE": "OPEN_SANCTIONS",
+          "OTHER_ID_NUMBER": "lei-03EINY24LQ6IXW124R72"
+        }
+      ],
+      "URL": "https://www.opensanctions.org/entities/lei-03EINY24LQ6IXW124R72"
+    }
+  },
   "gleif-moscow.jsonl": {
     "synopsis": "Legal Entity Identifier (LEI) records for organizations with a business address in Moscow, including legal names (many in Cyrillic), addresses, national registration numbers and LEI numbers.",
     "primary_source": {
@@ -97,6 +145,100 @@
         }
       ],
       "URL": "https://www.opensanctions.org/entities/lei-2138003BEQLV9S2ALO67"
+    }
+  },
+  "globaldata-london_central_a.jsonl": {
+    "synopsis": "UK companies registered in central London, with their officers and shareholders, including Companies House numbers, addresses, appointment and resignation dates, shareholdings and SIC industry codes.",
+    "primary_source": {
+      "name": "Global Database",
+      "url": "https://www.globaldatabase.com/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "GLOBALDATA",
+    "sample_record": {
+      "DATA_SOURCE": "GLOBALDATA",
+      "RECORD_ID": "3226cd26326aa3d9742871b4b56379a3",
+      "FEATURES": [
+        {
+          "RECORD_TYPE": "ORGANIZATION"
+        },
+        {
+          "NATIONAL_ID_COUNTRY": "GB",
+          "NATIONAL_ID_NUMBER": "01312454"
+        },
+        {
+          "NAME_ORG": "ARUP GROUP LIMITED"
+        },
+        {
+          "ADDR_LINE1": "8 Fitzroy Street",
+          "ADDR_CITY": "London",
+          "ADDR_POSTAL_CODE": "W1T 4BJ",
+          "ADDR_COUNTRY": "GB",
+          "ADDR_TYPE": "BUSINESS"
+        },
+        {
+          "WEBSITE_ADDRESS": "http://arup.com"
+        },
+        {
+          "PHONE_NUMBER": "+442076361531"
+        },
+        {
+          "REGISTRATION_DATE": "1977-05-04",
+          "REGISTRATION_COUNTRY": "GB"
+        },
+        {
+          "REL_ANCHOR_DOMAIN": "GLOBAL",
+          "REL_ANCHOR_KEY": "GB 01312454"
+        }
+      ],
+      "global_type": "COMPANY",
+      "company_status": "Active",
+      "legal_form": "Private limited company",
+      "sic_code": "70100",
+      "brand": "ARUP GROUP LIMITED, OVE ARUP PARTNERSHIP LIMITED",
+      "tr_name": "",
+      "employees_number": "16946",
+      "company_description": "A group engaged in the the provision of field of consulting engineering services, in architecture and in other related professional skills.",
+      "company_type": "",
+      "sic_description": "Activities of head offices"
+    }
+  },
+  "icij-london.jsonl": {
+    "synopsis": "Companies, officers and intermediaries with a London connection from ICIJ's Offshore Leaks Database, drawn from the Offshore Leaks, Panama Papers, Paradise Papers and Pandora Papers investigations, with jurisdictions, incorporation dates and status.",
+    "primary_source": {
+      "name": "ICIJ Offshore Leaks Database",
+      "url": "https://offshoreleaks.icij.org/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "ICIJ",
+    "sample_record": {
+      "DATA_SOURCE": "ICIJ",
+      "RECORD_ID": "10000227",
+      "RECORD_TYPE": "ORGANIZATION",
+      "PRIMARY_NAME_ORG": "SILVERWING PROPERTIES S.A.",
+      "ICIJ_SOURCE": "Panama Papers",
+      "NODE_TYPE": "ENTITY",
+      "Jurisdiction": "SAM",
+      "COUNTRIES": [
+        {
+          "COUNTRY_OF_ASSOCIATION": "SAM"
+        },
+        {
+          "COUNTRY_OF_ASSOCIATION": "GBR"
+        }
+      ],
+      "Status": "Active",
+      "INCORPORATED": "29-SEP-2006",
+      "REL_ANCHOR_DOMAIN": "ICIJ_ID",
+      "REL_ANCHOR_KEY": "10000227",
+      "ADDRESSES": [
+        {
+          "ADDR_TYPE": "BUSINESS",
+          "ADDR_FULL": "A MALIDA CHARTERED ACCS [Mr Arif Malida] 66 Moyser Road London Sw16 6Sq E15 2BY"
+        }
+      ]
     }
   },
   "icij-moscow.jsonl": {
@@ -192,6 +334,53 @@
       "Person": "1"
     }
   },
+  "ofac-london.jsonl": {
+    "synopsis": "Entries on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list with a London address, across programs such as the Russia-related EO 14024, counter-terrorism, Iraq and Iran, including names, aliases, addresses, identifiers and sanctions programs.",
+    "primary_source": {
+      "name": "OFAC Specially Designated Nationals (SDN) List",
+      "url": "https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists"
+    },
+    "license": null,
+    "snapshot_date": "2024-12-11",
+    "data_source": "OFAC",
+    "sample_record": {
+      "DATA_SOURCE": "OFAC",
+      "RECORD_TYPE": "ORGANIZATION",
+      "RECORD_ID": "35080",
+      "OFAC_ID": "35080",
+      "PUBLISH_DATE": "12/11/2024",
+      "SDN_PROGRAM": "RUSSIA-EO14024",
+      "NAME_LIST": [
+        {
+          "NAME_TYPE": "PRIMARY",
+          "NAME_ORG": "MAJORY LLP"
+        }
+      ],
+      "ADDR_LIST": [
+        {
+          "ADDR_LINE1": "25 City Road Spaces City Road, Epworth House, Office 320",
+          "ADDR_CITY": "London",
+          "ADDR_POSTAL_CODE": "EC4A 1BR",
+          "ADDR_COUNTRY": "United Kingdom"
+        },
+        {
+          "ADDR_LINE1": "Suite 3.15 One Fetter Lane",
+          "ADDR_CITY": "London",
+          "ADDR_POSTAL_CODE": "EC1Y 1AA",
+          "ADDR_COUNTRY": "United Kingdom"
+        }
+      ],
+      "Organization Established Date": "16 Jul 2015",
+      "Secondary sanctions risk:": "See Section 11 of Executive Order 14024.",
+      "ID_LIST": [
+        {
+          "NATIONAL_ID_NUMBER": "OC400827",
+          "NATIONAL_ID_TYPE": "Company Number",
+          "NATIONAL_ID_COUNTRY": "GBR"
+        }
+      ]
+    }
+  },
   "ofac-moscow.jsonl": {
     "synopsis": "Entries on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list with a Moscow address, mostly under the Russia-related EO 14024 program, including names, aliases, addresses, identifiers and sanctions programs.",
     "primary_source": {
@@ -285,6 +474,116 @@
         }
       ],
       "URL": "https://www.opensanctions.org/entities/gb-coh-psc-00187809-lfv0aoqujcpdzujyqccyh0ub-r4"
+    }
+  },
+  "open_sanctions-london.jsonl": {
+    "synopsis": "Sanctioned people and organizations with a London connection from OpenSanctions, including some linked to terrorism, with names, aliases, addresses, dates, identifiers and risk topics.",
+    "primary_source": {
+      "name": "OpenSanctions",
+      "url": "https://www.opensanctions.org/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "OPEN-SANCTIONS",
+    "sample_record": {
+      "DATA_SOURCE": "OPEN-SANCTIONS",
+      "RECORD_ID": "NK-276gB7L8sFEhctkuEpZsus",
+      "RECORD_TYPE": "ORGANIZATION",
+      "LAST_CHANGE": "2024-11-12T00:00:00",
+      "NAMES": [
+        {
+          "NAME_TYPE": "PRIMARY",
+          "NAME_ORG": "BANK SADERAT PLC"
+        },
+        {
+          "NAME_TYPE": "ALIAS",
+          "NAME_ORG": "IRAN OVERSEAS INVESTMENT BANK PLC"
+        },
+        {
+          "NAME_TYPE": "ALIAS",
+          "NAME_ORG": "IRAN OVERSEAS INVESTMENT BANK LIMITED"
+        },
+        {
+          "NAME_TYPE": "ALIAS",
+          "NAME_ORG": "IRAN OVERSEAS INVESTMENT CORPORATION LIMITED"
+        },
+        {
+          "NAME_TYPE": "ALIAS",
+          "NAME_ORG": "Bank Saderat PLC (London)"
+        }
+      ],
+      "RISKS": [
+        {
+          "TOPIC": "sanction"
+        }
+      ],
+      "ADDRESSES": [
+        {
+          "ADDR_FULL": "5 Lothbury, EC2R 7 HD, United Kingdom",
+          "ADDR_TYPE": "BUSINESS"
+        },
+        {
+          "ADDR_FULL": "PO Box 15175/584, 6th Floor, Sadaf Bldg, 1137 Vali Asr Ave, 15119-43885 Tehran",
+          "ADDR_TYPE": "BUSINESS"
+        },
+        {
+          "ADDR_FULL": "5 Lothbury, EC2R 7HD London",
+          "ADDR_TYPE": "BUSINESS"
+        },
+        {
+          "ADDR_FULL": "5 Lothbury, EC2R 7 HD, United Kingdom",
+          "ADDR_LINE1": "5 Lothbury",
+          "ADDR_COUNTRY": "gb",
+          "ADDR_POSTAL_CODE": "EC2R 7 HD",
+          "ADDR_TYPE": "BUSINESS"
+        },
+        {
+          "ADDR_FULL": "PO Box 15175/584, 6th Floor, Sadaf Bldg, 1137 Vali Asr Ave, 15119-43885 Tehran",
+          "ADDR_LINE1": "PO Box 15175/584, 6th Floor, Sadaf Bldg, 1137 Vali Asr Ave",
+          "ADDR_CITY": "Tehran",
+          "ADDR_COUNTRY": "ir",
+          "ADDR_POSTAL_CODE": "15119-43885",
+          "ADDR_TYPE": "BUSINESS"
+        },
+        {
+          "ADDR_FULL": "5 Lothbury, EC2R 7HD London",
+          "ADDR_LINE1": "5 Lothbury",
+          "ADDR_CITY": "London",
+          "ADDR_COUNTRY": "gb",
+          "ADDR_POSTAL_CODE": "EC2R 7HD",
+          "ADDR_TYPE": "BUSINESS"
+        }
+      ],
+      "COUNTRIES": [
+        {
+          "NATIONALITY": "gb"
+        },
+        {
+          "NATIONALITY": "ir"
+        }
+      ],
+      "IDENTIFIERS": [
+        {
+          "NATIONAL_ID_NUMBER": "01126618"
+        },
+        {
+          "OTHER_ID_TYPE": "OPEN-SANCTIONS",
+          "OTHER_ID_NUMBER": "NK-276gB7L8sFEhctkuEpZsus"
+        }
+      ],
+      "SOURCE_LINKS": [
+        {
+          "SOURCE_URL": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=4642"
+        }
+      ],
+      "RELATIONSHIPS": [
+        {
+          "REL_POINTER_ROLE": "related-to",
+          "REL_POINTER_DOMAIN": "OPEN-SANCTIONS",
+          "REL_POINTER_KEY": "NK-ftDzFBNp5NsDk86WGjy9Ry"
+        }
+      ],
+      "URL": "https://www.opensanctions.org/entities/NK-276gB7L8sFEhctkuEpZsus"
     }
   },
   "open_sanctions-moscow.jsonl": {

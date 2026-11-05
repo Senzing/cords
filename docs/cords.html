@@ -71,7 +71,7 @@ footer a{color:var(--ember-core)}
 <header class="hero"><div class="wrap">
 <p class="label">Collections of relatable data</p>
 <h1>CORD catalog</h1>
-<p>Collections of relatable data (CORD) mapped for SENZING® entity resolution: 9 files, grouped by locale. Each has a download link, a curl command and the SHA-256 to check it.</p>
+<p>Collections of relatable data (CORD) mapped for SENZING® entity resolution: 14 files, grouped by locale. Each has a download link, a curl command and the SHA-256 to check it.</p>
 <ul class="toc"><li><a href="#las-vegas">Las Vegas</a></li><li><a href="#london">London</a></li><li><a href="#moscow">Moscow</a></li></ul>
 </div></header>
 <main>
@@ -195,7 +195,315 @@ echo "160a12a46d426ba03f9bfeb629b9bf206fcbd58131fc8e106d796aa68d337080  us_labor
 <section class="alt" id="london"><div class="wrap">
 <p class="label">Locale</p>
 <h2>London</h2>
-<p>Not published yet.</p>
+<article class="cord" id="gleif-london">
+<h3><a href="#gleif-london">gleif-london.jsonl</a></h3>
+<p>Legal Entity Identifier (LEI) records for organizations with a business address in London, including legal names, addresses, registration dates and LEI numbers.</p>
+<dl><div><dt>Locale</dt><dd>London</dd></div><div><dt>Primary source</dt><dd><a href="https://www.gleif.org/">GLEIF (Global LEI)</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.1, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#011---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>45.2 MB (45,162,274 bytes)</dd></div><div><dt>Records</dt><dd>63,863 (0 persons, 63,863 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>GLEIF</code></dd></div><div><dt>SHA-256</dt><dd><code>46d2f256f5c4c3c0aa5f7d0b01b90b9eb139bd4b97251e6d1ebf6ad99890cf55</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="63,863">NAME</li><li title="80,161">ADDRESS</li><li title="49,967">NATIONAL_ID</li><li title="65,739">OTHER_ID</li><li title="39,823">REGISTRATION_DATE</li><li title="63,862">REGISTRATION_COUNTRY</li><li title="63,863">LEI_NUMBER</li><li title="11,957">REL_ANCHOR</li><li title="26,800">REL_POINTER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.1/gleif-london.jsonl">Download gleif-london.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.1/gleif-london.jsonl
+echo "46d2f256f5c4c3c0aa5f7d0b01b90b9eb139bd4b97251e6d1ebf6ad99890cf55  gleif-london.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;GLEIF&quot;,
+  &quot;RECORD_ID&quot;: &quot;lei-03EINY24LQ6IXW124R72&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;LAST_CHANGE&quot;: &quot;2024-07-10T08:08:08&quot;,
+  &quot;NAMES&quot;: [
+    {
+      &quot;NAME_TYPE&quot;: &quot;PRIMARY&quot;,
+      &quot;NAME_ORG&quot;: &quot;THE BARCLAYS BANK UK RETIREMENT FUND&quot;
+    }
+  ],
+  &quot;ADDRESSES&quot;: [
+    {
+      &quot;ADDR_FULL&quot;: &quot;C/O BARCLAYS PENSION FUNDS TRUSTEES LIMITED, LONDON E14 5HP, GB-LND&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    }
+  ],
+  &quot;DATES&quot;: [
+    {
+      &quot;REGISTRATION_DATE&quot;: &quot;2012-09-24&quot;
+    }
+  ],
+  &quot;COUNTRIES&quot;: [
+    {
+      &quot;REGISTRATION_COUNTRY&quot;: &quot;gb&quot;
+    }
+  ],
+  &quot;IDENTIFIERS&quot;: [
+    {
+      &quot;LEI_NUMBER&quot;: &quot;03EINY24LQ6IXW124R72&quot;
+    },
+    {
+      &quot;OTHER_ID_TYPE&quot;: &quot;OPEN_SANCTIONS&quot;,
+      &quot;OTHER_ID_NUMBER&quot;: &quot;lei-03EINY24LQ6IXW124R72&quot;
+    }
+  ],
+  &quot;URL&quot;: &quot;https://www.opensanctions.org/entities/lei-03EINY24LQ6IXW124R72&quot;
+}</code></pre></details>
+<p>Related CORDs: <a href="#globaldata-london_central_a">globaldata-london_central_a.jsonl</a>, <a href="#icij-london">icij-london.jsonl</a>, <a href="#ofac-london">ofac-london.jsonl</a>, <a href="#open_sanctions-london">open_sanctions-london.jsonl</a></p>
+</article>
+<article class="cord" id="globaldata-london_central_a">
+<h3><a href="#globaldata-london_central_a">globaldata-london_central_a.jsonl</a></h3>
+<p>UK companies registered in central London, with their officers and shareholders, including Companies House numbers, addresses, appointment and resignation dates, shareholdings and SIC industry codes.</p>
+<dl><div><dt>Locale</dt><dd>London</dd></div><div><dt>Primary source</dt><dd><a href="https://www.globaldatabase.com/">Global Database</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.1, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#011---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>27.6 MB (27,592,117 bytes)</dd></div><div><dt>Records</dt><dd>40,569 (26,974 persons, 13,595 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>GLOBALDATA</code></dd></div><div><dt>SHA-256</dt><dd><code>38b1ffc929891bd0518b25ea8ab2ff55769fa3b7e05aee9506fa570a0a31fc4f</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="40,569">NAME</li><li title="15,676">DOB</li><li title="11,761">GENDER</li><li title="25,365">ADDRESS</li><li title="1,767">PHONE</li><li title="8,944">NATIONAL_ID</li><li title="524">EMAIL</li><li title="2,423">WEBSITE</li><li title="16,247">NATIONALITY</li><li title="31,625">GROUP_ASSOCIATION</li><li title="867">LINKEDIN</li><li title="18">FACEBOOK</li><li title="37">TWITTER</li><li title="8,944">REGISTRATION_DATE</li><li title="8,944">REGISTRATION_COUNTRY</li><li title="8,944">REL_ANCHOR</li><li title="34,070">REL_POINTER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.1/globaldata-london_central_a.jsonl">Download globaldata-london_central_a.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.1/globaldata-london_central_a.jsonl
+echo "38b1ffc929891bd0518b25ea8ab2ff55769fa3b7e05aee9506fa570a0a31fc4f  globaldata-london_central_a.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;GLOBALDATA&quot;,
+  &quot;RECORD_ID&quot;: &quot;3226cd26326aa3d9742871b4b56379a3&quot;,
+  &quot;FEATURES&quot;: [
+    {
+      &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;
+    },
+    {
+      &quot;NATIONAL_ID_COUNTRY&quot;: &quot;GB&quot;,
+      &quot;NATIONAL_ID_NUMBER&quot;: &quot;01312454&quot;
+    },
+    {
+      &quot;NAME_ORG&quot;: &quot;ARUP GROUP LIMITED&quot;
+    },
+    {
+      &quot;ADDR_LINE1&quot;: &quot;8 Fitzroy Street&quot;,
+      &quot;ADDR_CITY&quot;: &quot;London&quot;,
+      &quot;ADDR_POSTAL_CODE&quot;: &quot;W1T 4BJ&quot;,
+      &quot;ADDR_COUNTRY&quot;: &quot;GB&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    },
+    {
+      &quot;WEBSITE_ADDRESS&quot;: &quot;http://arup.com&quot;
+    },
+    {
+      &quot;PHONE_NUMBER&quot;: &quot;+442076361531&quot;
+    },
+    {
+      &quot;REGISTRATION_DATE&quot;: &quot;1977-05-04&quot;,
+      &quot;REGISTRATION_COUNTRY&quot;: &quot;GB&quot;
+    },
+    {
+      &quot;REL_ANCHOR_DOMAIN&quot;: &quot;GLOBAL&quot;,
+      &quot;REL_ANCHOR_KEY&quot;: &quot;GB 01312454&quot;
+    }
+  ],
+  &quot;global_type&quot;: &quot;COMPANY&quot;,
+  &quot;company_status&quot;: &quot;Active&quot;,
+  &quot;legal_form&quot;: &quot;Private limited company&quot;,
+  &quot;sic_code&quot;: &quot;70100&quot;,
+  &quot;brand&quot;: &quot;ARUP GROUP LIMITED, OVE ARUP PARTNERSHIP LIMITED&quot;,
+  &quot;tr_name&quot;: &quot;&quot;,
+  &quot;employees_number&quot;: &quot;16946&quot;,
+  &quot;company_description&quot;: &quot;A group engaged in the the provision of field of consulting engineering services, in architecture and in other related professional skills.&quot;,
+  &quot;company_type&quot;: &quot;&quot;,
+  &quot;sic_description&quot;: &quot;Activities of head offices&quot;
+}</code></pre></details>
+<p>Related CORDs: <a href="#gleif-london">gleif-london.jsonl</a>, <a href="#icij-london">icij-london.jsonl</a>, <a href="#ofac-london">ofac-london.jsonl</a>, <a href="#open_sanctions-london">open_sanctions-london.jsonl</a></p>
+</article>
+<article class="cord" id="icij-london">
+<h3><a href="#icij-london">icij-london.jsonl</a></h3>
+<p>Companies, officers and intermediaries with a London connection from ICIJ&#x27;s Offshore Leaks Database, drawn from the Offshore Leaks, Panama Papers, Paradise Papers and Pandora Papers investigations, with jurisdictions, incorporation dates and status.</p>
+<dl><div><dt>Locale</dt><dd>London</dd></div><div><dt>Primary source</dt><dd><a href="https://offshoreleaks.icij.org/">ICIJ Offshore Leaks Database</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.1, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#011---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>19.2 MB (19,183,306 bytes)</dd></div><div><dt>Records</dt><dd>19,232 (5,636 persons, 13,596 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>ICIJ</code></dd></div><div><dt>SHA-256</dt><dd><code>a7a153065eed4d267f99fc5974e4f0bb49beafdfbe42678ec70b868b6afe6df8</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="19,232">NAME</li><li title="28,080">ADDRESS</li><li title="9,704">GROUP_ASSOCIATION</li><li title="41,038">COUNTRY_OF_ASSOCIATION</li><li title="19,232">REL_ANCHOR</li><li title="53,321">REL_POINTER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.1/icij-london.jsonl">Download icij-london.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.1/icij-london.jsonl
+echo "a7a153065eed4d267f99fc5974e4f0bb49beafdfbe42678ec70b868b6afe6df8  icij-london.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;ICIJ&quot;,
+  &quot;RECORD_ID&quot;: &quot;10000227&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;PRIMARY_NAME_ORG&quot;: &quot;SILVERWING PROPERTIES S.A.&quot;,
+  &quot;ICIJ_SOURCE&quot;: &quot;Panama Papers&quot;,
+  &quot;NODE_TYPE&quot;: &quot;ENTITY&quot;,
+  &quot;Jurisdiction&quot;: &quot;SAM&quot;,
+  &quot;COUNTRIES&quot;: [
+    {
+      &quot;COUNTRY_OF_ASSOCIATION&quot;: &quot;SAM&quot;
+    },
+    {
+      &quot;COUNTRY_OF_ASSOCIATION&quot;: &quot;GBR&quot;
+    }
+  ],
+  &quot;Status&quot;: &quot;Active&quot;,
+  &quot;INCORPORATED&quot;: &quot;29-SEP-2006&quot;,
+  &quot;REL_ANCHOR_DOMAIN&quot;: &quot;ICIJ_ID&quot;,
+  &quot;REL_ANCHOR_KEY&quot;: &quot;10000227&quot;,
+  &quot;ADDRESSES&quot;: [
+    {
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;,
+      &quot;ADDR_FULL&quot;: &quot;A MALIDA CHARTERED ACCS [Mr Arif Malida] 66 Moyser Road London Sw16 6Sq E15 2BY&quot;
+    }
+  ]
+}</code></pre></details>
+<p>Related CORDs: <a href="#gleif-london">gleif-london.jsonl</a>, <a href="#globaldata-london_central_a">globaldata-london_central_a.jsonl</a>, <a href="#ofac-london">ofac-london.jsonl</a>, <a href="#open_sanctions-london">open_sanctions-london.jsonl</a></p>
+</article>
+<article class="cord" id="ofac-london">
+<h3><a href="#ofac-london">ofac-london.jsonl</a></h3>
+<p>Entries on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list with a London address, across programs such as the Russia-related EO 14024, counter-terrorism, Iraq and Iran, including names, aliases, addresses, identifiers and sanctions programs.</p>
+<dl><div><dt>Locale</dt><dd>London</dd></div><div><dt>Primary source</dt><dd><a href="https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists">OFAC Specially Designated Nationals (SDN) List</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd>2024-12-11</dd></div><div><dt>Version</dt><dd>0.1.1, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#011---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>103.0 kB (102,967 bytes)</dd></div><div><dt>Records</dt><dd>110 (39 persons, 71 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>OFAC</code></dd></div><div><dt>SHA-256</dt><dd><code>2299bcaf6b9111fed771b3c54a56685f5239f75c57c47d322020f742c21eb40b</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="301">NAME</li><li title="39">DOB</li><li title="29">GENDER</li><li title="320">ADDRESS</li><li title="1">DRLIC</li><li title="26">PASSPORT</li><li title="7">TAX_ID</li><li title="71">NATIONAL_ID</li><li title="11">WEBSITE</li><li title="3">OTHER_ID</li><li title="9">CITIZENSHIP</li><li title="43">NATIONALITY</li><li title="30">PLACE_OF_BIRTH</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.1/ofac-london.jsonl">Download ofac-london.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.1/ofac-london.jsonl
+echo "2299bcaf6b9111fed771b3c54a56685f5239f75c57c47d322020f742c21eb40b  ofac-london.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;OFAC&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;RECORD_ID&quot;: &quot;35080&quot;,
+  &quot;OFAC_ID&quot;: &quot;35080&quot;,
+  &quot;PUBLISH_DATE&quot;: &quot;12/11/2024&quot;,
+  &quot;SDN_PROGRAM&quot;: &quot;RUSSIA-EO14024&quot;,
+  &quot;NAME_LIST&quot;: [
+    {
+      &quot;NAME_TYPE&quot;: &quot;PRIMARY&quot;,
+      &quot;NAME_ORG&quot;: &quot;MAJORY LLP&quot;
+    }
+  ],
+  &quot;ADDR_LIST&quot;: [
+    {
+      &quot;ADDR_LINE1&quot;: &quot;25 City Road Spaces City Road, Epworth House, Office 320&quot;,
+      &quot;ADDR_CITY&quot;: &quot;London&quot;,
+      &quot;ADDR_POSTAL_CODE&quot;: &quot;EC4A 1BR&quot;,
+      &quot;ADDR_COUNTRY&quot;: &quot;United Kingdom&quot;
+    },
+    {
+      &quot;ADDR_LINE1&quot;: &quot;Suite 3.15 One Fetter Lane&quot;,
+      &quot;ADDR_CITY&quot;: &quot;London&quot;,
+      &quot;ADDR_POSTAL_CODE&quot;: &quot;EC1Y 1AA&quot;,
+      &quot;ADDR_COUNTRY&quot;: &quot;United Kingdom&quot;
+    }
+  ],
+  &quot;Organization Established Date&quot;: &quot;16 Jul 2015&quot;,
+  &quot;Secondary sanctions risk:&quot;: &quot;See Section 11 of Executive Order 14024.&quot;,
+  &quot;ID_LIST&quot;: [
+    {
+      &quot;NATIONAL_ID_NUMBER&quot;: &quot;OC400827&quot;,
+      &quot;NATIONAL_ID_TYPE&quot;: &quot;Company Number&quot;,
+      &quot;NATIONAL_ID_COUNTRY&quot;: &quot;GBR&quot;
+    }
+  ]
+}</code></pre></details>
+<p>Related CORDs: <a href="#gleif-london">gleif-london.jsonl</a>, <a href="#globaldata-london_central_a">globaldata-london_central_a.jsonl</a>, <a href="#icij-london">icij-london.jsonl</a>, <a href="#open_sanctions-london">open_sanctions-london.jsonl</a></p>
+</article>
+<article class="cord" id="open_sanctions-london">
+<h3><a href="#open_sanctions-london">open_sanctions-london.jsonl</a></h3>
+<p>Sanctioned people and organizations with a London connection from OpenSanctions, including some linked to terrorism, with names, aliases, addresses, dates, identifiers and risk topics.</p>
+<dl><div><dt>Locale</dt><dd>London</dd></div><div><dt>Primary source</dt><dd><a href="https://www.opensanctions.org/">OpenSanctions</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.1, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#011---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>257.6 kB (257,591 bytes)</dd></div><div><dt>Records</dt><dd>137 (50 persons, 87 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>OPEN-SANCTIONS</code></dd></div><div><dt>SHA-256</dt><dd><code>6013c5f33031f55f4fbc2e779beb34f8bec36e76d9c146a91c8db8a99b80794b</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="972">NAME</li><li title="57">DOB</li><li title="43">GENDER</li><li title="835">ADDRESS</li><li title="7">PHONE</li><li title="65">PASSPORT</li><li title="17">TAX_ID</li><li title="111">NATIONAL_ID</li><li title="4">EMAIL</li><li title="17">WEBSITE</li><li title="131">OTHER_ID</li><li title="14">TRUSTED_ID</li><li title="25">CITIZENSHIP</li><li title="282">NATIONALITY</li><li title="125">PLACE_OF_BIRTH</li><li title="17">REGISTRATION_DATE</li><li title="19">REGISTRATION_COUNTRY</li><li title="1">LEI_NUMBER</li><li title="32">REL_ANCHOR</li><li title="80">REL_POINTER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.1/open_sanctions-london.jsonl">Download open_sanctions-london.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.1/open_sanctions-london.jsonl
+echo "6013c5f33031f55f4fbc2e779beb34f8bec36e76d9c146a91c8db8a99b80794b  open_sanctions-london.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;OPEN-SANCTIONS&quot;,
+  &quot;RECORD_ID&quot;: &quot;NK-276gB7L8sFEhctkuEpZsus&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;LAST_CHANGE&quot;: &quot;2024-11-12T00:00:00&quot;,
+  &quot;NAMES&quot;: [
+    {
+      &quot;NAME_TYPE&quot;: &quot;PRIMARY&quot;,
+      &quot;NAME_ORG&quot;: &quot;BANK SADERAT PLC&quot;
+    },
+    {
+      &quot;NAME_TYPE&quot;: &quot;ALIAS&quot;,
+      &quot;NAME_ORG&quot;: &quot;IRAN OVERSEAS INVESTMENT BANK PLC&quot;
+    },
+    {
+      &quot;NAME_TYPE&quot;: &quot;ALIAS&quot;,
+      &quot;NAME_ORG&quot;: &quot;IRAN OVERSEAS INVESTMENT BANK LIMITED&quot;
+    },
+    {
+      &quot;NAME_TYPE&quot;: &quot;ALIAS&quot;,
+      &quot;NAME_ORG&quot;: &quot;IRAN OVERSEAS INVESTMENT CORPORATION LIMITED&quot;
+    },
+    {
+      &quot;NAME_TYPE&quot;: &quot;ALIAS&quot;,
+      &quot;NAME_ORG&quot;: &quot;Bank Saderat PLC (London)&quot;
+    }
+  ],
+  &quot;RISKS&quot;: [
+    {
+      &quot;TOPIC&quot;: &quot;sanction&quot;
+    }
+  ],
+  &quot;ADDRESSES&quot;: [
+    {
+      &quot;ADDR_FULL&quot;: &quot;5 Lothbury, EC2R 7 HD, United Kingdom&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    },
+    {
+      &quot;ADDR_FULL&quot;: &quot;PO Box 15175/584, 6th Floor, Sadaf Bldg, 1137 Vali Asr Ave, 15119-43885 Tehran&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    },
+    {
+      &quot;ADDR_FULL&quot;: &quot;5 Lothbury, EC2R 7HD London&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    },
+    {
+      &quot;ADDR_FULL&quot;: &quot;5 Lothbury, EC2R 7 HD, United Kingdom&quot;,
+      &quot;ADDR_LINE1&quot;: &quot;5 Lothbury&quot;,
+      &quot;ADDR_COUNTRY&quot;: &quot;gb&quot;,
+      &quot;ADDR_POSTAL_CODE&quot;: &quot;EC2R 7 HD&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    },
+    {
+      &quot;ADDR_FULL&quot;: &quot;PO Box 15175/584, 6th Floor, Sadaf Bldg, 1137 Vali Asr Ave, 15119-43885 Tehran&quot;,
+      &quot;ADDR_LINE1&quot;: &quot;PO Box 15175/584, 6th Floor, Sadaf Bldg, 1137 Vali Asr Ave&quot;,
+      &quot;ADDR_CITY&quot;: &quot;Tehran&quot;,
+      &quot;ADDR_COUNTRY&quot;: &quot;ir&quot;,
+      &quot;ADDR_POSTAL_CODE&quot;: &quot;15119-43885&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    },
+    {
+      &quot;ADDR_FULL&quot;: &quot;5 Lothbury, EC2R 7HD London&quot;,
+      &quot;ADDR_LINE1&quot;: &quot;5 Lothbury&quot;,
+      &quot;ADDR_CITY&quot;: &quot;London&quot;,
+      &quot;ADDR_COUNTRY&quot;: &quot;gb&quot;,
+      &quot;ADDR_POSTAL_CODE&quot;: &quot;EC2R 7HD&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    }
+  ],
+  &quot;COUNTRIES&quot;: [
+    {
+      &quot;NATIONALITY&quot;: &quot;gb&quot;
+    },
+    {
+      &quot;NATIONALITY&quot;: &quot;ir&quot;
+    }
+  ],
+  &quot;IDENTIFIERS&quot;: [
+    {
+      &quot;NATIONAL_ID_NUMBER&quot;: &quot;01126618&quot;
+    },
+    {
+      &quot;OTHER_ID_TYPE&quot;: &quot;OPEN-SANCTIONS&quot;,
+      &quot;OTHER_ID_NUMBER&quot;: &quot;NK-276gB7L8sFEhctkuEpZsus&quot;
+    }
+  ],
+  &quot;SOURCE_LINKS&quot;: [
+    {
+      &quot;SOURCE_URL&quot;: &quot;https://sanctionssearch.ofac.treas.gov/Details.aspx?id=4642&quot;
+    }
+  ],
+  &quot;RELATIONSHIPS&quot;: [
+    {
+      &quot;REL_POINTER_ROLE&quot;: &quot;related-to&quot;,
+      &quot;REL_POINTER_DOMAIN&quot;: &quot;OPEN-SANCTIONS&quot;,
+      &quot;REL_POINTER_KEY&quot;: &quot;NK-ftDzFBNp5NsDk86WGjy9Ry&quot;
+    }
+  ],
+  &quot;URL&quot;: &quot;https://www.opensanctions.org/entities/NK-276gB7L8sFEhctkuEpZsus&quot;
+}</code></pre></details>
+<p>Related CORDs: <a href="#gleif-london">gleif-london.jsonl</a>, <a href="#globaldata-london_central_a">globaldata-london_central_a.jsonl</a>, <a href="#icij-london">icij-london.jsonl</a>, <a href="#ofac-london">ofac-london.jsonl</a></p>
+</article>
 </div></section>
 <section id="moscow"><div class="wrap">
 <p class="label">Locale</p>
