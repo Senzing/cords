@@ -10,6 +10,5 @@
 .claude/settings.local.json
 .coverage
 
-.history
 senzing-ready/
 __pycache__/

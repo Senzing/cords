@@ -14,7 +14,7 @@ Files that are staged but not yet released are not listed.
 ## Download and verify
 
 Run this in an empty directory, or in one that already holds some of the files. It needs
-`curl` and GNU `sha256sum`, and downloads about 1.7 GB.
+`curl` and GNU `sha256sum`, and downloads every released file (see the catalog for sizes).
 
 ```bash
 base=https://hub.senzing.com/cords

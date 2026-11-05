@@ -1,6 +1,6 @@
 ---
 name: publish-cord
-description: Publish a SemVer release of the CORD JSONL files — a GitHub Release holding the new and changed files in manifest.json, and the manifest.json, CHANGELOG.md, development/cords.json, GitHub Pages catalog (docs/index.html, docs/cords.html, docs/cords.md) and development/CORD_stats.xlsx/.csv updates merged into main. Use when the user runs /publish-cord; it runs the /upload-senzing-ready upload itself first. Asks for the SemVer bump and before merging.
+description: Publish a SemVer release of the CORD JSONL files — a GitHub Release holding the new and changed files in manifest.json, and the manifest.json, CHANGELOG.md, development/cords.json, GitHub Pages catalog (docs/index.html, docs/cords.html, docs/cords.md, docs/SHA256SUMS, docs/urls.txt) and development/CORD_stats.xlsx/.csv updates merged into main. Use when the user runs /publish-cord; it runs the /upload-senzing-ready upload itself first. Asks for the SemVer bump and before merging.
 disable-model-invocation: true
 ---
 
@@ -77,8 +77,9 @@ answer: the SemVer bump, and whether to merge.
    - runs `bin/get_cord_stats.py` on those same files to update `development/CORD_stats.xlsx`
      and `development/CORD_stats.csv`, taking each
      from `senzing-ready/` when its SHA-256 matches and from the draft otherwise;
-   - rewrites the GitHub Pages files `docs/index.html`, `docs/cords.html` and `docs/cords.md`;
-   - commits `manifest.json`, `CHANGELOG.md`, `development/cords.json`, those three Pages files,
+   - rewrites the GitHub Pages files `docs/index.html`, `docs/cords.html`, `docs/cords.md`,
+     `docs/SHA256SUMS` and `docs/urls.txt`;
+   - commits `manifest.json`, `CHANGELOG.md`, `development/cords.json`, those five Pages files,
      `development/CORD_stats.xlsx` and `development/CORD_stats.csv` on the branch
      `release-<version>`;
    - pushes the branch and opens the PR.
@@ -127,8 +128,10 @@ answer: the SemVer bump, and whether to merge.
   `cords.json` value shows as "Not stated".
 - **`docs/cords.md`:** a stub linking to `cords.html`. `docs/.nojekyll` keeps GitHub Pages from
   running Jekyll.
+- **`docs/SHA256SUMS` and `docs/urls.txt`:** the released files' checksums, in `sha256sum -c`
+  format, and download URLs, one per line, for bulk downloads (`development/bulk-download.md`).
 - **Rewriting the Pages files:** `python3 .claude/skills/publish-cord/publish_cord.py catalog`
-  rewrites all three, offline (no network or `gh`), and leaves current files unchanged. Run it
+  rewrites all five, offline (no network or `gh`), and leaves current files unchanged. Run it
   after any change to its inputs outside a release, such as a `cords.json` edit or
   `/upload-senzing-ready --remove`. It stops, writing nothing, on a region missing from
   `REGIONS`, a released file without a `cords.json` entry, a `CORD_stats.csv` row (matched on
@@ -160,7 +163,8 @@ python3 -m unittest discover -s .claude/skills/publish-cord -p 'test_*.py'
 
 The tests use fake `gh`, `curl` and stats-script executables and a local bare
 repository as `origin`, so they need no network. They also fail when a committed
-Pages file (`docs/index.html`, `docs/cords.html`, `docs/cords.md`) differs from what its inputs
+Pages file (`docs/index.html`, `docs/cords.html`, `docs/cords.md`, `docs/SHA256SUMS`,
+`docs/urls.txt`) differs from what its inputs
 give.
 `bin/test_get_cord_stats.py` tests the stats script against a small workbook, and is skipped
 without `openpyxl`.
