@@ -1,4 +1,35 @@
 {
+  "ppp_loans_over_150k-lasvegas.jsonl": {
+    "synopsis": "Details of Paycheck Protection Program loans over $150,000, including recipient names, loan amounts, and locations.",
+    "primary_source": {
+      "name": "PPP Loan Data",
+      "url": "https://data.sba.gov/dataset/ppp-foia"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "PPP_LOANS",
+    "sample_record": {
+      "RECORD_TYPE": "ORGANIZATION",
+      "DATA_SOURCE": "PPP_LOANS",
+      "RECORD_ID": "7017",
+      "Loan_Range": "c $1-2 million",
+      "BUSINESS_NAME_ORG": "INFINITY HOSPICE CARE OF LAS VEGAS, LLC",
+      "BUSINESS_ADDR_LINE1": "5110 N 40TH ST STE 107",
+      "BUSINESS_ADDR_CITY": "PHOENIX",
+      "BUSINESS_ADDR_STATE": "AZ",
+      "BUSINESS_ADDR_POSTAL_CODE": "85018",
+      "NAICS_Code": "623110",
+      "Business_Type": "Limited  Liability Company(LLC)",
+      "OwnedByRaceEthnicity": "Unanswered",
+      "OwnedBy": "Male Owned",
+      "OwnedByVeteran": "Unanswered",
+      "NonProfit": "",
+      "JobsReported": "137",
+      "DateApproved": "05/01/2020",
+      "Lender": "JPMorgan Chase Bank, National Association",
+      "CD": "AZ-09"
+    }
+  },
   "us_labor_violations-lasvegas.jsonl": {
     "synopsis": "Records of concluded compliance actions since 2005, detailing violations, back wages owed, and penalties assessed.",
     "primary_source": {
