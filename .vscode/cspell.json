@@ -3,7 +3,6 @@
   "language": "en",
   "words": [
     "CCLA",
-    "CKXV",
     "choosealicense",
     "claudecommandssenzingmd",
     "CODEOWNER",
@@ -35,6 +34,7 @@
     "pycache",
     "pyproject",
     "Roboto",
+    "SECO",
     "Senzing",
     "setuptools",
     "stackoverflow",
@@ -47,5 +47,17 @@
   "ignorePaths": [
     ".git/**",
     "bin/sz_default_config.json"
+  ],
+  "overrides": [
+    {
+      "filename": [
+        "development/cords.json",
+        "docs/cords.html"
+      ],
+      "ignoreRegExpList": [
+        "/\"sample_record\": \\{[\\s\\S]*?\\n    \\}/g",
+        "/<summary>Sample record<\\/summary><pre><code>[\\s\\S]*?<\\/code>/g"
+      ]
+    }
   ]
 }
