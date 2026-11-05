@@ -1,4 +1,56 @@
 {
+  "equifax-lasvegas.jsonl": {
+    "synopsis": "Business and people records for the Las Vegas area from Equifax commercial data, including company names, legal names, addresses, phone numbers, websites, NAICS industry codes, years established and corporate family links.",
+    "primary_source": {
+      "name": "Equifax",
+      "url": "https://www.equifax.com/business/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "EQUIFAX",
+    "sample_record": {
+      "DATA_SOURCE": "EQUIFAX",
+      "RECORD_ID": "105223571",
+      "RECORD_TYPE": "ORGANIZATION",
+      "TRUSTED_ID_TYPE": "EFX_ID",
+      "TRUSTED_ID_NUMBER": "105223571",
+      "REL_ANCHOR_DOMAIN": "EFX_ID",
+      "REL_ANCHOR_KEY": "105223571",
+      "PRIMARY_NAME_ORG": "BRIDGESTONE AMERICAS",
+      "LEGAL_NAME_ORG": "BRIDGESTONE RETAIL OPERATIONS, LLC",
+      "BUSINESS_ADDR_LINE1": "4640 W ANN RD",
+      "BUSINESS_ADDR_CITY": "NORTH LAS VEGAS",
+      "BUSINESS_ADDR_STATE": "NV",
+      "BUSINESS_ADDR_POSTAL_CODE": "89031-3834",
+      "BUSINESS_GEO_LATITUDE": "36.261761",
+      "BUSINESS_GEO_LONGITUDE": "-115.204491",
+      "BUSINESS_GEO_PRECISION": "255",
+      "BUSINESS_ADDR_COUNTRY": "USA",
+      "PRIMARY_PHONE_NUMBER": "7023551258",
+      "EFX_PRIMNAICSCODE": "441330",
+      "EFX_PRIMNAICSDESC": "Automotive Parts and Accessories Retailers",
+      "RELATIONSHIPS": [
+        {
+          "REL_POINTER_DOMAIN": "EFX_ID",
+          "REL_POINTER_KEY": "18347787",
+          "REL_POINTER_ROLE": "GLOBAL PARENT"
+        },
+        {
+          "REL_POINTER_DOMAIN": "EFX_ID",
+          "REL_POINTER_KEY": "28912327",
+          "REL_POINTER_ROLE": "DOMESTIC PARENT"
+        },
+        {
+          "REL_POINTER_DOMAIN": "EFX_ID",
+          "REL_POINTER_KEY": "7154233",
+          "REL_POINTER_ROLE": "SUBSIDIARY OF"
+        }
+      ],
+      "EFX_LEGLINKEDIND": "Y",
+      "EFX_CREDITSCORE": "0",
+      "EFX_EXTRACT_DATE": "05/06/2025"
+    }
+  },
   "gleif-lasvegas.jsonl": {
     "synopsis": "Legal Entity Identifier (LEI) records for organizations with a business address in the Las Vegas area, including legal names, addresses, registration dates and LEI numbers.",
     "primary_source": {
@@ -204,6 +256,57 @@
       "sic_description": "Activities of head offices"
     }
   },
+  "icij-lasvegas.jsonl": {
+    "synopsis": "Companies, officers and intermediaries with a Las Vegas connection from ICIJ's Offshore Leaks Database, mostly from the Panama Papers, with jurisdictions, incorporation dates and status.",
+    "primary_source": {
+      "name": "ICIJ Offshore Leaks Database",
+      "url": "https://offshoreleaks.icij.org/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "ICIJ",
+    "sample_record": {
+      "DATA_SOURCE": "ICIJ",
+      "RECORD_ID": "10003049",
+      "RECORD_TYPE": "ORGANIZATION",
+      "PRIMARY_NAME_ORG": "PENELOPE LLC",
+      "ICIJ_SOURCE": "Panama Papers",
+      "NODE_TYPE": "ENTITY",
+      "Jurisdiction": "NEV",
+      "COUNTRIES": [
+        {
+          "COUNTRY_OF_ASSOCIATION": "NEV"
+        },
+        {
+          "COUNTRY_OF_ASSOCIATION": "USA"
+        }
+      ],
+      "Status": "Defaulted",
+      "INCORPORATED": "25-AUG-2005",
+      "INACTIVATED": "05-OCT-2011",
+      "STRUCK_OFF": "01-SEP-2007",
+      "REL_ANCHOR_DOMAIN": "ICIJ_ID",
+      "REL_ANCHOR_KEY": "10003049",
+      "ADDRESSES": [
+        {
+          "ADDR_TYPE": "BUSINESS",
+          "ADDR_FULL": "PENELOPE LLC 520 S. 7TH STREET SUITE C LAS VEGAS, NV 89101 U.  S.  A."
+        }
+      ],
+      "RELATIONSHIPS": [
+        {
+          "REL_POINTER_DOMAIN": "ICIJ_ID",
+          "REL_POINTER_KEY": 10005946,
+          "REL_POINTER_ROLE": "same name and registration date as"
+        },
+        {
+          "REL_POINTER_DOMAIN": "ICIJ_ID",
+          "REL_POINTER_KEY": 14104230,
+          "REL_POINTER_ROLE": "registered address"
+        }
+      ]
+    }
+  },
   "icij-london.jsonl": {
     "synopsis": "Companies, officers and intermediaries with a London connection from ICIJ's Offshore Leaks Database, drawn from the Offshore Leaks, Panama Papers, Paradise Papers and Pandora Papers investigations, with jurisdictions, incorporation dates and status.",
     "primary_source": {
@@ -278,6 +381,47 @@
       ]
     }
   },
+  "nominodata_combined-lasvegas.jsonl": {
+    "synopsis": "Las Vegas-area organizations and people from public registers and risk lists compiled by Nominodata, mostly IRS tax-exempt charities, plus Nevada Department of Taxation, SAM exclusions, FinCEN money services business and cannabis license records.",
+    "primary_source": {
+      "name": "Nominodata",
+      "url": "https://www.nominodata.com/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "NOMINO-RISK",
+    "sample_record": {
+      "DATA_SOURCE": "NOMINO-RISK",
+      "RECORD_ID": "938afb9c6fce8ba4f44642f026cb9987",
+      "RECORD_TYPE": "ORGANIZATION",
+      "NAME_LIST": [
+        {
+          "PRIMARY_NAME_ORG": "SANTA FILOMENA MISSION LAS VEGAS"
+        }
+      ],
+      "ADDRESS_LIST": [
+        {
+          "ADDR_LINE1": "2960 S DURANGO DR STE 116",
+          "ADDR_CITY": "LAS VEGAS",
+          "ADDR_STATE": "NV",
+          "ADDR_POSTAL_CODE": "89117-4422",
+          "ADDR_COUNTRY": "US"
+        }
+      ],
+      "CONTACT_LIST": [],
+      "IDENTIFIER_LIST": [],
+      "ATTRIBUTE_LIST": [],
+      "OriginalID": "990373701",
+      "page_URL": "https://www.irs.gov/charities-non-profits/tax-exempt-organization-search-bulk-data-downloads",
+      "Source": "IRS Charity database",
+      "type": "IRS Revoked Charity",
+      "Listingdate": "16/8/2017",
+      "remarks": "15-May-17",
+      "riskcode": "RF",
+      "active": "1",
+      "timestamp": "17/1/2025 11:10:14"
+    }
+  },
   "nominodata_risk-moscow.jsonl": {
     "synopsis": "People and organizations connected to Moscow that appear on sanctions and politically exposed person lists compiled by Nominodata, including the OFAC SDN list, Swiss SECO, UK HM Treasury and EU lists, with titles, programs and listing dates.",
     "primary_source": {
@@ -332,6 +476,54 @@
       "active": "1",
       "timestamp": "14/3/2022 12:40:48",
       "Person": "1"
+    }
+  },
+  "npi-lasvegas.jsonl": {
+    "synopsis": "Health care providers in the Las Vegas area from the National Provider Identifier (NPI) registry, both individual practitioners and organizations, with names, former and other names, practice and mailing addresses, phone numbers, license numbers and taxonomy codes.",
+    "primary_source": {
+      "name": "CMS NPPES NPI Registry",
+      "url": "https://npiregistry.cms.hhs.gov/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "NPI-PROVIDERS",
+    "sample_record": {
+      "DATA_SOURCE": "NPI-PROVIDERS",
+      "RECORD_ID": "1669475612",
+      "RECORD_TYPE": "PERSON",
+      "NPI_NUMBER": "1669475612",
+      "REL_ANCHOR_KEY": "1669475612",
+      "REL_ANCHOR_DOMAIN": "NPI",
+      "PRIMARY_NAME_LAST": "TROTCHIE",
+      "PRIMARY_NAME_FIRST": "DEBRA",
+      "PRIMARY_NAME_MIDDLE": "CHARLENE",
+      "FORMER_NAME_LAST": "MUDDER",
+      "FORMER_NAME_FIRST": "DEBRA",
+      "FORMER_NAME_MIDDLE": "C",
+      "MAILING_ADDR_LINE1": "8906 SPANISH RIDGE AVE STE 202",
+      "MAILING_ADDR_CITY": "LAS VEGAS",
+      "MAILING_ADDR_STATE": "NV",
+      "MAILING_ADDR_POSTAL_CODE": "891481319",
+      "MAILING_ADDR_COUNTRY": "US",
+      "PRIMARY_ADDR_LINE1": "8876 SPANISH RIDGE AVE STE 103",
+      "PRIMARY_ADDR_CITY": "LAS VEGAS",
+      "PRIMARY_ADDR_STATE": "NV",
+      "PRIMARY_ADDR_POSTAL_CODE": "891481502",
+      "PRIMARY_ADDR_COUNTRY": "US",
+      "MAILING-LOCATION_PHONE_NUMBER": "7023303102",
+      "MAILING-FAX_PHONE_NUMBER": "7029124994",
+      "BUSINESS-LOCATION_PHONE_NUMBER": "7023420858",
+      "BUSINESS-FAX_PHONE_NUMBER": "7023420858",
+      "GENDER": "F",
+      "Taxonomy Code_1": "363L00000X (primary)",
+      "PROVIDER_LICENSE_NUMS": [
+        {
+          "PROVIDER_LICENSE_NUMBER": "APRN00355",
+          "PROVIDER_LICENSE_STATE": "NV"
+        }
+      ],
+      "Provider Enumeration Date": "05/23/2005",
+      "Last Update Date": "03/20/2021"
     }
   },
   "ofac-london.jsonl": {
@@ -432,6 +624,57 @@
           "GENDER": "Male"
         }
       ]
+    }
+  },
+  "open_ownership-lasvegas.jsonl": {
+    "synopsis": "Beneficial ownership records linking Las Vegas-based people and organizations to the companies they own or control, mostly from UK Companies House persons-with-significant-control filings, with ownership roles and relationships.",
+    "primary_source": {
+      "name": "Open Ownership",
+      "url": "https://www.openownership.org/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "OPEN-OWNERSHIP",
+    "sample_record": {
+      "DATA_SOURCE": "OPEN-OWNERSHIP",
+      "RECORD_ID": "gb-coh-psc-03729497-kuwl11ehdfp-zlo-dvkcxifd3ie",
+      "RECORD_TYPE": "PERSON",
+      "LAST_CHANGE": "2024-11-13T13:59:38",
+      "NAMES": [
+        {
+          "NAME_TYPE": "PRIMARY",
+          "NAME_FULL": "Mrs Erica Syrdal"
+        }
+      ],
+      "ADDRESSES": [
+        {
+          "ADDR_FULL": "2576 La Cara Avenue, Las Vegas, Nevada NV 89121, United States"
+        }
+      ],
+      "DATES": [
+        {
+          "DATE_OF_BIRTH": "1963-06"
+        }
+      ],
+      "COUNTRIES": [
+        {
+          "NATIONALITY": "us"
+        }
+      ],
+      "RELATIONSHIPS": [
+        {
+          "REL_POINTER_ROLE": "Right to appoint and remove directors",
+          "REL_POINTER_DOMAIN": "OPEN_SANCTIONS",
+          "REL_POINTER_KEY": "oc-companies-gb-03729497"
+        }
+      ],
+      "IDENTIFIERS": [
+        {
+          "OTHER_ID_TYPE": "OPEN_SANCTIONS",
+          "OTHER_ID_NUMBER": "gb-coh-psc-03729497-kuwl11ehdfp-zlo-dvkcxifd3ie"
+        }
+      ],
+      "URL": "https://www.opensanctions.org/entities/gb-coh-psc-03729497-kuwl11ehdfp-zlo-dvkcxifd3ie"
     }
   },
   "open_ownership-moscow.jsonl": {
@@ -679,6 +922,52 @@
       "URL": "https://www.opensanctions.org/entities/NK-22cQD3a8GDRSuoW5mus3F3"
     }
   },
+  "opendata-lasvegas.jsonl": {
+    "synopsis": "Las Vegas-area business locations, companies and the people linked to them, with names, addresses, map coordinates, websites, LinkedIn pages, and LEI and NPI numbers where known.",
+    "primary_source": {
+      "name": "OpenData",
+      "url": null
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "OPENDATA",
+    "sample_record": {
+      "DATA_SOURCE": "OPENDATA",
+      "RECORD_ID": "100067215322",
+      "bq_dataset": "COMPANY",
+      "FEATURES": [
+        {
+          "NAME_ORG": "Z-CRETE CONCRETE CREATIONS, LLC",
+          "NAME_TYPE": "PRIMARY"
+        },
+        {
+          "RECORD_TYPE": "ORGANIZATION"
+        },
+        {
+          "ADDR_CITY": "Las Vegas",
+          "ADDR_COUNTRY": "USA",
+          "ADDR_LINE1": "PO Box 27740",
+          "ADDR_POSTAL_CODE": "89126",
+          "ADDR_STATE": "NV",
+          "ADDR_TYPE": "BUSINESS"
+        },
+        {
+          "GEO_LATITUDE": "36.151130000000002",
+          "GEO_LONGITUDE": "-115.20805"
+        },
+        {
+          "REL_ANCHOR_DOMAIN": "BQ",
+          "REL_ANCHOR_KEY": 100067215322
+        },
+        {
+          "BQ_ID": "100067215322"
+        },
+        {
+          "PLACEKEY": "1melzuufpc@5yv-j8b-s3q"
+        }
+      ]
+    }
+  },
   "ppp_loans_over_150k-lasvegas.jsonl": {
     "synopsis": "Details of Paycheck Protection Program loans over $150,000, including recipient names, loan amounts, and locations.",
     "primary_source": {
@@ -708,6 +997,41 @@
       "DateApproved": "05/01/2020",
       "Lender": "JPMorgan Chase Bank, National Association",
       "CD": "AZ-09"
+    }
+  },
+  "profound-lasvegas.jsonl": {
+    "synopsis": "Las Vegas businesses identified by their website domain, with names, addresses, phone numbers, websites and social media accounts, plus web hosting, CMS, mail and cloud providers, domain registration dates and a website risk score.",
+    "primary_source": {
+      "name": "Profound",
+      "url": null
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "PROFOUND",
+    "sample_record": {
+      "DATA_SOURCE": "PROFOUND",
+      "RECORD_ID": "vegasphotobooth.com",
+      "RECORD_TYPE": "ORGANIZATION",
+      "REL_ANCHOR_DOMAIN": "DOMAIN",
+      "REL_ANCHOR_KEY": "vegasphotobooth.com",
+      "PRIMARY_NAME_ORG": "Las Vegas Photo Booth",
+      "BUSINESS_ADDR_LINE1": "3315 E Russell rd. A-4 #153",
+      "BUSINESS_ADDR_CITY": "Las Vegas",
+      "BUSINESS_ADDR_STATE": "NV",
+      "BUSINESS_ADDR_POSTAL_CODE": "89120",
+      "BUSINESS_ADDR_COUNTRY": "US",
+      "PRIMARY_PHONE_NUMBER": "702-417-1036",
+      "WEBSITE_ADDRESS": "https://vegasphotobooth.com/",
+      "FACEBOOK": "VegasPhotoBooth",
+      "domain_classification": "business",
+      "web_server_type": "nginx",
+      "cms_type": "WordPress;Wordpress Plugins",
+      "cloud_provider": "GOOGLE INC.",
+      "mail_server_provider": "Microsoft",
+      "whois_created_date": "20070426",
+      "website_risk_propensity": "0.0145026265857016",
+      "organization_type": "S",
+      "RELATIONSHIPS": []
     }
   },
   "us_labor_violations-lasvegas.jsonl": {

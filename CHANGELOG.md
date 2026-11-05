@@ -7,6 +7,18 @@ This project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-11-05
+
+### Added
+
+- `equifax-lasvegas.jsonl` (476,799,997 bytes, SHA-256 `fe71eb800526fefea458f76ade393a6a8974e2d3a090301434ec2158ed27b01a`)
+- `icij-lasvegas.jsonl` (164,513 bytes, SHA-256 `04357e04cc8e13c8afc0cb7c4e0f5d41323be4fac97fc10bc369637ac4a21909`)
+- `nominodata_combined-lasvegas.jsonl` (10,907,715 bytes, SHA-256 `32cbd6fbe929e9b98e34e8a5fe67fc71efaf5cbe1b7b72817fcc18ed319df0ba`)
+- `npi-lasvegas.jsonl` (67,818,080 bytes, SHA-256 `e71bd63d6fda3ed0aea4fef811e98d0efab8a8dbab2155fd04f2f5e1c0ab1e1b`)
+- `open_ownership-lasvegas.jsonl` (1,518,843 bytes, SHA-256 `0e3bbf04172c2db4fd34dff0a3566e526f5d2fbddd9fa1e38929cf08d9000b07`)
+- `opendata-lasvegas.jsonl` (980,688,237 bytes, SHA-256 `eed5ff8d46bea3ad24bf369541f35339968e646ea3b8af2ce3c02146ffae56b7`)
+- `profound-lasvegas.jsonl` (18,495,735 bytes, SHA-256 `82ced042c55a433ded4aea135d3c4c25b321fbc231b4ba0d0418d4650d36b570`)
+
 ## [0.1.1] - 2026-11-05
 
 ### Added
@@ -53,7 +65,8 @@ This project adheres to [Semantic Versioning].
 - Initial repository content: community artifacts, GitHub workflows and
   documentation scaffolding.
 
-[Unreleased]: https://github.com/Senzing/cords/compare/0.1.1...HEAD
+[Unreleased]: https://github.com/Senzing/cords/compare/0.1.2...HEAD
+[0.1.2]: https://github.com/Senzing/cords/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/Senzing/cords/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/Senzing/cords/compare/0.0.3...0.1.0
 [0.0.3]: https://github.com/Senzing/cords/compare/0.0.2...0.0.3
