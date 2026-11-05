@@ -1,0 +1,1 @@
+https://github.com/Senzing/cords/releases/download/0.0.0/us_labor_violations-lasvegas.jsonl

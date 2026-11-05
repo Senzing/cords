@@ -1,0 +1,30 @@
+{
+  "us_labor_violations-lasvegas.jsonl": {
+    "synopsis": "Records of concluded compliance actions since 2005, detailing violations, back wages owed, and penalties assessed.",
+    "primary_source": {
+      "name": "US Dept of Labor Compliance",
+      "url": "https://enforcedata.dol.gov/views/data_catalogs.php"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "US-LABOR-VIOLATIONS",
+    "sample_record": {
+      "RECORD_TYPE": "ORGANIZATION",
+      "DATA_SOURCE": "US-LABOR-VIOLATIONS",
+      "RECORD_ID": "53",
+      "case_id": "1658108",
+      "PRIMARY_NAME_ORG": "Fabulous Freddy's (Trailwood)",
+      "LEGAL_NAME_ORG": "Fabulous LLC",
+      "BUSINESS_ADDR_LINE1": "9611 Trail Wood Drive",
+      "BUSINESS_ADDR_CITY": "Las Vegas",
+      "BUSINESS_ADDR_STATE": "NV",
+      "BUSINESS_ADDR_POSTAL_CODE": "89134",
+      "naic_cd": "811192",
+      "naics_code_description": "Car Washes",
+      "ee_violtd_cnt": "1",
+      "findings_start_date": "2009-06-06",
+      "findings_end_date": "2012-06-05",
+      "ld_dt": "2015-04-01 01:00:03 EDT"
+    }
+  }
+}
