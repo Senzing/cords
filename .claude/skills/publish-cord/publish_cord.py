@@ -621,7 +621,7 @@ class Context:
     def pull_request(self, version):
         # MATCH ONLY OUR OWN RELEASE BRANCH. `gh pr list --head` matches on the
         # branch NAME, and a fork carries the same names: this repository is
-        # public and forkable, so anyone can push `release-<version>` to a fork
+        # public, so anyone can fork it, push `release-<version>` to the fork
         # and open a pull request from it. Without the owner check below,
         # prepare() would find that pull request, report success WITHOUT
         # creating the real release branch -- skipping check_tree() and every
