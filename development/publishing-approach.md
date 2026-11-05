@@ -1,7 +1,6 @@
 # CORD publishing approach
 
-Decision record for [issue #1](https://github.com/Senzing/cords/issues/1),
-copied from senzing-garage/cord-development#4.
+Decision record copied from senzing-garage/cord-development#4.
 
 ## Decision
 
@@ -32,7 +31,8 @@ A writer to this repository, in Claude Code:
    `REGIONS`, and `--remove <name>` takes a file out of the manifest.
 4. **`/publish-cord`** runs that upload itself, asks for the SemVer bump, renames the draft to
    the new version, and opens a `release-<version>` pull request that updates `manifest.json`,
-   `CHANGELOG.md`, the catalog `docs/cords.md` (which README links to) and
+   `CHANGELOG.md`, the catalog in `docs/` (`index.html`, `cords.html`, the `cords.md` stub,
+   `SHA256SUMS` and `urls.txt`, served on GitHub Pages, which README links to) and
    `development/CORD_stats.xlsx` with its CSV copy `development/CORD_stats.csv`. After the user approves the merge, it publishes the Release on the merge
    commit.
 5. **`check-releases.yml`** runs `download_senzing_ready.py --verify` weekly. It fails if a
@@ -78,9 +78,9 @@ per-file limit for git:
 
 `npi-lasvegas.jsonl` (67,818,080 bytes) is over the 50 MiB warning threshold.
 
-This document compares the approaches for senzing-garage/cord-development, where GitHub Pages
-already serves `main:/docs`. This repository is a test copy of it, and the proof of concept is
-published here.
+The comparison below was made for senzing-garage/cord-development, where GitHub Pages already
+served `main:/docs` alongside reference documents. Approach 1's URL and the reference-document
+rows refer to that repository; the decision carried over unchanged to `Senzing/cords`.
 
 ## The four approaches
 
@@ -204,10 +204,8 @@ pass GitHub's recommendation that repositories stay "ideally less than 1 GB".
   instead of by position. An insertion would then change one shard rather than every later
   one.
 
-A follow-up issue covers the rest:
-
-- [#42](https://github.com/Senzing/cords/issues/42): moving the rest of
-  the 21 files and changing the [CORD page] links.
+A follow-up issue will cover the rest: moving the 21 files here and changing the [CORD page]
+links.
 
 ## Appendix: the 21 files
 
