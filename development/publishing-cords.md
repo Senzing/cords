@@ -11,9 +11,11 @@ You need write access to this repository. Without it, see
    `<source>-<region>.jsonl`, such as `gleif-london.jsonl`.
    - A new region first needs an entry in `REGIONS` in
      `.claude/skills/upload-senzing-ready/upload_senzing_ready.py`.
-   - A new source or region name, and any unusual word in its `cords.json` entry, goes in the
-     `words` list of `.vscode/cspell.json`. Otherwise the required spellcheck fails on the
-     release pull request.
+   - A new source or region name, and any unusual word in the other fields of its `cords.json`
+     entry, such as the synopsis, goes in the `words` list of `.vscode/cspell.json`. Otherwise
+     the required spellcheck fails on the release pull request. The `sample_record` is not
+     spellchecked: an `overrides` entry in `.vscode/cspell.json` skips it in `cords.json` and
+     in `docs/cords.html`.
    - To remove a file, run `/upload-senzing-ready --remove <name>` instead.
 4. Run `/publish-cord`. It uploads the new and changed files, asks which part of the version to
    bump, and opens a `release-<version>` pull request. The pull request needs a review from
