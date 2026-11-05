@@ -1,0 +1,10 @@
+rules:
+  unpinned-uses:
+    config:
+      policies:
+        # Hash-pin anything we do not own: a tag can be moved under us and a
+        # moved tag executes in CI. senzing-factory/* is ours, so it is
+        # consumed at the floating major tag and a fix reaches every consumer
+        # without a pull request to each one.
+        "*": hash-pin
+        "senzing-factory/*": ref-pin
