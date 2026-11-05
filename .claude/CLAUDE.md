@@ -2,47 +2,169 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Repository Purpose
+## What this repository is
 
-`cords` in the Senzing organization. The repository currently holds only its
-community artifacts — README, CONTRIBUTING, CODE_OF_CONDUCT, LICENSE,
-CHANGELOG, SECURITY, docs and the GitHub workflows. Project content is added by
-the development team.
+<https://github.com/Senzing/cords> publishes the Senzing Collections of Relatable Data (CORD):
+Senzing-ready JSONL files, each a GitHub Release asset, listed in a catalog on GitHub Pages. It
+has no application code or build.
 
-Development work happens in [senzing-garage/cord-development](https://github.com/senzing-garage/cord-development).
+It started empty: today it holds one CORD, `us_labor_violations-lasvegas.jsonl`. The 21 files
+on the [CORD page](https://senzing.com/senzing-ready-data-collections-cord/), about 1.68 GB in
+all and served from `https://senzing.com/datasets/`, move here later (see Constraints).
 
-## CI/CD and Automation
+Two constants in `.claude/skills/publish-cord/publish_cord.py` hold the URLs: `REPO_URL`
+(`https://github.com/Senzing/cords`) and `PAGES_URL`, the GitHub Pages base URL
+(`https://hub.senzing.com/cords/`).
 
-GitHub Actions workflows use reusable workflows from [senzing-factory/build-resources](https://github.com/senzing-factory/build-resources).
-Each one is described in [.github/workflows/README.md](../.github/workflows/README.md):
+## Repository layout
 
-- **add-labels-standardized.yaml**: adds labels to new issues
-- **add-to-project-senzing-dependabot.yaml**: adds Dependabot PRs to the Senzing organization project board
-- **add-to-project-senzing.yaml**: adds issues to the Senzing organization project board
-- **check-claude-attribution.yaml**: fails a PR carrying Claude attribution in its commits or description
-- **claude-pr-review.yaml**: automated review comment on opened and updated PRs
-- **dependabot-approve-and-merge.yaml**: auto-approves and merges Dependabot PRs
-- **link-issues-to-pr-post-merge.yaml**: links referenced issues when a PR merges
-- **lint-workflows.yaml**: runs super-linter on pull requests to main
-- **move-pr-to-done-dependabot.yaml**: moves a merged PR to "Done" on the project board
-- **spellcheck.yaml**: runs cspell on PRs to main
+- `development/`: Markdown for developers and the data behind the catalog.
+  `publishing-approach.md`, `publishing-cords.md`, `submit-without-write-access.md` and
+  `bulk-download.md`;
+  `cords.json`, the hand-edited synopsis, primary source, license, snapshot date,
+  `DATA_SOURCE` code and sample record of each file; and `CORD_stats.xlsx` with its copy
+  `CORD_stats.csv`.
+- `docs/`: only what GitHub Pages serves from `main:/docs`, at the `PAGES_URL` above: the
+  generated `index.html`, `cords.html`, `cords.md` stub, `SHA256SUMS` and `urls.txt`, and
+  `.nojekyll`.
+- `.claude/skills/`: the `/upload-senzing-ready`, `/publish-cord` and `/download-senzing-ready`
+  skills and their tests.
+- `bin/`: `get_cord_stats.py`, which computes the stats rows, and its tests;
+  `json2attribute.py` and `sz_default_config.json` (the default Senzing configuration), which
+  it uses to count features.
+- `manifest.json`: one entry per data file (see below).
+- `senzing-ready/`: gitignored local working directory for the data files. Only its
+  `.placeholder` is committed.
+- `.github/`: `workflows/` (`test.yml` and `check-releases.yml` for CORDs, the rest shared
+  Senzing workflows), `ISSUE_TEMPLATE/submit-cord.yml` (the **Submit a CORD file** form for
+  contributors without write access; see `development/submit-without-write-access.md`),
+  `linters/` (super-linter configuration, including `zizmor.yaml`) and `CODEOWNERS`
+  (`@Senzing/senzing-devsecops` reviews `.github/`, `@Senzing/senzing-community` the rest).
+- `.claude/commands/senzing.md`: the shared `/senzing` command.
+- `.vscode/cspell.json`: the spell-check word list that CI uses.
 
-## Attribution
+## How the data is published
 
-Commits and pull request descriptions must carry no Claude attribution — no
-`Co-Authored-By` trailer, no "Generated with Claude Code" line. Every commit is
-made and signed by the human who verified it. `check-claude-attribution.yaml`
-enforces this on every pull request.
+`development/publishing-approach.md` records the decision and its reasoning. Read it before
+changing anything about storage. In short:
 
-## Spelling
+- **The data files never go in git.** CORDs can exceed GitHub's 100 MiB file limit (two of the
+  21 senzing.com files do), so `senzing-ready/` is gitignored as a local working directory.
+- **Each file is a GitHub Release asset** of the Release where it last changed. That gives
+  it a public `curl` URL, the entry's `url` in `manifest.json`:
+  `https://github.com/Senzing/cords/releases/download/<tag>/<file>`.
+- **Unreleased files are staged on a draft Release tagged `unreleased`.** `/publish-cord`
+  renames it to the version it releases, so the files are never uploaded twice. A draft is
+  visible only to the repository's writers. Each asset's `digest` is checked against the
+  manifest's `sha256`.
+- **`manifest.json` is the source of truth in git.** It has one entry per file: `name`,
+  `size`, `sha256`, `tag`, `url` and an optional `source`.
+  `tag` and `url` are `null` until the file is released. A data change is a PR that edits
+  it.
+- **`source` is the file's senzing.com URL when that copy has the same SHA-256.**
+  `/upload-senzing-ready` sets it for each added or changed file: it compares the `Content-Length`
+  of `https://senzing.com/datasets/<name>` with the file's size, and downloads and hashes the copy
+  only when they match. `source` is `null` after a 404 or a mismatch; any other failure
+  stops the run before anything is uploaded. A repaired file keeps its `source`.
+- **Versions are bare SemVer tags** (`0.2.0`), each a Release holding only the files new or
+  changed in that version. `releases/latest/download/<file>` therefore works only for files
+  changed in the newest Release.
 
-Spellcheck runs on every pull request against [.vscode/cspell.json](../.vscode/cspell.json).
-New project vocabulary belongs in that word list rather than in a linter suppression.
+## Commands
 
-## CHANGELOG Convention
+`/upload-senzing-ready` (`.claude/skills/upload-senzing-ready/`) uploads new and changed
+`senzing-ready/*.jsonl` files to the `unreleased` draft and updates `manifest.json` and the `[Unreleased]` section of `CHANGELOG.md`. It commits
+nothing. `/publish-cord` (`.claude/skills/publish-cord/`) publishes them:
 
-CHANGELOG.md follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format with [Semantic Versioning](https://semver.org/). Changes are manually curated (not auto-generated) to describe user-facing impacts.
+- it first runs the upload itself (`publish_cord.py upload`): a preview, then the upload, stopping
+  on any refused file; it skips this while resuming a draft;
+- it asks for the SemVer bump;
+- its `status` step stops on a file being released that has no `development/cords.json` entry;
+- it renames the `unreleased` draft to `<version>`, and opens a `release-<version>` PR that
+  also regenerates the catalog files in `docs/`, commits `development/cords.json`,
+  and rewrites the files' rows in `development/CORD_stats.xlsx` (through
+  `bin/get_cord_stats.py`, which also rewrites `development/CORD_stats.csv` from it); it never
+  changes `README.md`, which links to the catalog on GitHub Pages;
+- it asks before merging;
+- it then publishes the draft on the merge commit.
 
-## Claude Slash Commands
+The CORD catalog is generated by `publish_cord.py catalog` and never edited by hand. It runs
+offline (no network, `gh` or `senzing-ready/`):
 
-- `/senzing` - Runs steps from the centralized senzing command
+- inputs: `manifest.json`, `development/cords.json`, `REGIONS`, `development/CORD_stats.csv`
+  and `CHANGELOG.md`;
+- outputs: `docs/index.html` (the landing page), `docs/cords.html` (the catalog, one section
+  per region), the `docs/cords.md` stub that links to it, and `docs/SHA256SUMS` and
+  `docs/urls.txt`, the released files' checksums and URLs for bulk downloads
+  (`development/bulk-download.md`);
+- it stops when a released file has no `cords.json` entry or no stats row, when a
+  `cords.json` entry has no manifest entry, when a released file's tag has no
+  `## [<tag>] - <date>` heading in `CHANGELOG.md`, or on a region missing from `REGIONS`;
+- a `null` field in `cords.json` renders as "Not stated".
+
+After a manifest change outside a release, such as `/upload-senzing-ready --remove`, rerun it.
+A test fails while the HTML is out of date. To add the `cords.json` entry for a new CORD, see
+[Add a `cords.json` entry](../development/publishing-cords.md#add-a-cordsjson-entry).
+
+`/download-senzing-ready` (`.claude/skills/download-senzing-ready/`) fills `senzing-ready/` from the
+manifest. All three stop if only an old `jsonl/` directory exists; move it with
+`mv jsonl senzing-ready`.
+
+- released files come from their Release URL, and unreleased ones from the `unreleased`
+  draft (which needs `gh auth login`);
+- each file's SHA-256 is checked;
+- a locally modified file is kept unless named with `--force <name>`.
+
+`download_senzing_ready.py --verify` writes nothing: it checks each released file's
+Release asset `digest` (through `gh`, without downloading it) and, when it has a `source`,
+the senzing.com copy against the manifest's `sha256`. `.github/workflows/check-releases.yml`
+runs it weekly and on `workflow_dispatch`, and fails on any mismatch or missing file.
+
+`publish_cord.py` and `download_senzing_ready.py` import shared helpers from
+`upload_senzing_ready.py`. Tests:
+
+```bash
+for s in upload-senzing-ready publish-cord download-senzing-ready; do
+  python3 -m unittest discover -s .claude/skills/$s -p 'test_*.py'
+done
+python3 -m unittest discover -s bin -p 'test_*.py'   # skipped without openpyxl
+```
+
+CI on a pull request:
+
+- **`test.yml`** runs these tests on every pull request and on pushes to `main`, on Python 3.10
+  and 3.12, after `pip install .`, and fails if `openpyxl` is missing rather than skipping the
+  `bin` tests. Its `markdownlint` job runs the lint command below with `markdownlint-cli`
+  0.48.0. It is not a required check, so read its result before merging.
+- **`spellcheck`** (required) runs cspell with `.vscode/cspell.json`. Add new words, such as a
+  new source or region name, to its `words` list. `bin/sz_default_config.json` is skipped.
+- **`lint-workflows`** (required) runs super-linter on changes under `.github/`. Its zizmor
+  rules (`.github/linters/zizmor.yaml`) need every action outside `senzing-factory/` pinned to a
+  commit SHA, with the tag in a comment; Prettier and yamllint check YAML formatting.
+
+File names must be `<source>-<region>.jsonl`; `REGIONS` in `upload_senzing_ready.py` maps each
+region to its catalog heading. `/upload-senzing-ready` refuses other names, and `/publish-cord`
+applies the same check. The only Python dependency, `openpyxl`, is in `pyproject.toml`
+(`pip install .`).
+
+```bash
+# Verify: each must print the manifest's sha256
+curl -fsSL https://senzing.com/datasets/<file> | sha256sum
+curl -fsSL <release-url> | sha256sum
+
+# The digest of every asset on the staging draft
+gh release view unreleased --json assets --jq '.assets[] | "\(.name) \(.digest)"'
+
+# Lint, as CI does (.markdownlint.json: MD013 and MD041 off, MD024 siblings_only;
+# .markdownlintignore skips .claude/worktrees/). Quote the globs so markdownlint expands them.
+markdownlint README.md CHANGELOG.md 'docs/*.md' 'development/*.md' '.claude/*.md' '.claude/**/*.md'
+```
+
+## Constraints
+
+- **Don't change upstream.** Don't change links on the CORD page
+  (<https://senzing.com/senzing-ready-data-collections-cord/>), and don't remove anything from
+  `https://senzing.com/datasets/`. Moving the rest of the 21 files and updating those links
+  is follow-up work.
+- **Check SHA-256 on every publish.** A Release asset must match the copy on senzing.com and
+  the manifest entry.

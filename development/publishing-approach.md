@@ -1,0 +1,239 @@
+# CORD publishing approach
+
+Decision record copied from senzing-garage/cord-development#4.
+
+## Decision
+
+Publish each CORD JSONL file as a **GitHub Release asset, recorded in a manifest in git**.
+This gives every file a stable public HTTPS URL that downloads with `curl` and no
+authentication.
+
+Before it is released, a file is staged on a **draft Release tagged `unreleased`**.
+`/publish-cord` renames that draft to the version it releases, so a file is uploaded once.
+Each asset's `digest` is checked against the manifest's SHA-256.
+
+`manifest.json` at the repository root holds one entry per file, giving its name, size in
+bytes, SHA-256, Release tag, download URL and, optionally, its senzing.com `source`. A data
+change is a pull request that edits the manifest.
+
+The reasons are in [Why this approach](#why-this-approach).
+
+## Current workflow
+
+A writer to this repository, in Claude Code:
+
+1. **`/download-senzing-ready`** fills the gitignored `senzing-ready/` directory from
+   `manifest.json`, checking each file's SHA-256.
+2. Add or edit `senzing-ready/<source>-<region>.jsonl`.
+3. **`/upload-senzing-ready`** uploads the new and changed files to the `unreleased` draft
+   Release, and records them in `manifest.json` (with `tag` and `url` still `null`) and the
+   `[Unreleased]` section of `CHANGELOG.md`. It refuses a file whose region isn't in
+   `REGIONS`, and `--remove <name>` takes a file out of the manifest.
+4. **`/publish-cord`** runs that upload itself, asks for the SemVer bump, renames the draft to
+   the new version, and opens a `release-<version>` pull request that updates `manifest.json`,
+   `CHANGELOG.md`, the catalog in `docs/` (`index.html`, `cords.html`, the `cords.md` stub,
+   `SHA256SUMS` and `urls.txt`, served on GitHub Pages, which README links to) and
+   `development/CORD_stats.xlsx` with its CSV copy `development/CORD_stats.csv`. After the user approves the merge, it publishes the Release on the merge
+   commit.
+5. **`check-releases.yml`** runs `download_senzing_ready.py --verify` weekly. It fails if a
+   released file's asset `digest`, or its senzing.com copy, no longer matches the manifest's
+   `sha256`.
+
+### A submission from a contributor without write access
+
+A contributor without write access opens a **Submit a CORD file** issue, from
+`.github/ISSUE_TEMPLATE/submit-cord.yml`. It gives the file name, a public download URL, the
+size in bytes and the SHA-256.
+[Submit a CORD without write access](submit-without-write-access.md) has the contributor's
+steps. A writer, in a clone:
+
+1. **Downloads** the file: `curl -fsSL -o senzing-ready/<name> <url>`.
+2. **Checks** that `stat -c %s senzing-ready/<name>` and `sha256sum senzing-ready/<name>` print
+   the size and SHA-256 in the issue.
+3. **Runs `/publish-cord`**, whose upload step applies the upload checks: a
+   `<source>-<region>.jsonl` name, a region in `REGIONS`, at most 2 GiB, and every line valid
+   JSON.
+4. **Closes the issue** with a link to the Release.
+
+If the download fails, the size or SHA-256 doesn't match, or the upload refuses the file, the
+writer publishes nothing and says why in a comment on the issue. The contributor then posts a
+corrected link or values. `/publish-cord` stops on any refused file, and a new region needs a
+writer to add it to `REGIONS` first. A replacement for an existing file is handled the same way
+as a new one: the upload treats a changed SHA-256 as a change.
+
+The contributor's URL is not recorded as the manifest's `source`. `check-releases.yml`
+re-downloads every `source` weekly, and would fail once the contributor removed their copy. The
+URL stays only in the issue. The published Release asset is the only copy that matters, so the
+contributor can delete theirs once the issue is closed.
+
+## Context
+
+The [CORD page] links 21 JSONL files, all served from `https://senzing.com/datasets/`. The
+sizes, checked on 2026-10-27 with `curl -I`, total 1,684,130,512 bytes (1.68 GB); see
+[Appendix: the 21 files](#appendix-the-21-files). Two of them are over GitHub's 100 MiB
+per-file limit for git:
+
+- `opendata-lasvegas.jsonl` is 980,688,237 bytes.
+- `equifax-lasvegas.jsonl` is 476,799,997 bytes.
+
+`npi-lasvegas.jsonl` (67,818,080 bytes) is over the 50 MiB warning threshold.
+
+The comparison below was made for senzing-garage/cord-development, where GitHub Pages already
+served `main:/docs` alongside reference documents. Approach 1's URL and the reference-document
+rows refer to that repository; the decision carried over unchanged to `Senzing/cords`.
+
+## The four approaches
+
+| # | Approach | Where the bytes live |
+| --- | --- | --- |
+| 1 | GitHub Pages from `/docs` | Committed under `docs/` and served by Pages |
+| 2 | A normal folder in git | Committed in a folder and served by `raw.githubusercontent.com` |
+| 3 | Manifest in git, files as Release assets | Attached to a GitHub Release |
+| 4 | Shards in git, rejoined by a tag workflow into Release assets | Shards committed in git, plus the rejoined files as Release assets |
+
+## Comparison
+
+| Criterion | 1 Pages | 2 Folder | 3 Release | 4 Shards |
+| --- | --- | --- | --- | --- |
+| Every one of the 21 files gets a stable public HTTPS URL that downloads with `curl` and no authentication | No | No | **Yes** | **Yes** |
+| Holds all 21 files | No | No | **Yes** | **Yes** |
+| Has to split files | Cannot help | Cannot help | **No** | Yes, 2 files |
+| A data change shows in a PR as a diff of the records that changed | Partly | Partly | No | **Yes** |
+| Data sits in the tree that `actions/checkout` fetches | Yes | Yes | **No** | Yes |
+| Updating a file adds a full copy to the history `git clone` downloads | Yes | Yes | **No** | Yes |
+
+The sections below give the reasoning behind each cell, and how a contributor adds or updates a
+file larger than 100 MiB.
+
+### 1. GitHub Pages from `/docs`
+
+- **URL:** a committed file is served at `https://garage.senzing.com/cord-development/<path>`,
+  which is public, works with `curl` and needs no authentication. The two large files can't be
+  committed, so they get no URL.
+- **Capacity:** no. GitHub blocks a push of any file over 100 MiB. "Git LFS cannot be used with
+  GitHub Pages sites", so LFS can't get around that. Splitting would get the files past git,
+  but Pages would then serve shards rather than the files. The total of 1.68 GB is also over
+  the 1 GB limit for a published Pages site.
+- **PR diff:** partly. Git computes a record-level diff, but GitHub's pull request view doesn't
+  render large diffs by default, so a reviewer has to load them file by file.
+- **Checkout:** every workflow's `actions/checkout` fetches the data, unless it uses
+  `sparse-checkout` to leave `docs/` out. Here that would also drop the reference documents
+  stored next to the data in `docs/`.
+- **History:** each update stores a new blob of the whole file, and `git clone` downloads all
+  of them. Pack delta compression can shrink small edits, but git skips it for files over
+  `core.bigFileThreshold` (512 MiB by default).
+- **Files over 100 MiB:** a contributor can't add one at all.
+
+### 2. A normal folder in git
+
+The same as approach 1, except that the URL is
+`https://raw.githubusercontent.com/<owner>/<repo>/<ref>/<path>`, and Pages' 1 GB site limit
+doesn't apply. The 100 MiB block still rules out the two large files, and the repository would
+pass GitHub's recommendation that repositories stay "ideally less than 1 GB".
+
+### 3. Manifest in git, files as Release assets
+
+- **URL:** yes.
+  `https://github.com/<owner>/<repo>/releases/download/<tag>/<file>` redirects to GitHub's asset
+  host, so `curl -fsSL` (which follows redirects) downloads it with no authentication. The URL
+  stays stable as long as the Release and its tag are kept. Each Release holds only the files
+  new or changed in it, so `releases/latest/download/<file>` works only for files changed in
+  the newest Release; the manifest's `url` is the link that always works.
+- **Capacity:** yes, without splitting. "Each file included in a release must be under 2 GiB",
+  and `opendata-lasvegas.jsonl` is about half that. A Release can hold up to 1000 assets, and
+  "there is no limit on the total size of a release, nor bandwidth usage."
+- **PR diff:** no. The pull request shows the manifest's new size and SHA-256, not the records.
+- **Checkout:** no. Only the manifest is in the tree.
+- **History:** no. Git stores only manifest edits.
+- **Files over 100 MiB:** no different from any other file. A writer puts it in
+  `senzing-ready/` and runs `/upload-senzing-ready` and then `/publish-cord`, as in
+  [Current workflow](#current-workflow); the pull request edits only the manifest. A
+  contributor without write access hosts the file and opens an issue, as in
+  [A submission from a contributor without write access](#a-submission-from-a-contributor-without-write-access).
+
+### 4. Shards in git, rejoined by a tag workflow into Release assets
+
+- **URL:** yes, as in approach 3. The workflow attaches each rejoined file to the Release.
+- **Capacity:** yes, but only by splitting the two files over 100 MiB. `split -C 45M` breaks a
+  file only at line ends. By the issue's measurement, it turns `opendata-lasvegas.jsonl` into
+  21 shards of 37.0 to 47.2 MB, each valid JSONL on its own, and `cat` of the shards in order
+  has the same SHA-256 as the original. 45M means 45 MiB, so each shard is under both the
+  100 MiB block and the 50 MiB warning. The repository holds the full 1.68 GB, which is past
+  the recommended 1 GB.
+- **PR diff:** yes. Each shard is JSONL, so the pull request shows the changed records, subject
+  to the large-diff rendering limit from approach 1.
+- **Checkout:** yes. Every workflow fetches 1.68 GB unless it uses `sparse-checkout`.
+- **History:** yes. Shards cut by size shift when records are added or removed, so an insertion
+  near the start of `opendata-lasvegas.jsonl` changes every later shard. That is about 1 GB of
+  new objects for a small edit.
+- **Files over 100 MiB:** the contributor splits the file with `split -C 45M` and commits the
+  shards in a pull request.
+
+## Limits and edge cases
+
+| Limit | 1 Pages | 2 Folder | 3 Release | 4 Shards |
+| --- | --- | --- | --- | --- |
+| Git blocks a pushed file over 100 MiB and warns over 50 MiB | Blocks 2 files; `npi-lasvegas.jsonl` warns | Blocks 2 files; `npi-lasvegas.jsonl` warns | Not in git | Shards stay under 45 MiB; `npi-lasvegas.jsonl` must be split too, or it warns |
+| Repository recommended under 1 GB (all files 1.68 GB) | Exceeded | Exceeded | Manifest only | Exceeded |
+| Pages site limited to 1 GB | Exceeded | Not used | Not used | Not used |
+| Pages does not serve Git LFS files | Rules out LFS | Not used | Not used | Not used |
+| Release asset limited to 2 GiB | Not used | Not used | Largest file is 0.98 GB | Largest rejoined file is 0.98 GB |
+| Every revision adds a full copy to history | Yes | Yes | No | Yes |
+| Size-cut shards shift on insertion | No shards | No shards | No shards | About 1 GB per small early edit |
+| `actions/checkout` fetches committed data | Yes, unless sparse | Yes, unless sparse | No | Yes, unless sparse |
+| Pages already serves `main:/docs` (legacy Jekyll build) | Data would share `docs/` with the reference documents | Unaffected | Unaffected | Unaffected |
+
+## Why this approach
+
+- **Only approaches 3 and 4 meet the hard requirement:** a stable public `curl` URL for all 21
+  files. Approaches 1 and 2 can't hold the two large files.
+- **Approach 3 meets it without the costs of approach 4.** It needs no splitting, adds nothing
+  to the history `git clone` downloads, and keeps the data out of `actions/checkout`. Approach 4
+  buys record-level pull request diffs, but at 1.68 GB in the tree, a repository over GitHub's
+  recommended size, and about 1 GB of history for a small edit to the largest file.
+- **The cost is that pull requests show manifest changes, not record changes.** Reviewing the
+  records themselves is left to the data-quality gate tracked by
+  senzing-garage/cord-development#1.
+
+## Later improvements
+
+- Turn on GitHub's immutable releases, so that once a Release is published its tag can't be
+  moved and its assets can't be modified or deleted. That makes every Release asset URL in the
+  manifest permanent.
+- If shards in git are ever revisited, assign records to shards by a hash of `RECORD_ID`
+  instead of by position. An insertion would then change one shard rather than every later
+  one.
+
+A follow-up issue will cover the rest: moving the 21 files here and changing the [CORD page]
+links.
+
+## Appendix: the 21 files
+
+Sizes from `curl -I https://senzing.com/datasets/<file>` on 2026-10-27.
+
+| File | Bytes |
+| --- | ---: |
+| `ofac-london.jsonl` | 102,967 |
+| `icij-lasvegas.jsonl` | 164,513 |
+| `open_sanctions-london.jsonl` | 257,591 |
+| `us_labor_violations-lasvegas.jsonl` | 1,053,930 |
+| `gleif-moscow.jsonl` | 1,169,270 |
+| `gleif-lasvegas.jsonl` | 1,432,781 |
+| `open_ownership-lasvegas.jsonl` | 1,518,843 |
+| `ofac-moscow.jsonl` | 1,643,552 |
+| `ppp_loans_over_150k-lasvegas.jsonl` | 2,103,822 |
+| `open_ownership-moscow.jsonl` | 3,149,530 |
+| `nominodata_risk-moscow.jsonl` | 3,626,050 |
+| `open_sanctions-moscow.jsonl` | 8,583,131 |
+| `nominodata_combined-lasvegas.jsonl` | 10,907,715 |
+| `icij-moscow.jsonl` | 12,677,071 |
+| `profound-lasvegas.jsonl` | 18,495,735 |
+| `icij-london.jsonl` | 19,183,306 |
+| `globaldata-london_central_a.jsonl` | 27,592,117 |
+| `gleif-london.jsonl` | 45,162,274 |
+| `npi-lasvegas.jsonl` | 67,818,080 |
+| `equifax-lasvegas.jsonl` | 476,799,997 |
+| `opendata-lasvegas.jsonl` | 980,688,237 |
+| **Total** | **1,684,130,512** |
+
+[CORD page]: https://senzing.com/senzing-ready-data-collections-cord/

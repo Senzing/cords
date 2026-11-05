@@ -35,6 +35,15 @@ description after a clean run would leave the required check green.
 - [Check Claude Attribution GitHub Action]
   - Uses: [senzing-factory/build-resources/.../check-claude-attribution.yaml]
 
+## check-releases.yml
+
+Every Monday at 06:23 UTC, and on demand (`workflow_dispatch`),
+this action runs `download_senzing_ready.py --verify`.
+It fails if a released CORD file's Release asset `digest`,
+or its senzing.com copy, no longer matches `manifest.json`, or if either is missing.
+
+- [Check Releases GitHub Action]
+
 ## claude-pr-review.yaml
 
 When a Pull Request is opened or updated,
@@ -91,19 +100,32 @@ this action runs [cspell] against the repository.
     - [.vscode/cspell.json]
   - Uses: [senzing-factory/build-resources/.../cspell.yaml]
 
+## test.yml
+
+When a Pull Request is made, or a commit is pushed to the `main` branch,
+this action runs the unit tests of the CORD skills and `bin/` on Python 3.10 and 3.12,
+and runs [markdownlint] on the Markdown files.
+
+- [Test GitHub Action]
+  - Configuration:
+    - [.markdownlint.json]
+
 [.checkov.yaml]: ../linters/README.md#checkovyaml
 [.jscpd.json]: ../linters/README.md#jscpdjson
+[.markdownlint.json]: ../../.markdownlint.json
 [.vscode/cspell.json]: ../../.vscode/cspell.json
 [.yaml-lint.yml]: ../linters/README.md#yaml-lintyml
 [Add Labels Standardized GitHub Action]: add-labels-standardized.yaml
 [Add to Project Senzing Dependabot GitHub Action]: add-to-project-senzing-dependabot.yaml
 [Add to Project Senzing GitHub Action]: add-to-project-senzing.yaml
 [Check Claude Attribution GitHub Action]: check-claude-attribution.yaml
+[Check Releases GitHub Action]: check-releases.yml
 [Claude PR Review GitHub Action]: claude-pr-review.yaml
 [cspell]: https://cspell.org/
 [Dependabot Approve and Merge GitHub Action]: dependabot-approve-and-merge.yaml
 [Link Issues to PR Post Merge GitHub Action]: link-issues-to-pr-post-merge.yaml
 [Lint Workflows GitHub Action]: lint-workflows.yaml
+[markdownlint]: https://github.com/DavidAnson/markdownlint
 [Move PR to Done Dependabot GitHub Action]: move-pr-to-done-dependabot.yaml
 [move-pr-to-done-dependabot.yaml]: move-pr-to-done-dependabot.yaml
 [senzing-factory/build-resources/.../add-labels-to-issue.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/add-labels-to-issue.yaml
@@ -118,4 +140,5 @@ this action runs [cspell] against the repository.
 [senzing-factory/build-resources/.../move-pr-to-done-dependabot.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/move-pr-to-done-dependabot.yaml
 [Spellcheck GitHub Action]: spellcheck.yaml
 [super-linter]: https://github.com/super-linter/super-linter
+[Test GitHub Action]: test.yml
 [zizmor.yaml]: ../linters/README.md#zizmoryaml
