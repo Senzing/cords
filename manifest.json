@@ -2,11 +2,11 @@
   "files": [
     {
       "name": "us_labor_violations-lasvegas.jsonl",
-      "size": 0,
-      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-      "tag": "0.0.0",
-      "url": "https://github.com/Senzing/cords/releases/download/0.0.0/us_labor_violations-lasvegas.jsonl",
-      "source": null
+      "size": 1053930,
+      "sha256": "160a12a46d426ba03f9bfeb629b9bf206fcbd58131fc8e106d796aa68d337080",
+      "tag": "0.0.1",
+      "url": "https://github.com/Senzing/cords/releases/download/0.0.1/us_labor_violations-lasvegas.jsonl",
+      "source": "https://senzing.com/datasets/us_labor_violations-lasvegas.jsonl"
     }
   ]
 }
