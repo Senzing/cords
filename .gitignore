@@ -11,4 +11,5 @@
 .coverage
 
 .history
+senzing-ready/
 __pycache__/
