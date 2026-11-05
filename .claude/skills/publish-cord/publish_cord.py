@@ -619,11 +619,28 @@ class Context:
         ]
 
     def pull_request(self, version):
+        # MATCH ONLY OUR OWN RELEASE BRANCH. `gh pr list --head` matches on the
+        # branch NAME, and a fork carries the same names: this repository is
+        # public and forkable, so anyone can push `release-<version>` to a fork
+        # and open a pull request from it. Without the owner check below,
+        # prepare() would find that pull request, report success WITHOUT
+        # creating the real release branch -- skipping check_tree() and every
+        # blocker -- and publish() would then merge a stranger's commit into
+        # `main` under the maintainer's own credentials, into the repository
+        # whose .claude/skills the next maintainer executes.
+        #
+        # baseRefName is checked too: a pull request targeting some other branch
+        # is not this release either.
         prs = gh_json(
             self.root, "pr", "list", "--head", f"release-{version}", "--state", "all",
-            "--json", "number,state,url,mergeCommit",
+            "--json", "number,state,url,mergeCommit,headRepositoryOwner,baseRefName",
         )
-        return prs[0] if prs else None
+        ours = [
+            p for p in prs
+            if (p.get("headRepositoryOwner") or {}).get("login") == self.owner
+            and p.get("baseRefName") == BASE
+        ]
+        return ours[0] if ours else None
 
 
 def blockers(ctx):
