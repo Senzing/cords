@@ -142,7 +142,9 @@ CI on a pull request:
   `bin` tests. Its `markdownlint` job runs the lint command below with `markdownlint-cli`
   0.48.0. It is not a required check, so read its result before merging.
 - **`spellcheck`** (required) runs cspell with `.vscode/cspell.json`. Add new words, such as a
-  new source or region name, to its `words` list. `bin/sz_default_config.json` is skipped.
+  new source or region name or a word in a synopsis, to its `words` list.
+  `bin/sz_default_config.json` is skipped, and an `overrides` entry skips the sample records
+  in `development/cords.json` and `docs/cords.html`, so their names and IDs need no entries.
 - **`lint-workflows`** (required) runs super-linter on changes under `.github/`. Its zizmor
   rules (`.github/linters/zizmor.yaml`) need every action outside `senzing-factory/` pinned to a
   commit SHA, with the tag in a comment; Prettier and yamllint check YAML formatting.
