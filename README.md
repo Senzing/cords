@@ -56,30 +56,22 @@ The teams that may appear in a `CODEOWNERS` file can be seen at [github.com/orgs
 
 The [dependabot.yml file] is configuration for [GitHub's dependabot].
 
+### .github/linters
+
+The [.github/linters directory] holds the linter configuration used by [lint-workflows.yaml]. Each file is described in [.github/linters/README.md].
+
 ### .github/senzing-corporate-contributor-license-agreement.pdf
 
 The Senzing, INC. Software Grant and Corporate Contributor License Agreement (CCLA), [senzing-corporate-contributor-license-agreement.pdf], is the standard agreement for a corporation's contribution to a Senzing repository.
-
-#### How to create .github/senzing-corporate-contributor-license-agreement.pdf
-
-1. Make a `.github` directory in the repository.
-1. Copy [senzing-corporate-contributor-license-agreement.pdf] into the new `.github` directory.
-1. _DO NOT_ modify the contents of [senzing-corporate-contributor-license-agreement.pdf] without legal approval.
-1. Reference `senzing-corporate-contributor-license-agreement.pdf` in [CONTRIBUTING.md].
 
 ### .github/senzing-individual-contributor-license-agreement.pdf
 
 The Individual Contributor License Agreement (ICLA), [senzing-individual-contributor-license-agreement.pdf], is the standard agreement for an individual's contribution to a Senzing repository.
 _Note:_ if an individual is contributing on behalf of a company, the [senzing-corporate-contributor-license-agreement] must also be submitted and accepted.
 
-#### How to create .github/senzing-individual-contributor-license-agreement.pdf
-
-1. Make a `.github` directory in the repository.
-1. Copy [senzing-individual-contributor-license-agreement.pdf] into the new `.github` directory.
-1. _DO NOT_ modify the contents of [senzing-individual-contributor-license-agreement.pdf] without legal approval.
-1. Reference `senzing-individual-contributor-license-agreement.pdf` in [CONTRIBUTING.md].
-
 ### .github/workflows
+
+The [.github/workflows directory] holds the GitHub Actions workflows. Each is described in [.github/workflows/README.md].
 
 ## docs
 
@@ -122,15 +114,6 @@ The [CODE_OF_CONDUCT.md file] describes the social conventions among contributor
 
 The [CODE_OF_CONDUCT.md file] in this repository is based on GitHub's "[Contributor Covenant]".
 
-### How to create CODE_OF_CONDUCT.md
-
-1. Option #1: Using GitHub's "Wizard"
-   1. [github.com] > (choose repository) > Insights > Community > Code of conduct > "Add" button > "Contributor Covenant"
-1. Option #2: Manual file creation
-   1. See GitHub's [Adding a code of conduct to your project]
-   1. Alternative `CODE_OF_CONDUCT.md` content:
-      1. [Apache Software Foundation Code of Conduct]
-
 ## CONTRIBUTING.md
 
 The [CONTRIBUTING.md file] describes the process for contributing to the repository.
@@ -140,15 +123,6 @@ The [CONTRIBUTING.md file] describes the process for contributing to the reposit
 >
 > -- <cite>GitHub's [Setting guidelines for repository contributors]</cite>
 
-The [CONTRIBUTING.md file] in this repository is an example that needs to be modified to represent the requirements of the actual repository.
-
-### How to create CONTRIBUTING.md
-
-1. Option #1: Using GitHub's "Wizard"
-   1. [github.com] > (choose repository) > Insights > Community > Contributing > "Add" button
-1. Option #2: Manual file creation
-   1. See GitHub's [Setting guidelines for repository contributors]
-
 ## LICENSE
 
 The `LICENSE` file describes the terms and conditions under which the code in the repository can be used.
@@ -157,23 +131,9 @@ A comparison of licenses can be found at [choosealicense.com].
 
 The [LICENSE file] in this repository is based on "[Apache License 2.0]".
 
-### How to create LICENSE
-
-1. Option #1: Using GitHub's "Wizard".
-   1. When [creating a new repository], in the "Add a license:" drop-down, choose "Apache License 2.0".
-1. Option #2: Manual file creation.
-   1. See GitHub's [Adding a license to a repository].
-
 ## README.md
 
-Although the file you are reading is a `README.md` file, this isn't the style of `README.md` for most projects.
-Depending upon the type of repository, the following `README.md` templates may be more appropriate:
-
-Examples:
-
-1. [template-docker/README.md]
-1. [template-go/README.md]
-1. [template-python/README.md]
+The file you are reading lists the files in this repository and what each is for.
 
 ## SECURITY.md
 
@@ -233,11 +193,14 @@ This includes how to report a suspected vulnerability.
 [.claude/commands/senzing.md file]: .claude/commands/senzing.md
 [.claude/settings.json file]: .claude/settings.json
 [.github/CODEOWNERS file]: .github/CODEOWNERS
+[.github/linters directory]: .github/linters
+[.github/linters/README.md]: .github/linters/README.md
+[.github/workflows directory]: .github/workflows
+[.github/workflows/README.md]: .github/workflows/README.md
+[lint-workflows.yaml]: .github/workflows/README.md#lint-workflowsyaml
 [.vscode/cspell.json file]: .vscode/cspell.json
 [Adding a code of conduct to your project]: https://help.github.com/articles/adding-a-code-of-conduct-to-your-project/
-[Adding a license to a repository]: https://help.github.com/articles/adding-a-license-to-a-repository/
 [Apache License 2.0]: https://www.apache.org/licenses/LICENSE-2.0.html
-[Apache Software Foundation Code of Conduct]: https://www.apache.org/foundation/policies/conduct.html
 [CHANGELOG.md file]: CHANGELOG.md
 [CHANGELOG.md]: #changelogmd
 [choosealicense.com]: https://choosealicense.com/licenses/
@@ -251,7 +214,6 @@ This includes how to report a suspected vulnerability.
 [CONTRIBUTING.md file]: CONTRIBUTING.md
 [CONTRIBUTING.md]: #contributingmd
 [Contributor Covenant]: https://www.contributor-covenant.org/version/3/0/code_of_conduct/
-[creating a new repository]: https://github.com/new
 [cspell.json]: #vscodecspelljson
 [cspell]: https://cspell.org/
 [dependabot.yml file]: .github/dependabot.yml
@@ -262,7 +224,6 @@ This includes how to report a suspected vulnerability.
 [hub.senzing.com]: https://hub.senzing.com/
 [hub.senzing.com/sdk-components-ng]: https://hub.senzing.com/sdk-components-ng/
 [GitHub Pages]: https://pages.github.com/
-[github.com]: https://github.com/
 [github.com/orgs/Senzing/teams]: https://github.com/orgs/Senzing/teams
 [GitHub's dependabot]: https://docs.github.com/en/code-security/dependabot
 [Keep a Changelog]: https://keepachangelog.com/en/1.1.0/
@@ -279,7 +240,4 @@ This includes how to report a suspected vulnerability.
 [senzing-individual-contributor-license-agreement]: #githubsenzing-individual-contributor-license-agreementpdf
 [Setting guidelines for repository contributors]: https://help.github.com/articles/setting-guidelines-for-repository-contributors/
 [settings.json]: #claudesettingsjson
-[template-docker/README.md]: https://github.com/senzing-garage/template-docker/blob/main/README.md
-[template-go/README.md]: https://github.com/senzing-garage/template-go/blob/main/README.md
-[template-python/README.md]: https://github.com/senzing-garage/template-python/blob/main/README.md
 [CLAUDE.md]: .claude/CLAUDE.md

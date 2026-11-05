@@ -29,6 +29,12 @@
 - [yaml-lint]
   - [yaml-lint configuration]
 
+## zizmor.yaml
+
+- [zizmor.yaml]
+- Used by [lint-workflows.yaml]
+- [zizmor]
+
 [.checkov.yaml]: .checkov.yaml
 [.jscpd.json]: .jscpd.json
 [.yaml-lint.yml]: .yaml-lint.yml
@@ -39,3 +45,5 @@
 [lint-workflows.yaml]: ../workflows/README.md#lint-workflowsyaml
 [yaml-lint configuration]: https://yamllint.readthedocs.io/en/stable/configuration.html
 [yaml-lint]: https://github.com/adrienverge/yamllint
+[zizmor.yaml]: zizmor.yaml
+[zizmor]: https://docs.zizmor.sh/

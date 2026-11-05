@@ -94,8 +94,7 @@ this action runs [cspell] against the repository.
 [.checkov.yaml]: ../linters/README.md#checkovyaml
 [.jscpd.json]: ../linters/README.md#jscpdjson
 [.vscode/cspell.json]: ../../.vscode/cspell.json
-
-[.yaml-lint.yml]: ../linters/README.md#yaml-lintyml\n[zizmor.yaml]: ../linters/zizmor.yaml
+[.yaml-lint.yml]: ../linters/README.md#yaml-lintyml
 [Add Labels Standardized GitHub Action]: add-labels-standardized.yaml
 [Add to Project Senzing Dependabot GitHub Action]: add-to-project-senzing-dependabot.yaml
 [Add to Project Senzing GitHub Action]: add-to-project-senzing.yaml
@@ -119,3 +118,4 @@ this action runs [cspell] against the repository.
 [senzing-factory/build-resources/.../move-pr-to-done-dependabot.yaml]: https://github.com/senzing-factory/build-resources/blob/main/.github/workflows/move-pr-to-done-dependabot.yaml
 [Spellcheck GitHub Action]: spellcheck.yaml
 [super-linter]: https://github.com/super-linter/super-linter
+[zizmor.yaml]: ../linters/README.md#zizmoryaml
