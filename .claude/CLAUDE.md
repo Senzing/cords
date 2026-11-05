@@ -4,13 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repository is
 
-A test copy of senzing-garage/cord-development, used to work out how to publish the Senzing
-Collections of Relatable Data (CORD): 21 JSONL files, about 1.68 GB in all, served today from
-`https://senzing.com/datasets/`. It has no application code or build.
+<https://github.com/Senzing/cords> publishes the Senzing Collections of Relatable Data (CORD):
+Senzing-ready JSONL files, each a GitHub Release asset, listed in a catalog on GitHub Pages. It
+has no application code or build.
 
-It is a spike: its contents will move to <https://github.com/Senzing/cords>. Two constants in
-`.claude/skills/publish-cord/publish_cord.py` keep that move small: `REPO_URL`, the repository
-base URL, and `PAGES_URL`, the GitHub Pages base URL
+It started empty: today it holds one CORD, `us_labor_violations-lasvegas.jsonl`. The 21 files
+on the [CORD page](https://senzing.com/senzing-ready-data-collections-cord/), about 1.68 GB in
+all and served from `https://senzing.com/datasets/`, move here later (see Constraints).
+
+Two constants in `.claude/skills/publish-cord/publish_cord.py` hold the URLs: `REPO_URL`
+(`https://github.com/Senzing/cords`) and `PAGES_URL`, the GitHub Pages base URL
 (`https://hub.senzing.com/cords/`).
 
 ## Repository layout
@@ -26,17 +29,27 @@ base URL, and `PAGES_URL`, the GitHub Pages base URL
   `.nojekyll`.
 - `.claude/skills/`: the `/upload-senzing-ready`, `/publish-cord` and `/download-senzing-ready`
   skills and their tests.
-- `bin/`: `get_cord_stats.py`, which computes the stats rows, and its tests.
+- `bin/`: `get_cord_stats.py`, which computes the stats rows, and its tests;
+  `json2attribute.py` and `sz_default_config.json` (the default Senzing configuration), which
+  it uses to count features.
 - `manifest.json`: one entry per data file (see below).
-- `senzing-ready/`: gitignored local working directory for the data files.
+- `senzing-ready/`: gitignored local working directory for the data files. Only its
+  `.placeholder` is committed.
+- `.github/`: `workflows/` (`test.yml` and `check-releases.yml` for CORDs, the rest shared
+  Senzing workflows), `ISSUE_TEMPLATE/submit-cord.yml` (the **Submit a CORD file** form for
+  contributors without write access; see `development/submit-without-write-access.md`),
+  `linters/` (super-linter configuration, including `zizmor.yaml`) and `CODEOWNERS`
+  (`@Senzing/senzing-devsecops` reviews `.github/`, `@Senzing/senzing-community` the rest).
+- `.claude/commands/senzing.md`: the shared `/senzing` command.
+- `.vscode/cspell.json`: the spell-check word list that CI uses.
 
 ## How the data is published
 
 `development/publishing-approach.md` records the decision and its reasoning. Read it before
 changing anything about storage. In short:
 
-- **The data files never go in git.** Two of them are over GitHub's 100 MiB limit, and
-  `/senzing-ready` is gitignored as a local working directory for downloads.
+- **The data files never go in git.** CORDs can exceed GitHub's 100 MiB file limit (two of the
+  21 senzing.com files do), so `senzing-ready/` is gitignored as a local working directory.
 - **Each file is a GitHub Release asset** of the Release where it last changed. That gives
   it a public `curl` URL, the entry's `url` in `manifest.json`:
   `https://github.com/Senzing/cords/releases/download/<tag>/<file>`.
@@ -117,10 +130,17 @@ done
 python3 -m unittest discover -s bin -p 'test_*.py'   # skipped without openpyxl
 ```
 
-CI (`.github/workflows/test.yml`) runs these on every pull request and on pushes to `main`,
-on Python 3.10 and 3.12, after `pip install .`, and fails if `openpyxl` is missing rather
-than skipping the `bin` tests. A separate `markdownlint` job runs the lint command below with
-`markdownlint-cli` 0.48.0, so any lint error fails CI.
+CI on a pull request:
+
+- **`test.yml`** runs these tests on every pull request and on pushes to `main`, on Python 3.10
+  and 3.12, after `pip install .`, and fails if `openpyxl` is missing rather than skipping the
+  `bin` tests. Its `markdownlint` job runs the lint command below with `markdownlint-cli`
+  0.48.0. It is not a required check, so read its result before merging.
+- **`spellcheck`** (required) runs cspell with `.vscode/cspell.json`. Add new words, such as a
+  new source or region name, to its `words` list. `bin/sz_default_config.json` is skipped.
+- **`lint-workflows`** (required) runs super-linter on changes under `.github/`. Its zizmor
+  rules (`.github/linters/zizmor.yaml`) need every action outside `senzing-factory/` pinned to a
+  commit SHA, with the tag in a comment; Prettier and yamllint check YAML formatting.
 
 File names must be `<source>-<region>.jsonl`; `REGIONS` in `upload_senzing_ready.py` maps each
 region to its catalog heading. `/upload-senzing-ready` refuses other names, and `/publish-cord`
