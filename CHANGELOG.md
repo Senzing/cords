@@ -7,6 +7,12 @@ This project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.0.3] - 2026-11-05
+
+### Added
+
+- `gleif-lasvegas.jsonl` (1,432,781 bytes, SHA-256 `b8440f12378ce06d3c5417bd25eae0755de36cef49836ba995d3064c4c6bf9d4`)
+
 ## [0.0.2] - 2026-11-05
 
 ### Added
@@ -26,7 +32,8 @@ This project adheres to [Semantic Versioning].
 - Initial repository content: community artifacts, GitHub workflows and
   documentation scaffolding.
 
-[Unreleased]: https://github.com/Senzing/cords/compare/0.0.2...HEAD
+[Unreleased]: https://github.com/Senzing/cords/compare/0.0.3...HEAD
+[0.0.3]: https://github.com/Senzing/cords/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/Senzing/cords/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/Senzing/cords/compare/0.0.0...0.0.1
 [CommonMark]: https://commonmark.org/

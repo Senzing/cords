@@ -1,4 +1,52 @@
 {
+  "gleif-lasvegas.jsonl": {
+    "synopsis": "Legal Entity Identifier (LEI) records for organizations with a business address in the Las Vegas area, including legal names, addresses, registration dates and LEI numbers.",
+    "primary_source": {
+      "name": "GLEIF (Global LEI)",
+      "url": "https://www.gleif.org/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "GLEIF",
+    "sample_record": {
+      "DATA_SOURCE": "GLEIF",
+      "RECORD_ID": "lei-14CKXV7T1M327VH4DM16",
+      "RECORD_TYPE": "ORGANIZATION",
+      "LAST_CHANGE": "2024-06-12T08:08:21",
+      "NAMES": [
+        {
+          "NAME_TYPE": "PRIMARY",
+          "NAME_ORG": "Bally Technologies, Inc."
+        }
+      ],
+      "RISKS": [
+        {
+          "TOPIC": "corp.public"
+        }
+      ],
+      "ADDRESSES": [
+        {
+          "ADDR_FULL": "6601 S. Bermuda Rd., Las Vegas, US-NV 89119",
+          "ADDR_TYPE": "BUSINESS"
+        }
+      ],
+      "COUNTRIES": [
+        {
+          "REGISTRATION_COUNTRY": "us"
+        }
+      ],
+      "IDENTIFIERS": [
+        {
+          "LEI_NUMBER": "14CKXV7T1M327VH4DM16"
+        },
+        {
+          "OTHER_ID_TYPE": "OPEN_SANCTIONS",
+          "OTHER_ID_NUMBER": "lei-14CKXV7T1M327VH4DM16"
+        }
+      ],
+      "URL": "https://www.opensanctions.org/entities/lei-14CKXV7T1M327VH4DM16"
+    }
+  },
   "ppp_loans_over_150k-lasvegas.jsonl": {
     "synopsis": "Details of Paycheck Protection Program loans over $150,000, including recipient names, loan amounts, and locations.",
     "primary_source": {

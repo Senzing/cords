@@ -1,6 +1,14 @@
 {
   "files": [
     {
+      "name": "gleif-lasvegas.jsonl",
+      "size": 1432781,
+      "sha256": "b8440f12378ce06d3c5417bd25eae0755de36cef49836ba995d3064c4c6bf9d4",
+      "tag": "0.0.3",
+      "url": "https://github.com/Senzing/cords/releases/download/0.0.3/gleif-lasvegas.jsonl",
+      "source": "https://senzing.com/datasets/gleif-lasvegas.jsonl"
+    },
+    {
       "name": "ppp_loans_over_150k-lasvegas.jsonl",
       "size": 2103822,
       "sha256": "187702a220d35c003b048c1d76975dfa161a11014b40456d1f3633cc2b44e785",
