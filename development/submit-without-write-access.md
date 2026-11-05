@@ -4,9 +4,9 @@ Anyone with a GitHub account can hand over a new or changed file. A writer check
 publishes it.
 
 1. Name the file `<source>-<region>.jsonl`, in lowercase, such as `gleif-london.jsonl`. The
-   region, after the last hyphen, must be one of the region headings in the [CORD catalog](https://hub.senzing.com/cords/cords.html), written
-   without spaces, such as `lasvegas`; ask in an issue before using a new one. To replace a
-   published file, keep its name.
+   region, after the last hyphen, must be one of `lasvegas`, `london`, `london_central_a` or
+   `moscow` (`REGIONS` in `.claude/skills/upload-senzing-ready/upload_senzing_ready.py`); ask in
+   an issue before using a new one. To replace a published file, keep its name.
 2. Host the file at a public HTTPS link that `curl -fsSL` downloads without authentication. A
    Release asset on your fork of this repository works, and takes files up to 2 GiB:
    1. On this repository's page, click **Fork**, then **Create fork**.
@@ -29,7 +29,9 @@ publishes it.
    `curl -fsSL <link> | sha256sum` must print the same SHA-256.
 4. Open a
    [Submit a CORD file](https://github.com/Senzing/cords/issues/new?template=submit-cord.yml)
-   issue, and fill in the file name, link, size and SHA-256.
+   issue, and fill in the file name, link, size and SHA-256. For a new file, also fill in what
+   the catalog shows about it: a one- or two-sentence synopsis, the primary source's name and
+   URL, the license and the snapshot date. Leave a field empty where the source doesn't say.
 
 The writer downloads the file, checks its size and SHA-256, and publishes it with
 `/publish-cord`. If the download fails, a value doesn't match, or the file fails the upload

@@ -13,7 +13,7 @@ body:
     id: file-name
     attributes:
       label: File name
-      description: "`<source>-<region>.jsonl`, in lowercase, with a region already listed in the [CORD catalog](https://hub.senzing.com/cords/cords.html)."
+      description: "`<source>-<region>.jsonl`, in lowercase. The region is one of `lasvegas`, `london`, `london_central_a` or `moscow`."
       placeholder: gleif-london.jsonl
     validations:
       required: true
@@ -40,6 +40,32 @@ body:
     attributes:
       label: SHA-256
       description: "The output of `sha256sum <file>`."
-      placeholder: 46d2f256f5c4c3c0aa5f7d0b01b90b9eb139bd4b97251e6d1ebf6ad99890cf55
+      placeholder: 64 hexadecimal characters
     validations:
       required: true
+  - type: textarea
+    id: synopsis
+    attributes:
+      label: Synopsis
+      description: For a new file, one or two sentences on what the data is. Shown in the CORD catalog.
+  - type: input
+    id: primary-source-name
+    attributes:
+      label: Primary source name
+      description: Who publishes the original data, such as "US Dept of Labor Compliance".
+  - type: input
+    id: primary-source-url
+    attributes:
+      label: Primary source URL
+      placeholder: https://
+  - type: input
+    id: license
+    attributes:
+      label: License
+      description: The primary source's license. Leave empty if it doesn't state one.
+  - type: input
+    id: snapshot-date
+    attributes:
+      label: Snapshot date
+      description: When the data was taken from the primary source, as YYYY-MM-DD. Leave empty if unknown.
+      placeholder: YYYY-MM-DD
