@@ -95,7 +95,9 @@ FAKE_GH = textwrap.dedent(
         number = len(state["prs"]) + 1
         url = f"https://github.com/Owner/Repo/pull/{number}"
         state["prs"].append({"number": number, "head": opt("--head"), "state": "OPEN",
-                             "url": url, "mergeCommit": None})
+                             "url": url, "mergeCommit": None,
+                             "headRepositoryOwner": {"login": os.environ.get("FAKE_GH_PR_OWNER", "Owner")},
+                             "baseRefName": "main"})
         save()
         print(url)
     elif args[:2] == ["pr", "list"]:
@@ -701,6 +703,30 @@ class ReleaseTest(unittest.TestCase):
                       "`docs/index.html`, `docs/cords.html`, `docs/cords.md`, `docs/SHA256SUMS`, "
                       "`docs/urls.txt`, `development/CORD_stats.xlsx` and `development/CORD_stats.csv`.",
                       create[create.index("--body") + 1])
+
+    def test_prepare_ignores_a_fork_pull_request_on_the_same_branch_name(self):
+        # A fork carries the same branch names. Seed a pull request whose head
+        # repository belongs to someone else, exactly as `gh pr list --head`
+        # would return it, and check prepare() builds the real release branch
+        # instead of adopting it.
+        state_path = os.path.join(self.gh_state, "state.json")
+        state = json.loads(read(state_path))
+        state["prs"].append({
+            "number": 99, "head": "release-0.2.0", "state": "OPEN",
+            "url": "https://github.com/Attacker/Repo/pull/99", "mergeCommit": None,
+            "headRepositoryOwner": {"login": "Attacker"}, "baseRefName": "main",
+        })
+        with open(state_path, "w") as file:
+            json.dump(state, file)
+
+        code, output = self.release("prepare", "--bump", "minor")
+        self.assertEqual(code, 0, output)
+        self.assertNotIn("pull/99", output)
+        self.assertNotIn("Attacker", output)
+        self.assertIn("pull request: https://github.com/Owner/Repo/pull/", output)
+        # The real release branch was built, so check_tree() and the blockers ran.
+        manifest = json.loads(self.origin_file("release-0.2.0", "manifest.json"))
+        self.assertIn("b-london.jsonl", [e["name"] for e in manifest["files"]])
 
     def test_prepare_requires_bump(self):
         code, output = self.release("prepare")
