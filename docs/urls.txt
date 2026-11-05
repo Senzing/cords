@@ -1,2 +1,3 @@
+https://github.com/Senzing/cords/releases/download/0.0.3/gleif-lasvegas.jsonl
 https://github.com/Senzing/cords/releases/download/0.0.2/ppp_loans_over_150k-lasvegas.jsonl
 https://github.com/Senzing/cords/releases/download/0.0.1/us_labor_violations-lasvegas.jsonl
