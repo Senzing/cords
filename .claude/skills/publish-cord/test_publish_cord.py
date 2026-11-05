@@ -24,7 +24,8 @@ import publish_cord  # noqa: E402
 STAGING = publish_cord.upload.STAGING
 
 # Releases and pull requests live in $FAKE_GH_STATE; a merge is a real
-# merge commit pushed to the bare repository at $FAKE_ORIGIN.
+# squash commit pushed to the bare repository at $FAKE_ORIGIN. Like the real
+# repository, the fake refuses merge commits.
 FAKE_GH = textwrap.dedent(
     """\
     #!/usr/bin/env python3
@@ -102,13 +103,15 @@ FAKE_GH = textwrap.dedent(
     elif args[:2] == ["pr", "merge"]:
         if os.environ.get("FAKE_GH_MERGE_FAIL"):
             sys.exit("GraphQL: Pull request is not mergeable: protected branch rules")
+        if "--squash" not in args:
+            sys.exit("GraphQL: Merge commits are not allowed on this repository.")
         pr = state["prs"][int(args[2]) - 1]
         work = tempfile.mkdtemp()
         git = lambda *a: subprocess.run(["git", "-C", work, *a], check=True,
                                         capture_output=True, text=True).stdout.strip()
         subprocess.run(["git", "clone", "-q", os.environ["FAKE_ORIGIN"], work], check=True)
-        git("merge", "--no-ff", "-q", "-m", f"Merge pull request #{pr['number']}",
-            f"origin/{pr['head']}")
+        git("merge", "--squash", "-q", f"origin/{pr['head']}")
+        git("commit", "-q", "-m", f"Squash pull request #{pr['number']}")
         git("push", "-q", "origin", "main", f":{pr['head']}")
         pr.update(state="MERGED", mergeCommit={"oid": git("rev-parse", "HEAD")})
         shutil.rmtree(work)
@@ -846,7 +849,7 @@ class ReleaseTest(unittest.TestCase):
         self.release("prepare", "--bump", "minor")
         code, output = self.release("publish")
         self.assertEqual(code, 0, output)
-        self.assertIn(["pr", "merge", "1", "--merge", "--delete-branch"], self.calls())
+        self.assertIn(["pr", "merge", "1", "--squash", "--delete-branch"], self.calls())
         merge = self.gh_state_json()["prs"][0]["mergeCommit"]["oid"]
         release = self.gh_state_json()["releases"]["0.2.0"]
         self.assertEqual((release["draft"], release["target"], release["latest"]),
