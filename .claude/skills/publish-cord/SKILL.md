@@ -87,7 +87,7 @@ answer: the SemVer bump, and whether to merge.
    Report the `pull request:` URL. Exit 2 means it stopped; show the message. A rerun (go back
    to step 1) resumes the draft.
 
-5. Show the PR and ask: "Merge `<PR URL>` with `--merge --delete-branch`, then publish
+5. Show the PR and ask: "Merge `<PR URL>` with `--squash --delete-branch`, then publish
    `<version>`?" Wait for an explicit yes.
    - **No:** say that the draft Release and the branch are left in place, and that
      `/publish-cord` resumes later. Stop.
@@ -97,10 +97,11 @@ answer: the SemVer bump, and whether to merge.
      python3 .claude/skills/publish-cord/publish_cord.py publish
      ```
 
-     This step merges the PR, publishes the draft on the merge commit as the latest Release, switches the clone to an
+     This step squash-merges the PR (the repository allows no merge commits), publishes the
+     draft on the squash commit as the latest Release, switches the clone to an
      updated `main`, and downloads each file in the Release to check its SHA-256.
 
-6. Report the merge commit, the `published:` line, and each `verified:` line.
+6. Report the squash commit, the `published:` line, and each `verified:` line.
    Exit 1 means a download didn't match `manifest.json`: list the `MISMATCH:` lines and
    leave the Release as it is for the user to look at. Exit 2 means it stopped before
    publishing, for example because branch protection refused the merge. Show the message;

@@ -847,7 +847,7 @@ def publish(ctx, out):
 
     # Step 5: merge.
     if pr["state"] == "OPEN":
-        run("gh", "pr", "merge", str(pr["number"]), "--merge", "--delete-branch",
+        run("gh", "pr", "merge", str(pr["number"]), "--squash", "--delete-branch",
             cwd=ctx.root)
         pr = ctx.pull_request(version)
     if pr["state"] != "MERGED":
@@ -858,7 +858,7 @@ def publish(ctx, out):
     upload.git(ctx.root, "fetch", "--quiet", "origin")
     manifest = json.loads(upload.git(ctx.root, "show", f"{sha}:manifest.json"))
 
-    # Step 6: publish the draft on the merge commit.
+    # Step 6: publish the draft on the squash commit.
     run("gh", "release", "edit", version, "--draft=false", "--target", sha, "--latest",
         cwd=ctx.root)
     print(f"published: {version} at {sha}", file=out)
