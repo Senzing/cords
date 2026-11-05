@@ -71,7 +71,7 @@ footer a{color:var(--ember-core)}
 <header class="hero"><div class="wrap">
 <p class="label">Collections of relatable data</p>
 <h1>CORD catalog</h1>
-<p>Collections of relatable data (CORD) mapped for SENZING® entity resolution: 3 files, grouped by locale. Each has a download link, a curl command and the SHA-256 to check it.</p>
+<p>Collections of relatable data (CORD) mapped for SENZING® entity resolution: 9 files, grouped by locale. Each has a download link, a curl command and the SHA-256 to check it.</p>
 <ul class="toc"><li><a href="#las-vegas">Las Vegas</a></li><li><a href="#london">London</a></li><li><a href="#moscow">Moscow</a></li></ul>
 </div></header>
 <main>
@@ -200,7 +200,351 @@ echo "160a12a46d426ba03f9bfeb629b9bf206fcbd58131fc8e106d796aa68d337080  us_labor
 <section id="moscow"><div class="wrap">
 <p class="label">Locale</p>
 <h2>Moscow</h2>
-<p>Not published yet.</p>
+<article class="cord" id="gleif-moscow">
+<h3><a href="#gleif-moscow">gleif-moscow.jsonl</a></h3>
+<p>Legal Entity Identifier (LEI) records for organizations with a business address in Moscow, including legal names (many in Cyrillic), addresses, national registration numbers and LEI numbers.</p>
+<dl><div><dt>Locale</dt><dd>Moscow</dd></div><div><dt>Primary source</dt><dd><a href="https://www.gleif.org/">GLEIF (Global LEI)</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.0, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#010---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>1.2 MB (1,169,270 bytes)</dd></div><div><dt>Records</dt><dd>1,240 (0 persons, 1,240 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>GLEIF</code></dd></div><div><dt>SHA-256</dt><dd><code>9dc289a12810eeeaea24f2894ae2317692267bda29a0f2f4153408569ca8c602</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="1,240">NAME</li><li title="2,933">ADDRESS</li><li title="1,196">NATIONAL_ID</li><li title="1,426">OTHER_ID</li><li title="1,022">REGISTRATION_DATE</li><li title="1,237">REGISTRATION_COUNTRY</li><li title="1,240">LEI_NUMBER</li><li title="300">REL_ANCHOR</li><li title="416">REL_POINTER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.0/gleif-moscow.jsonl">Download gleif-moscow.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.0/gleif-moscow.jsonl
+echo "9dc289a12810eeeaea24f2894ae2317692267bda29a0f2f4153408569ca8c602  gleif-moscow.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;GLEIF&quot;,
+  &quot;RECORD_ID&quot;: &quot;lei-2138003BEQLV9S2ALO67&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;LAST_CHANGE&quot;: &quot;2024-06-12T08:08:21&quot;,
+  &quot;NAMES&quot;: [
+    {
+      &quot;NAME_TYPE&quot;: &quot;PRIMARY&quot;,
+      &quot;NAME_ORG&quot;: &quot;ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \&quot;ШАРП ЭЛЕКТРОНИКС РАША\&quot;&quot;
+    }
+  ],
+  &quot;ADDRESSES&quot;: [
+    {
+      &quot;ADDR_FULL&quot;: &quot;2ND SYROMYATNICHESKIY PEREULOK, MOSCOW, RU-MOW, 105120&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    }
+  ],
+  &quot;COUNTRIES&quot;: [
+    {
+      &quot;REGISTRATION_COUNTRY&quot;: &quot;ru&quot;
+    }
+  ],
+  &quot;IDENTIFIERS&quot;: [
+    {
+      &quot;NATIONAL_ID_NUMBER&quot;: &quot;1077746147544&quot;
+    },
+    {
+      &quot;LEI_NUMBER&quot;: &quot;2138003BEQLV9S2ALO67&quot;
+    },
+    {
+      &quot;OTHER_ID_TYPE&quot;: &quot;OPEN_SANCTIONS&quot;,
+      &quot;OTHER_ID_NUMBER&quot;: &quot;lei-2138003BEQLV9S2ALO67&quot;
+    }
+  ],
+  &quot;RELATIONSHIPS&quot;: [
+    {
+      &quot;REL_ANCHOR_DOMAIN&quot;: &quot;OPEN_SANCTIONS&quot;,
+      &quot;REL_ANCHOR_KEY&quot;: &quot;lei-2138003BEQLV9S2ALO67&quot;
+    }
+  ],
+  &quot;URL&quot;: &quot;https://www.opensanctions.org/entities/lei-2138003BEQLV9S2ALO67&quot;
+}</code></pre></details>
+<p>Related CORDs: <a href="#icij-moscow">icij-moscow.jsonl</a>, <a href="#nominodata_risk-moscow">nominodata_risk-moscow.jsonl</a>, <a href="#ofac-moscow">ofac-moscow.jsonl</a>, <a href="#open_ownership-moscow">open_ownership-moscow.jsonl</a>, <a href="#open_sanctions-moscow">open_sanctions-moscow.jsonl</a></p>
+</article>
+<article class="cord" id="icij-moscow">
+<h3><a href="#icij-moscow">icij-moscow.jsonl</a></h3>
+<p>Companies, officers and intermediaries with a Moscow connection from ICIJ&#x27;s Offshore Leaks Database, drawn from the Offshore Leaks, Panama Papers, Paradise Papers and Pandora Papers investigations, with jurisdictions, incorporation dates and status.</p>
+<dl><div><dt>Locale</dt><dd>Moscow</dd></div><div><dt>Primary source</dt><dd><a href="https://offshoreleaks.icij.org/">ICIJ Offshore Leaks Database</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.0, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#010---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>12.7 MB (12,677,071 bytes)</dd></div><div><dt>Records</dt><dd>13,996 (5,068 persons, 8,928 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>ICIJ</code></dd></div><div><dt>SHA-256</dt><dd><code>ab7278caab2cb695eda29885e4aff35dee268e614abe99c4e6bb1411e9d825c4</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="13,996">NAME</li><li title="18,748">ADDRESS</li><li title="5,664">GROUP_ASSOCIATION</li><li title="28,324">COUNTRY_OF_ASSOCIATION</li><li title="13,996">REL_ANCHOR</li><li title="30,524">REL_POINTER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.0/icij-moscow.jsonl">Download icij-moscow.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.0/icij-moscow.jsonl
+echo "ab7278caab2cb695eda29885e4aff35dee268e614abe99c4e6bb1411e9d825c4  icij-moscow.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;ICIJ&quot;,
+  &quot;RECORD_ID&quot;: &quot;10002691&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;PRIMARY_NAME_ORG&quot;: &quot;VANITY ENTERPRISES CORP.&quot;,
+  &quot;ICIJ_SOURCE&quot;: &quot;Panama Papers&quot;,
+  &quot;NODE_TYPE&quot;: &quot;ENTITY&quot;,
+  &quot;Jurisdiction&quot;: &quot;SAM&quot;,
+  &quot;COUNTRIES&quot;: [
+    {
+      &quot;COUNTRY_OF_ASSOCIATION&quot;: &quot;SAM&quot;
+    },
+    {
+      &quot;COUNTRY_OF_ASSOCIATION&quot;: &quot;RUS&quot;
+    }
+  ],
+  &quot;Status&quot;: &quot;Active&quot;,
+  &quot;INCORPORATED&quot;: &quot;20-FEB-2014&quot;,
+  &quot;REL_ANCHOR_DOMAIN&quot;: &quot;ICIJ_ID&quot;,
+  &quot;REL_ANCHOR_KEY&quot;: &quot;10002691&quot;,
+  &quot;ADDRESSES&quot;: [
+    {
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;,
+      &quot;ADDR_FULL&quot;: &quot;FTL ADVISERS LTD OFFICE 309; BLD. 6; 2ND SPASONALIVKOVSKIY; SIDE STREET MOSCOW (MOSKVA) 119049; MOSCOVSKAYA OBLAST (MOSCOW) RUSSIA&quot;
+    }
+  ]
+}</code></pre></details>
+<p>Related CORDs: <a href="#gleif-moscow">gleif-moscow.jsonl</a>, <a href="#nominodata_risk-moscow">nominodata_risk-moscow.jsonl</a>, <a href="#ofac-moscow">ofac-moscow.jsonl</a>, <a href="#open_ownership-moscow">open_ownership-moscow.jsonl</a>, <a href="#open_sanctions-moscow">open_sanctions-moscow.jsonl</a></p>
+</article>
+<article class="cord" id="nominodata_risk-moscow">
+<h3><a href="#nominodata_risk-moscow">nominodata_risk-moscow.jsonl</a></h3>
+<p>People and organizations connected to Moscow that appear on sanctions and politically exposed person lists compiled by Nominodata, including the OFAC SDN list, Swiss SECO, UK HM Treasury and EU lists, with titles, programs and listing dates.</p>
+<dl><div><dt>Locale</dt><dd>Moscow</dd></div><div><dt>Primary source</dt><dd><a href="https://www.nominodata.com/">Nominodata</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.0, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#010---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>3.6 MB (3,626,050 bytes)</dd></div><div><dt>Records</dt><dd>2,413 (674 persons, 1,739 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>NOMINODATA</code></dd></div><div><dt>SHA-256</dt><dd><code>b1492e1ba8cdcf3f6875df38e179f970c3d1f927abdcf02eb09d49177b100d74</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="14,326">NAME</li><li title="172">DOB</li><li title="80">GENDER</li><li title="7,639">ADDRESS</li><li title="86">PHONE</li><li title="10">NATIONAL_ID</li><li title="90">EMAIL</li><li title="73">WEBSITE</li><li title="284">CITIZENSHIP</li><li title="32">PLACE_OF_BIRTH</li><li title="64">REGISTRATION_DATE</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.0/nominodata_risk-moscow.jsonl">Download nominodata_risk-moscow.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.0/nominodata_risk-moscow.jsonl
+echo "b1492e1ba8cdcf3f6875df38e179f970c3d1f927abdcf02eb09d49177b100d74  nominodata_risk-moscow.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;NOMINODATA&quot;,
+  &quot;RECORD_ID&quot;: &quot;d720f52a4fa919f0ae9d95ef2915fd28&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;PERSON&quot;,
+  &quot;NAME_LIST&quot;: [
+    {
+      &quot;PRIMARY_NAME_PREFIX&quot;: &quot;&quot;,
+      &quot;PRIMARY_NAME_FIRST&quot;: &quot;Agueyev&quot;,
+      &quot;PRIMARY_NAME_MIDDLE&quot;: &quot;&quot;,
+      &quot;PRIMARY_NAME_LAST&quot;: &quot;Alexander&quot;,
+      &quot;PRIMARY_NAME_SUFFIX&quot;: &quot;&quot;
+    },
+    {
+      &quot;PRIMARY_NAME_PREFIX&quot;: &quot;&quot;,
+      &quot;PRIMARY_NAME_FIRST&quot;: &quot;Agueyev&quot;,
+      &quot;PRIMARY_NAME_MIDDLE&quot;: &quot;&quot;,
+      &quot;PRIMARY_NAME_LAST&quot;: &quot;Alexander&quot;,
+      &quot;PRIMARY_NAME_SUFFIX&quot;: &quot;&quot;
+    }
+  ],
+  &quot;ADDRESS_LIST&quot;: [
+    {
+      &quot;ADDR_COUNTRY&quot;: &quot;RUS&quot;
+    },
+    {
+      &quot;ADDR_COUNTRY&quot;: &quot;RUS&quot;
+    }
+  ],
+  &quot;CONTACT_LIST&quot;: [],
+  &quot;IDENTIFIER_LIST&quot;: [],
+  &quot;ATTRIBUTE_LIST&quot;: [
+    {
+      &quot;CITIZENSHIP&quot;: &quot;Russia&quot;
+    }
+  ],
+  &quot;Title&quot;: &quot;Chairman of the Audit Committee of the State Duma&quot;,
+  &quot;political_party&quot;: &quot;Faction \&quot;JUST RUSSIA\&quot;&quot;,
+  &quot;page_URL&quot;: &quot;http://www.duma.gov.ru/structure/deputies/131221/&quot;,
+  &quot;Source&quot;: &quot;Composition of the State Duma of the sixth convocation&quot;,
+  &quot;type&quot;: &quot;Indiv&quot;,
+  &quot;remarks&quot;: &quot;Moscow City - East, City of Moscow - Don, Moscow City - Lublin&quot;,
+  &quot;riskcode&quot;: &quot;EXPEP&quot;,
+  &quot;active&quot;: &quot;1&quot;,
+  &quot;timestamp&quot;: &quot;14/3/2022 12:40:48&quot;,
+  &quot;Person&quot;: &quot;1&quot;
+}</code></pre></details>
+<p>Related CORDs: <a href="#gleif-moscow">gleif-moscow.jsonl</a>, <a href="#icij-moscow">icij-moscow.jsonl</a>, <a href="#ofac-moscow">ofac-moscow.jsonl</a>, <a href="#open_ownership-moscow">open_ownership-moscow.jsonl</a>, <a href="#open_sanctions-moscow">open_sanctions-moscow.jsonl</a></p>
+</article>
+<article class="cord" id="ofac-moscow">
+<h3><a href="#ofac-moscow">ofac-moscow.jsonl</a></h3>
+<p>Entries on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list with a Moscow address, mostly under the Russia-related EO 14024 program, including names, aliases, addresses, identifiers and sanctions programs.</p>
+<dl><div><dt>Locale</dt><dd>Moscow</dd></div><div><dt>Primary source</dt><dd><a href="https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists">OFAC Specially Designated Nationals (SDN) List</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd>2024-12-11</dd></div><div><dt>Version</dt><dd>0.1.0, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#010---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>1.6 MB (1,643,552 bytes)</dd></div><div><dt>Records</dt><dd>1,886 (400 persons, 1,486 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>OFAC</code></dd></div><div><dt>SHA-256</dt><dd><code>b238fb9f25b1474b5f4ea2d2181c8ed0e4bfd65e2db4eafd5bec7f4d9dddb39f</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="4,766">NAME</li><li title="407">DOB</li><li title="394">GENDER</li><li title="2,487">ADDRESS</li><li title="171">PASSPORT</li><li title="1,534">TAX_ID</li><li title="1,492">NATIONAL_ID</li><li title="24">EMAIL</li><li title="209">WEBSITE</li><li title="184">OTHER_ID</li><li title="87">CITIZENSHIP</li><li title="391">NATIONALITY</li><li title="330">PLACE_OF_BIRTH</li><li title="3">DUNS_NUMBER</li><li title="71">LEI_NUMBER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.0/ofac-moscow.jsonl">Download ofac-moscow.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.0/ofac-moscow.jsonl
+echo "b238fb9f25b1474b5f4ea2d2181c8ed0e4bfd65e2db4eafd5bec7f4d9dddb39f  ofac-moscow.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;OFAC&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;PERSON&quot;,
+  &quot;RECORD_ID&quot;: &quot;16688&quot;,
+  &quot;OFAC_ID&quot;: &quot;16688&quot;,
+  &quot;PUBLISH_DATE&quot;: &quot;12/11/2024&quot;,
+  &quot;SDN_PROGRAM&quot;: &quot;RUSSIA-EO14024&quot;,
+  &quot;NAME_LIST&quot;: [
+    {
+      &quot;NAME_TYPE&quot;: &quot;PRIMARY&quot;,
+      &quot;NAME_LAST&quot;: &quot;IVANOV&quot;,
+      &quot;NAME_FIRST&quot;: &quot;Sergei Borisovich&quot;
+    },
+    {
+      &quot;NAME_TYPE&quot;: &quot;AKA&quot;,
+      &quot;NAME_LAST&quot;: &quot;IVANOV&quot;,
+      &quot;NAME_FIRST&quot;: &quot;Sergei&quot;
+    }
+  ],
+  &quot;ATTR_LIST&quot;: [
+    {
+      &quot;DATE_OF_BIRTH&quot;: &quot;1953-01-31&quot;
+    },
+    {
+      &quot;PLACE_OF_BIRTH&quot;: &quot;St. Petersburg, Russia&quot;
+    },
+    {
+      &quot;NATIONALITY&quot;: &quot;Russia&quot;
+    }
+  ],
+  &quot;ADDR_LIST&quot;: [
+    {
+      &quot;ADDR_CITY&quot;: &quot;Moscow&quot;,
+      &quot;ADDR_COUNTRY&quot;: &quot;Russia&quot;
+    }
+  ],
+  &quot;Secondary sanctions risk:&quot;: &quot;See Section 11 of Executive Order 14024. | Ukraine-/Russia-Related Sanctions Regulations, 31 CFR 589.201 and/or 589.209&quot;,
+  &quot;ID_LIST&quot;: [
+    {
+      &quot;GENDER&quot;: &quot;Male&quot;
+    }
+  ]
+}</code></pre></details>
+<p>Related CORDs: <a href="#gleif-moscow">gleif-moscow.jsonl</a>, <a href="#icij-moscow">icij-moscow.jsonl</a>, <a href="#nominodata_risk-moscow">nominodata_risk-moscow.jsonl</a>, <a href="#open_ownership-moscow">open_ownership-moscow.jsonl</a>, <a href="#open_sanctions-moscow">open_sanctions-moscow.jsonl</a></p>
+</article>
+<article class="cord" id="open_ownership-moscow">
+<h3><a href="#open_ownership-moscow">open_ownership-moscow.jsonl</a></h3>
+<p>Beneficial ownership records linking Moscow-based people and organizations to the companies they own or control, mostly from UK Companies House persons-with-significant-control filings, with ownership roles and relationships.</p>
+<dl><div><dt>Locale</dt><dd>Moscow</dd></div><div><dt>Primary source</dt><dd><a href="https://www.openownership.org/">Open Ownership</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.0, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#010---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>3.1 MB (3,149,530 bytes)</dd></div><div><dt>Records</dt><dd>3,805 (2,263 persons, 1,542 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>OPEN-OWNERSHIP</code></dd></div><div><dt>SHA-256</dt><dd><code>6baff4e07c553348c015555aea267721e45d05c267d997fe2c24f8346703d911</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="3,813">NAME</li><li title="2,263">DOB</li><li title="5,501">ADDRESS</li><li title="1,462">NATIONAL_ID</li><li title="3,989">OTHER_ID</li><li title="2,737">NATIONALITY</li><li title="1,194">REGISTRATION_DATE</li><li title="1,499">REGISTRATION_COUNTRY</li><li title="1,241">LEI_NUMBER</li><li title="452">REL_ANCHOR</li><li title="2,808">REL_POINTER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.0/open_ownership-moscow.jsonl">Download open_ownership-moscow.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.0/open_ownership-moscow.jsonl
+echo "6baff4e07c553348c015555aea267721e45d05c267d997fe2c24f8346703d911  open_ownership-moscow.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;OPEN-OWNERSHIP&quot;,
+  &quot;RECORD_ID&quot;: &quot;gb-coh-psc-00187809-lfv0aoqujcpdzujyqccyh0ub-r4&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;LAST_CHANGE&quot;: &quot;2024-11-13T13:59:38&quot;,
+  &quot;NAMES&quot;: [
+    {
+      &quot;NAME_TYPE&quot;: &quot;PRIMARY&quot;,
+      &quot;NAME_ORG&quot;: &quot;The Federal Agency For Federal Properties Management Of The Russian Federation&quot;
+    }
+  ],
+  &quot;ADDRESSES&quot;: [
+    {
+      &quot;ADDR_FULL&quot;: &quot;Nikolskiy Pereulok 9, Moscow, Russia, 103685&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    }
+  ],
+  &quot;RELATIONSHIPS&quot;: [
+    {
+      &quot;REL_POINTER_ROLE&quot;: &quot;Ownership of shares 75 to 100 percent&quot;,
+      &quot;REL_POINTER_DOMAIN&quot;: &quot;OPEN_SANCTIONS&quot;,
+      &quot;REL_POINTER_KEY&quot;: &quot;oc-companies-gb-00187809&quot;
+    }
+  ],
+  &quot;IDENTIFIERS&quot;: [
+    {
+      &quot;OTHER_ID_TYPE&quot;: &quot;OPEN_SANCTIONS&quot;,
+      &quot;OTHER_ID_NUMBER&quot;: &quot;gb-coh-psc-00187809-lfv0aoqujcpdzujyqccyh0ub-r4&quot;
+    }
+  ],
+  &quot;URL&quot;: &quot;https://www.opensanctions.org/entities/gb-coh-psc-00187809-lfv0aoqujcpdzujyqccyh0ub-r4&quot;
+}</code></pre></details>
+<p>Related CORDs: <a href="#gleif-moscow">gleif-moscow.jsonl</a>, <a href="#icij-moscow">icij-moscow.jsonl</a>, <a href="#nominodata_risk-moscow">nominodata_risk-moscow.jsonl</a>, <a href="#ofac-moscow">ofac-moscow.jsonl</a>, <a href="#open_sanctions-moscow">open_sanctions-moscow.jsonl</a></p>
+</article>
+<article class="cord" id="open_sanctions-moscow">
+<h3><a href="#open_sanctions-moscow">open_sanctions-moscow.jsonl</a></h3>
+<p>People and organizations connected to Moscow from OpenSanctions, mostly sanctioned entities plus politically exposed persons, banks and other persons of interest, with names (including Cyrillic), addresses, dates, identifiers and risk topics.</p>
+<dl><div><dt>Locale</dt><dd>Moscow</dd></div><div><dt>Primary source</dt><dd><a href="https://www.opensanctions.org/">OpenSanctions</a></dd></div><div><dt>License</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Snapshot date</dt><dd><span class="none">Not stated</span></dd></div><div><dt>Version</dt><dd>0.1.0, released 2026-11-05 (<a href="https://github.com/Senzing/cords/blob/main/CHANGELOG.md#010---2026-11-05">changelog</a>)</dd></div><div><dt>Size</dt><dd>8.6 MB (8,583,131 bytes)</dd></div><div><dt>Records</dt><dd>2,968 (752 persons, 2,216 organizations)</dd></div><div><dt>DATA_SOURCE</dt><dd><code>OPEN-SANCTIONS</code></dd></div><div><dt>SHA-256</dt><dd><code>ab0d38e5fafbe48338a40945971cb3f99cc0bc6e988391321c245344be1c2f95</code></dd></div></dl>
+<p class="label">Features</p>
+<ul class="badges"><li title="30,130">NAME</li><li title="877">DOB</li><li title="6">DOD</li><li title="714">GENDER</li><li title="13,513">ADDRESS</li><li title="1,103">PHONE</li><li title="649">PASSPORT</li><li title="3,476">TAX_ID</li><li title="4,195">NATIONAL_ID</li><li title="406">EMAIL</li><li title="1,162">WEBSITE</li><li title="11,212">OTHER_ID</li><li title="439">TRUSTED_ID</li><li title="757">CITIZENSHIP</li><li title="917">NATIONALITY</li><li title="2,337">PLACE_OF_BIRTH</li><li title="2,262">REGISTRATION_DATE</li><li title="1,749">REGISTRATION_COUNTRY</li><li title="3">DUNS_NUMBER</li><li title="1">NPI_NUMBER</li><li title="200">LEI_NUMBER</li><li title="2,374">COUNTRY_OF_ASSOCIATION</li><li title="1,796">REL_ANCHOR</li><li title="12,622">REL_POINTER</li></ul>
+<p class="label">Download</p>
+<p><a class="button" href="https://github.com/Senzing/cords/releases/download/0.1.0/open_sanctions-moscow.jsonl">Download open_sanctions-moscow.jsonl</a></p>
+<pre><code>curl -fsSLO https://github.com/Senzing/cords/releases/download/0.1.0/open_sanctions-moscow.jsonl
+echo "ab0d38e5fafbe48338a40945971cb3f99cc0bc6e988391321c245344be1c2f95  open_sanctions-moscow.jsonl" | sha256sum -c</code></pre>
+<details><summary>Sample record</summary><pre><code>{
+  &quot;DATA_SOURCE&quot;: &quot;OPEN-SANCTIONS&quot;,
+  &quot;RECORD_ID&quot;: &quot;NK-22cQD3a8GDRSuoW5mus3F3&quot;,
+  &quot;RECORD_TYPE&quot;: &quot;ORGANIZATION&quot;,
+  &quot;LAST_CHANGE&quot;: &quot;2025-02-23T07:55:03&quot;,
+  &quot;NAMES&quot;: [
+    {
+      &quot;NAME_TYPE&quot;: &quot;PRIMARY&quot;,
+      &quot;NAME_ORG&quot;: &quot;EKVIK LIMITED LIABILITY COMPANY&quot;
+    },
+    {
+      &quot;NAME_TYPE&quot;: &quot;ALIAS&quot;,
+      &quot;NAME_ORG&quot;: &quot;ООО \&quot;ЭКВИК\&quot;&quot;
+    }
+  ],
+  &quot;RISKS&quot;: [
+    {
+      &quot;TOPIC&quot;: &quot;sanction&quot;
+    }
+  ],
+  &quot;ADDRESSES&quot;: [
+    {
+      &quot;ADDR_FULL&quot;: &quot;PER. DUKHOVSKOI D. 17, KORPUS 1, FLOOR 1 PODYEZD 20 KAB 1, MOSCOW, RUS, 115191&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    },
+    {
+      &quot;ADDR_FULL&quot;: &quot;ПЕР. ДУХОВСКОЙ Д. 17, МОСКВА, 115191&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    },
+    {
+      &quot;ADDR_FULL&quot;: &quot;Per. Dukhovskoi D. 17, Korpus 1, Floor 1 Podyezd 20 Kab 1, 115191 Moscow&quot;,
+      &quot;ADDR_TYPE&quot;: &quot;BUSINESS&quot;
+    }
+  ],
+  &quot;DATES&quot;: [
+    {
+      &quot;REGISTRATION_DATE&quot;: &quot;2015-03-20&quot;
+    }
+  ],
+  &quot;COUNTRIES&quot;: [
+    {
+      &quot;COUNTRY_OF_ASSOCIATION&quot;: &quot;ru&quot;
+    },
+    {
+      &quot;REGISTRATION_COUNTRY&quot;: &quot;ru&quot;
+    }
+  ],
+  &quot;IDENTIFIERS&quot;: [
+    {
+      &quot;NATIONAL_ID_NUMBER&quot;: &quot;1157746236966&quot;
+    },
+    {
+      &quot;TAX_ID_NUMBER&quot;: &quot;7722320806&quot;
+    },
+    {
+      &quot;OTHER_ID_TYPE&quot;: &quot;uniqueEntityId&quot;,
+      &quot;OTHER_ID_NUMBER&quot;: &quot;Y6MSPLJPJ9J5&quot;
+    },
+    {
+      &quot;OTHER_ID_TYPE&quot;: &quot;kppCode&quot;,
+      &quot;OTHER_ID_NUMBER&quot;: &quot;772601001&quot;
+    },
+    {
+      &quot;OFAC_ID&quot;: &quot;51081&quot;
+    },
+    {
+      &quot;OTHER_ID_TYPE&quot;: &quot;OPEN-SANCTIONS&quot;,
+      &quot;OTHER_ID_NUMBER&quot;: &quot;NK-22cQD3a8GDRSuoW5mus3F3&quot;
+    }
+  ],
+  &quot;SOURCE_LINKS&quot;: [
+    {
+      &quot;SOURCE_URL&quot;: &quot;https://sanctionssearch.ofac.treas.gov/Details.aspx?id=51081&quot;
+    }
+  ],
+  &quot;RELATIONSHIPS&quot;: [
+    {
+      &quot;REL_ANCHOR_DOMAIN&quot;: &quot;OPEN-SANCTIONS&quot;,
+      &quot;REL_ANCHOR_KEY&quot;: &quot;NK-22cQD3a8GDRSuoW5mus3F3&quot;
+    }
+  ],
+  &quot;URL&quot;: &quot;https://www.opensanctions.org/entities/NK-22cQD3a8GDRSuoW5mus3F3&quot;
+}</code></pre></details>
+<p>Related CORDs: <a href="#gleif-moscow">gleif-moscow.jsonl</a>, <a href="#icij-moscow">icij-moscow.jsonl</a>, <a href="#nominodata_risk-moscow">nominodata_risk-moscow.jsonl</a>, <a href="#ofac-moscow">ofac-moscow.jsonl</a>, <a href="#open_ownership-moscow">open_ownership-moscow.jsonl</a></p>
+</article>
 </div></section>
 </main>
 <footer><div class="wrap">CORD files are published as GitHub Releases of <a href="https://github.com/Senzing/cords">Senzing/cords</a> and listed in <a href="https://github.com/Senzing/cords/blob/main/manifest.json">manifest.json</a>.</div></footer>

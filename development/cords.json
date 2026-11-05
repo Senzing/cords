@@ -47,6 +47,339 @@
       "URL": "https://www.opensanctions.org/entities/lei-14CKXV7T1M327VH4DM16"
     }
   },
+  "gleif-moscow.jsonl": {
+    "synopsis": "Legal Entity Identifier (LEI) records for organizations with a business address in Moscow, including legal names (many in Cyrillic), addresses, national registration numbers and LEI numbers.",
+    "primary_source": {
+      "name": "GLEIF (Global LEI)",
+      "url": "https://www.gleif.org/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "GLEIF",
+    "sample_record": {
+      "DATA_SOURCE": "GLEIF",
+      "RECORD_ID": "lei-2138003BEQLV9S2ALO67",
+      "RECORD_TYPE": "ORGANIZATION",
+      "LAST_CHANGE": "2024-06-12T08:08:21",
+      "NAMES": [
+        {
+          "NAME_TYPE": "PRIMARY",
+          "NAME_ORG": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ШАРП ЭЛЕКТРОНИКС РАША\""
+        }
+      ],
+      "ADDRESSES": [
+        {
+          "ADDR_FULL": "2ND SYROMYATNICHESKIY PEREULOK, MOSCOW, RU-MOW, 105120",
+          "ADDR_TYPE": "BUSINESS"
+        }
+      ],
+      "COUNTRIES": [
+        {
+          "REGISTRATION_COUNTRY": "ru"
+        }
+      ],
+      "IDENTIFIERS": [
+        {
+          "NATIONAL_ID_NUMBER": "1077746147544"
+        },
+        {
+          "LEI_NUMBER": "2138003BEQLV9S2ALO67"
+        },
+        {
+          "OTHER_ID_TYPE": "OPEN_SANCTIONS",
+          "OTHER_ID_NUMBER": "lei-2138003BEQLV9S2ALO67"
+        }
+      ],
+      "RELATIONSHIPS": [
+        {
+          "REL_ANCHOR_DOMAIN": "OPEN_SANCTIONS",
+          "REL_ANCHOR_KEY": "lei-2138003BEQLV9S2ALO67"
+        }
+      ],
+      "URL": "https://www.opensanctions.org/entities/lei-2138003BEQLV9S2ALO67"
+    }
+  },
+  "icij-moscow.jsonl": {
+    "synopsis": "Companies, officers and intermediaries with a Moscow connection from ICIJ's Offshore Leaks Database, drawn from the Offshore Leaks, Panama Papers, Paradise Papers and Pandora Papers investigations, with jurisdictions, incorporation dates and status.",
+    "primary_source": {
+      "name": "ICIJ Offshore Leaks Database",
+      "url": "https://offshoreleaks.icij.org/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "ICIJ",
+    "sample_record": {
+      "DATA_SOURCE": "ICIJ",
+      "RECORD_ID": "10002691",
+      "RECORD_TYPE": "ORGANIZATION",
+      "PRIMARY_NAME_ORG": "VANITY ENTERPRISES CORP.",
+      "ICIJ_SOURCE": "Panama Papers",
+      "NODE_TYPE": "ENTITY",
+      "Jurisdiction": "SAM",
+      "COUNTRIES": [
+        {
+          "COUNTRY_OF_ASSOCIATION": "SAM"
+        },
+        {
+          "COUNTRY_OF_ASSOCIATION": "RUS"
+        }
+      ],
+      "Status": "Active",
+      "INCORPORATED": "20-FEB-2014",
+      "REL_ANCHOR_DOMAIN": "ICIJ_ID",
+      "REL_ANCHOR_KEY": "10002691",
+      "ADDRESSES": [
+        {
+          "ADDR_TYPE": "BUSINESS",
+          "ADDR_FULL": "FTL ADVISERS LTD OFFICE 309; BLD. 6; 2ND SPASONALIVKOVSKIY; SIDE STREET MOSCOW (MOSKVA) 119049; MOSCOVSKAYA OBLAST (MOSCOW) RUSSIA"
+        }
+      ]
+    }
+  },
+  "nominodata_risk-moscow.jsonl": {
+    "synopsis": "People and organizations connected to Moscow that appear on sanctions and politically exposed person lists compiled by Nominodata, including the OFAC SDN list, Swiss SECO, UK HM Treasury and EU lists, with titles, programs and listing dates.",
+    "primary_source": {
+      "name": "Nominodata",
+      "url": "https://www.nominodata.com/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "NOMINODATA",
+    "sample_record": {
+      "DATA_SOURCE": "NOMINODATA",
+      "RECORD_ID": "d720f52a4fa919f0ae9d95ef2915fd28",
+      "RECORD_TYPE": "PERSON",
+      "NAME_LIST": [
+        {
+          "PRIMARY_NAME_PREFIX": "",
+          "PRIMARY_NAME_FIRST": "Agueyev",
+          "PRIMARY_NAME_MIDDLE": "",
+          "PRIMARY_NAME_LAST": "Alexander",
+          "PRIMARY_NAME_SUFFIX": ""
+        },
+        {
+          "PRIMARY_NAME_PREFIX": "",
+          "PRIMARY_NAME_FIRST": "Agueyev",
+          "PRIMARY_NAME_MIDDLE": "",
+          "PRIMARY_NAME_LAST": "Alexander",
+          "PRIMARY_NAME_SUFFIX": ""
+        }
+      ],
+      "ADDRESS_LIST": [
+        {
+          "ADDR_COUNTRY": "RUS"
+        },
+        {
+          "ADDR_COUNTRY": "RUS"
+        }
+      ],
+      "CONTACT_LIST": [],
+      "IDENTIFIER_LIST": [],
+      "ATTRIBUTE_LIST": [
+        {
+          "CITIZENSHIP": "Russia"
+        }
+      ],
+      "Title": "Chairman of the Audit Committee of the State Duma",
+      "political_party": "Faction \"JUST RUSSIA\"",
+      "page_URL": "http://www.duma.gov.ru/structure/deputies/131221/",
+      "Source": "Composition of the State Duma of the sixth convocation",
+      "type": "Indiv",
+      "remarks": "Moscow City - East, City of Moscow - Don, Moscow City - Lublin",
+      "riskcode": "EXPEP",
+      "active": "1",
+      "timestamp": "14/3/2022 12:40:48",
+      "Person": "1"
+    }
+  },
+  "ofac-moscow.jsonl": {
+    "synopsis": "Entries on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list with a Moscow address, mostly under the Russia-related EO 14024 program, including names, aliases, addresses, identifiers and sanctions programs.",
+    "primary_source": {
+      "name": "OFAC Specially Designated Nationals (SDN) List",
+      "url": "https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists"
+    },
+    "license": null,
+    "snapshot_date": "2024-12-11",
+    "data_source": "OFAC",
+    "sample_record": {
+      "DATA_SOURCE": "OFAC",
+      "RECORD_TYPE": "PERSON",
+      "RECORD_ID": "16688",
+      "OFAC_ID": "16688",
+      "PUBLISH_DATE": "12/11/2024",
+      "SDN_PROGRAM": "RUSSIA-EO14024",
+      "NAME_LIST": [
+        {
+          "NAME_TYPE": "PRIMARY",
+          "NAME_LAST": "IVANOV",
+          "NAME_FIRST": "Sergei Borisovich"
+        },
+        {
+          "NAME_TYPE": "AKA",
+          "NAME_LAST": "IVANOV",
+          "NAME_FIRST": "Sergei"
+        }
+      ],
+      "ATTR_LIST": [
+        {
+          "DATE_OF_BIRTH": "1953-01-31"
+        },
+        {
+          "PLACE_OF_BIRTH": "St. Petersburg, Russia"
+        },
+        {
+          "NATIONALITY": "Russia"
+        }
+      ],
+      "ADDR_LIST": [
+        {
+          "ADDR_CITY": "Moscow",
+          "ADDR_COUNTRY": "Russia"
+        }
+      ],
+      "Secondary sanctions risk:": "See Section 11 of Executive Order 14024. | Ukraine-/Russia-Related Sanctions Regulations, 31 CFR 589.201 and/or 589.209",
+      "ID_LIST": [
+        {
+          "GENDER": "Male"
+        }
+      ]
+    }
+  },
+  "open_ownership-moscow.jsonl": {
+    "synopsis": "Beneficial ownership records linking Moscow-based people and organizations to the companies they own or control, mostly from UK Companies House persons-with-significant-control filings, with ownership roles and relationships.",
+    "primary_source": {
+      "name": "Open Ownership",
+      "url": "https://www.openownership.org/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "OPEN-OWNERSHIP",
+    "sample_record": {
+      "DATA_SOURCE": "OPEN-OWNERSHIP",
+      "RECORD_ID": "gb-coh-psc-00187809-lfv0aoqujcpdzujyqccyh0ub-r4",
+      "RECORD_TYPE": "ORGANIZATION",
+      "LAST_CHANGE": "2024-11-13T13:59:38",
+      "NAMES": [
+        {
+          "NAME_TYPE": "PRIMARY",
+          "NAME_ORG": "The Federal Agency For Federal Properties Management Of The Russian Federation"
+        }
+      ],
+      "ADDRESSES": [
+        {
+          "ADDR_FULL": "Nikolskiy Pereulok 9, Moscow, Russia, 103685",
+          "ADDR_TYPE": "BUSINESS"
+        }
+      ],
+      "RELATIONSHIPS": [
+        {
+          "REL_POINTER_ROLE": "Ownership of shares 75 to 100 percent",
+          "REL_POINTER_DOMAIN": "OPEN_SANCTIONS",
+          "REL_POINTER_KEY": "oc-companies-gb-00187809"
+        }
+      ],
+      "IDENTIFIERS": [
+        {
+          "OTHER_ID_TYPE": "OPEN_SANCTIONS",
+          "OTHER_ID_NUMBER": "gb-coh-psc-00187809-lfv0aoqujcpdzujyqccyh0ub-r4"
+        }
+      ],
+      "URL": "https://www.opensanctions.org/entities/gb-coh-psc-00187809-lfv0aoqujcpdzujyqccyh0ub-r4"
+    }
+  },
+  "open_sanctions-moscow.jsonl": {
+    "synopsis": "People and organizations connected to Moscow from OpenSanctions, mostly sanctioned entities plus politically exposed persons, banks and other persons of interest, with names (including Cyrillic), addresses, dates, identifiers and risk topics.",
+    "primary_source": {
+      "name": "OpenSanctions",
+      "url": "https://www.opensanctions.org/"
+    },
+    "license": null,
+    "snapshot_date": null,
+    "data_source": "OPEN-SANCTIONS",
+    "sample_record": {
+      "DATA_SOURCE": "OPEN-SANCTIONS",
+      "RECORD_ID": "NK-22cQD3a8GDRSuoW5mus3F3",
+      "RECORD_TYPE": "ORGANIZATION",
+      "LAST_CHANGE": "2025-02-23T07:55:03",
+      "NAMES": [
+        {
+          "NAME_TYPE": "PRIMARY",
+          "NAME_ORG": "EKVIK LIMITED LIABILITY COMPANY"
+        },
+        {
+          "NAME_TYPE": "ALIAS",
+          "NAME_ORG": "ООО \"ЭКВИК\""
+        }
+      ],
+      "RISKS": [
+        {
+          "TOPIC": "sanction"
+        }
+      ],
+      "ADDRESSES": [
+        {
+          "ADDR_FULL": "PER. DUKHOVSKOI D. 17, KORPUS 1, FLOOR 1 PODYEZD 20 KAB 1, MOSCOW, RUS, 115191",
+          "ADDR_TYPE": "BUSINESS"
+        },
+        {
+          "ADDR_FULL": "ПЕР. ДУХОВСКОЙ Д. 17, МОСКВА, 115191",
+          "ADDR_TYPE": "BUSINESS"
+        },
+        {
+          "ADDR_FULL": "Per. Dukhovskoi D. 17, Korpus 1, Floor 1 Podyezd 20 Kab 1, 115191 Moscow",
+          "ADDR_TYPE": "BUSINESS"
+        }
+      ],
+      "DATES": [
+        {
+          "REGISTRATION_DATE": "2015-03-20"
+        }
+      ],
+      "COUNTRIES": [
+        {
+          "COUNTRY_OF_ASSOCIATION": "ru"
+        },
+        {
+          "REGISTRATION_COUNTRY": "ru"
+        }
+      ],
+      "IDENTIFIERS": [
+        {
+          "NATIONAL_ID_NUMBER": "1157746236966"
+        },
+        {
+          "TAX_ID_NUMBER": "7722320806"
+        },
+        {
+          "OTHER_ID_TYPE": "uniqueEntityId",
+          "OTHER_ID_NUMBER": "Y6MSPLJPJ9J5"
+        },
+        {
+          "OTHER_ID_TYPE": "kppCode",
+          "OTHER_ID_NUMBER": "772601001"
+        },
+        {
+          "OFAC_ID": "51081"
+        },
+        {
+          "OTHER_ID_TYPE": "OPEN-SANCTIONS",
+          "OTHER_ID_NUMBER": "NK-22cQD3a8GDRSuoW5mus3F3"
+        }
+      ],
+      "SOURCE_LINKS": [
+        {
+          "SOURCE_URL": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=51081"
+        }
+      ],
+      "RELATIONSHIPS": [
+        {
+          "REL_ANCHOR_DOMAIN": "OPEN-SANCTIONS",
+          "REL_ANCHOR_KEY": "NK-22cQD3a8GDRSuoW5mus3F3"
+        }
+      ],
+      "URL": "https://www.opensanctions.org/entities/NK-22cQD3a8GDRSuoW5mus3F3"
+    }
+  },
   "ppp_loans_over_150k-lasvegas.jsonl": {
     "synopsis": "Details of Paycheck Protection Program loans over $150,000, including recipient names, loan amounts, and locations.",
     "primary_source": {

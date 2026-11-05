@@ -1,3 +1,9 @@
 https://github.com/Senzing/cords/releases/download/0.0.3/gleif-lasvegas.jsonl
+https://github.com/Senzing/cords/releases/download/0.1.0/gleif-moscow.jsonl
+https://github.com/Senzing/cords/releases/download/0.1.0/icij-moscow.jsonl
+https://github.com/Senzing/cords/releases/download/0.1.0/nominodata_risk-moscow.jsonl
+https://github.com/Senzing/cords/releases/download/0.1.0/ofac-moscow.jsonl
+https://github.com/Senzing/cords/releases/download/0.1.0/open_ownership-moscow.jsonl
+https://github.com/Senzing/cords/releases/download/0.1.0/open_sanctions-moscow.jsonl
 https://github.com/Senzing/cords/releases/download/0.0.2/ppp_loans_over_150k-lasvegas.jsonl
 https://github.com/Senzing/cords/releases/download/0.0.1/us_labor_violations-lasvegas.jsonl
