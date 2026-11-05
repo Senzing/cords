@@ -102,9 +102,21 @@ FAKE_GH = textwrap.dedent(
         print(url)
     elif args[:2] == ["pr", "list"]:
         print(json.dumps([p for p in state["prs"] if p["head"] == opt("--head")]))
+    elif args[:2] == ["pr", "checks"]:
+        # FAKE_GH_CHECKS is a JSON list of {"name", "bucket"}; gh exits 1 on a failed
+        # check and 8 on a pending one, and prints the JSON either way.
+        checks = json.loads(os.environ.get("FAKE_GH_CHECKS", "[]"))
+        if not checks:
+            sys.exit("no required checks reported on the 'release' branch")
+        print(json.dumps(checks))
+        buckets = {c["bucket"] for c in checks}
+        sys.exit(1 if buckets & {"fail", "cancel"} else 8 if "pending" in buckets else 0)
     elif args[:2] == ["pr", "merge"]:
         if os.environ.get("FAKE_GH_MERGE_FAIL"):
             sys.exit("GraphQL: Pull request is not mergeable: protected branch rules")
+        if os.environ.get("FAKE_GH_REVIEW_REQUIRED") and "--admin" not in args:
+            sys.exit(f"X Pull request Owner/Repo#{args[2]} is not mergeable: "
+                     "the base branch policy prohibits the merge.")
         if "--squash" not in args:
             sys.exit("GraphQL: Merge commits are not allowed on this repository.")
         pr = state["prs"][int(args[2]) - 1]
@@ -875,7 +887,8 @@ class ReleaseTest(unittest.TestCase):
         self.release("prepare", "--bump", "minor")
         code, output = self.release("publish")
         self.assertEqual(code, 0, output)
-        self.assertIn(["pr", "merge", "1", "--squash", "--delete-branch"], self.calls())
+        self.assertIn(["pr", "merge", "1", "--repo", "Owner/Repo", "--squash", "--delete-branch"],
+                      self.calls())
         merge = self.gh_state_json()["prs"][0]["mergeCommit"]["oid"]
         release = self.gh_state_json()["releases"]["0.2.0"]
         self.assertEqual((release["draft"], release["target"], release["latest"]),
@@ -893,6 +906,77 @@ class ReleaseTest(unittest.TestCase):
         self.assertEqual(code, 2)
         self.assertIn("protected branch", output)
         self.assertTrue(self.gh_state_json()["releases"]["0.2.0"]["draft"])
+
+    def test_publish_refused_by_branch_policy_suggests_bypass(self):
+        self.release("prepare", "--bump", "minor")
+        with mock.patch.dict(os.environ, {"FAKE_GH_REVIEW_REQUIRED": "1"}):
+            code, output = self.release("publish")
+        self.assertEqual(code, 2)
+        self.assertIn("blocked: branch policy prohibits the merge of "
+                      "https://github.com/Owner/Repo/pull/1; rerun with publish --bypass "
+                      "to use your bypass", output)
+        self.assertTrue(self.gh_state_json()["releases"]["0.2.0"]["draft"])
+        self.assertEqual(self.gh_state_json()["prs"][0]["state"], "OPEN")
+
+    def test_publish_other_merge_failure_has_no_blocked_line(self):
+        self.release("prepare", "--bump", "minor")
+        with mock.patch.dict(os.environ, {"FAKE_GH_MERGE_FAIL": "1"}):
+            code, output = self.release("publish")
+        self.assertEqual(code, 2)
+        self.assertNotIn("blocked:", output)
+
+    def test_publish_bypass_merges_with_admin_once_checks_pass(self):
+        self.release("prepare", "--bump", "minor")
+        checks = [{"name": "spellcheck / spellcheck", "bucket": "pass"},
+                  {"name": "lint-workflows / lint workflows", "bucket": "skipping"}]
+        with mock.patch.dict(os.environ, {"FAKE_GH_REVIEW_REQUIRED": "1",
+                                          "FAKE_GH_CHECKS": json.dumps(checks)}):
+            code, output = self.release("publish", "--bypass")
+        self.assertEqual(code, 0, output)
+        self.assertIn(["pr", "merge", "1", "--repo", "Owner/Repo", "--squash", "--delete-branch",
+                       "--admin"], self.calls())
+        self.assertIn(["pr", "checks", "1", "--repo", "Owner/Repo", "--required", "--json",
+                       "name,bucket"], self.calls())
+        release = self.gh_state_json()["releases"]["0.2.0"]
+        self.assertFalse(release["draft"])
+        self.assertIn("verified: https://github.com/Owner/Repo/releases/download/0.2.0/"
+                      "b-london.jsonl", output)
+
+    def test_publish_bypass_with_no_required_checks_merges(self):
+        self.release("prepare", "--bump", "minor")
+        with mock.patch.dict(os.environ, {"FAKE_GH_REVIEW_REQUIRED": "1"}):
+            code, output = self.release("publish", "--bypass")
+        self.assertEqual(code, 0, output)
+        self.assertFalse(self.gh_state_json()["releases"]["0.2.0"]["draft"])
+
+    def assertBypassStopsOn(self, bucket):
+        self.release("prepare", "--bump", "minor")
+        checks = [{"name": "spellcheck / spellcheck", "bucket": bucket}]
+        with mock.patch.dict(os.environ, {"FAKE_GH_REVIEW_REQUIRED": "1",
+                                          "FAKE_GH_CHECKS": json.dumps(checks)}):
+            code, output = self.release("publish", "--bypass")
+        self.assertEqual(code, 2)
+        self.assertIn("required checks have not passed on https://github.com/Owner/Repo/pull/1: "
+                      f"spellcheck / spellcheck ({bucket})", output)
+        self.assertFalse(any(c[:2] == ["pr", "merge"] for c in self.calls()))
+        self.assertTrue(self.gh_state_json()["releases"]["0.2.0"]["draft"])
+
+    def test_publish_bypass_stops_on_a_failed_required_check(self):
+        self.assertBypassStopsOn("fail")
+
+    def test_publish_bypass_stops_on_a_pending_required_check(self):
+        self.assertBypassStopsOn("pending")
+
+    def test_publish_bypass_on_a_merged_pr_just_publishes(self):
+        self.release("prepare", "--bump", "minor")
+        # Merged by hand, as with gh pr merge --admin outside the skill.
+        subprocess.run(["gh", "pr", "merge", "1", "--squash", "--delete-branch", "--admin"],
+                       check=True, capture_output=True)
+        merges = sum(c[:2] == ["pr", "merge"] for c in self.calls())
+        code, output = self.release("publish", "--bypass")
+        self.assertEqual(code, 0, output)
+        self.assertEqual(sum(c[:2] == ["pr", "merge"] for c in self.calls()), merges)
+        self.assertFalse(any(c[:2] == ["pr", "checks"] for c in self.calls()))
 
     def test_publish_reports_a_mismatched_download(self):
         self.release("prepare", "--bump", "minor")

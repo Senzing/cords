@@ -99,13 +99,32 @@ answer: the SemVer bump, and whether to merge.
 
      This step squash-merges the PR (the repository allows no merge commits), publishes the
      draft on the squash commit as the latest Release, switches the clone to an
-     updated `main`, and downloads each file in the Release to check its SHA-256.
+     updated `main`, and downloads each file in the Release to check its SHA-256. A PR
+     that is already merged, for example by hand, is not merged again.
+   - **A `blocked:` line (exit 2):** branch policy refused the merge, usually because the
+     PR still needs an approving code-owner review. Explain that `--bypass` runs
+     `gh pr merge --admin`, which uses the caller's ruleset bypass, not admin rights: on
+     this repository the `cord-development` team can bypass only the review
+     (`main-review`), never status checks, signatures, force-push or deletion
+     (`main-protection`). Ask: "Merge `<PR URL>` using your bypass (`--bypass`), then
+     publish `<version>`?" Wait for an explicit yes in this run; the earlier yes doesn't
+     cover it.
+     - **No:** say that the draft Release and the branch are left in place. Stop.
+     - **Yes:** run:
+
+       ```bash
+       python3 .claude/skills/publish-cord/publish_cord.py publish --bypass
+       ```
+
+       It first checks the PR's required status checks, and stops with exit 2, merging
+       nothing, if any has failed or is still pending. Otherwise it merges with `--admin`
+       and goes on as above. Without a bypass, `gh` refuses the merge and the step stops.
 
 6. Report the squash commit, the `published:` line, and each `verified:` line.
    Exit 1 means a download didn't match `manifest.json`: list the `MISMATCH:` lines and
    leave the Release as it is for the user to look at. Exit 2 means it stopped before
-   publishing, for example because branch protection refused the merge. Show the message;
-   the draft is still unpublished.
+   publishing: a `blocked:` line (see step 5), a required check that hasn't passed, or
+   another refused merge. Show the message; the draft is still unpublished.
 
 ## What a release changes
 
