@@ -43,6 +43,7 @@ BASE = "main"
 VERSION_PATTERN = re.compile(r"^v?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$")
 REPO_URL = "https://github.com/Senzing/cords"
 PAGES_URL = "https://hub.senzing.com/cords/"
+TERMS_URL = "https://senzing.com/terms-of-use/"
 CORDS_FILE = os.path.join("development", "cords.json")
 # Files that may be uncommitted when a release starts: /upload-senzing-ready writes the first
 # two, and the maintainer writes the cords.json entry of each file being released.
@@ -438,7 +439,10 @@ def page_html(file, title, description, hero, sections):
         "</main>",
         '<footer><div class="wrap">CORD files are published as GitHub Releases of '
         f'<a href="{REPO_URL}">{esc(REPO_URL.split("github.com/")[1])}</a> and listed in '
-        f'<a href="{REPO_URL}/blob/{BASE}/manifest.json">manifest.json</a>.</div></footer>',
+        f'<a href="{REPO_URL}/blob/{BASE}/manifest.json">manifest.json</a>. '
+        'CORD files are provided "as is" under Senzing\'s '
+        f'<a href="{TERMS_URL}">Terms of Service</a>: they are out-of-date snapshots meant '
+        "for evaluation, not operational use.</div></footer>",
         "</body>",
         "</html>",
     )) + "\n"
