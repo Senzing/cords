@@ -2,7 +2,7 @@
   "equifax-lasvegas.jsonl": {
     "synopsis": "Business and people records for the Las Vegas area from Equifax commercial data, including company names, legal names, addresses, phone numbers, websites, NAICS industry codes, years established and corporate family links.",
     "primary_source": {
-      "name": "Equifax",
+      "name": "Equifax B2BConnect",
       "url": "https://www.equifax.com/business/"
     },
     "license": null,
@@ -55,7 +55,7 @@
     "synopsis": "Legal Entity Identifier (LEI) records for organizations with a business address in the Las Vegas area, including legal names, addresses, registration dates and LEI numbers.",
     "primary_source": {
       "name": "GLEIF (Global LEI)",
-      "url": "https://www.gleif.org/"
+      "url": "https://www.opensanctions.org/datasets/gleif/"
     },
     "license": null,
     "snapshot_date": null,
@@ -103,7 +103,7 @@
     "synopsis": "Legal Entity Identifier (LEI) records for organizations with a business address in London, including legal names, addresses, registration dates and LEI numbers.",
     "primary_source": {
       "name": "GLEIF (Global LEI)",
-      "url": "https://www.gleif.org/"
+      "url": "https://www.opensanctions.org/datasets/gleif/"
     },
     "license": null,
     "snapshot_date": null,
@@ -151,7 +151,7 @@
     "synopsis": "Legal Entity Identifier (LEI) records for organizations with a business address in Moscow, including legal names (many in Cyrillic), addresses, national registration numbers and LEI numbers.",
     "primary_source": {
       "name": "GLEIF (Global LEI)",
-      "url": "https://www.gleif.org/"
+      "url": "https://www.opensanctions.org/datasets/gleif/"
     },
     "license": null,
     "snapshot_date": null,
@@ -260,7 +260,7 @@
     "synopsis": "Companies, officers and intermediaries with a Las Vegas connection from ICIJ's Offshore Leaks Database, mostly from the Panama Papers, with jurisdictions, incorporation dates and status.",
     "primary_source": {
       "name": "ICIJ Offshore Leaks Database",
-      "url": "https://offshoreleaks.icij.org/"
+      "url": "https://offshoreleaks.icij.org/pages/database"
     },
     "license": null,
     "snapshot_date": null,
@@ -311,7 +311,7 @@
     "synopsis": "Companies, officers and intermediaries with a London connection from ICIJ's Offshore Leaks Database, drawn from the Offshore Leaks, Panama Papers, Paradise Papers and Pandora Papers investigations, with jurisdictions, incorporation dates and status.",
     "primary_source": {
       "name": "ICIJ Offshore Leaks Database",
-      "url": "https://offshoreleaks.icij.org/"
+      "url": "https://offshoreleaks.icij.org/pages/database"
     },
     "license": null,
     "snapshot_date": null,
@@ -348,7 +348,7 @@
     "synopsis": "Companies, officers and intermediaries with a Moscow connection from ICIJ's Offshore Leaks Database, drawn from the Offshore Leaks, Panama Papers, Paradise Papers and Pandora Papers investigations, with jurisdictions, incorporation dates and status.",
     "primary_source": {
       "name": "ICIJ Offshore Leaks Database",
-      "url": "https://offshoreleaks.icij.org/"
+      "url": "https://offshoreleaks.icij.org/pages/database"
     },
     "license": null,
     "snapshot_date": null,
@@ -482,7 +482,7 @@
     "synopsis": "Health care providers in the Las Vegas area from the National Provider Identifier (NPI) registry, both individual practitioners and organizations, with names, former and other names, practice and mailing addresses, phone numbers, license numbers and taxonomy codes.",
     "primary_source": {
       "name": "CMS NPPES NPI Registry",
-      "url": "https://npiregistry.cms.hhs.gov/"
+      "url": "https://www.cms.gov/medicare/regulations-guidance/administrative-simplification/data-dissemination"
     },
     "license": null,
     "snapshot_date": null,
@@ -530,7 +530,7 @@
     "synopsis": "Entries on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list with a London address, across programs such as the Russia-related EO 14024, counter-terrorism, Iraq and Iran, including names, aliases, addresses, identifiers and sanctions programs.",
     "primary_source": {
       "name": "OFAC Specially Designated Nationals (SDN) List",
-      "url": "https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists"
+      "url": "https://sanctionslist.ofac.treas.gov/Home/SdnList"
     },
     "license": null,
     "snapshot_date": "2024-12-11",
@@ -577,7 +577,7 @@
     "synopsis": "Entries on the U.S. Treasury OFAC Specially Designated Nationals (SDN) list with a Moscow address, mostly under the Russia-related EO 14024 program, including names, aliases, addresses, identifiers and sanctions programs.",
     "primary_source": {
       "name": "OFAC Specially Designated Nationals (SDN) List",
-      "url": "https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists"
+      "url": "https://sanctionslist.ofac.treas.gov/Home/SdnList"
     },
     "license": null,
     "snapshot_date": "2024-12-11",
@@ -630,7 +630,7 @@
     "synopsis": "Beneficial ownership records linking Las Vegas-based people and organizations to the companies they own or control, mostly from UK Companies House persons-with-significant-control filings, with ownership roles and relationships.",
     "primary_source": {
       "name": "Open Ownership",
-      "url": "https://www.openownership.org/"
+      "url": "https://bods-data.openownership.org/"
     },
     "license": null,
     "snapshot_date": null,
@@ -681,7 +681,7 @@
     "synopsis": "Beneficial ownership records linking Moscow-based people and organizations to the companies they own or control, mostly from UK Companies House persons-with-significant-control filings, with ownership roles and relationships.",
     "primary_source": {
       "name": "Open Ownership",
-      "url": "https://www.openownership.org/"
+      "url": "https://bods-data.openownership.org/"
     },
     "license": null,
     "snapshot_date": null,
@@ -723,7 +723,7 @@
     "synopsis": "Sanctioned people and organizations with a London connection from OpenSanctions, including some linked to terrorism, with names, aliases, addresses, dates, identifiers and risk topics.",
     "primary_source": {
       "name": "OpenSanctions",
-      "url": "https://www.opensanctions.org/"
+      "url": "https://www.opensanctions.org/datasets/default/"
     },
     "license": null,
     "snapshot_date": null,
@@ -833,7 +833,7 @@
     "synopsis": "People and organizations connected to Moscow from OpenSanctions, mostly sanctioned entities plus politically exposed persons, banks and other persons of interest, with names (including Cyrillic), addresses, dates, identifiers and risk topics.",
     "primary_source": {
       "name": "OpenSanctions",
-      "url": "https://www.opensanctions.org/"
+      "url": "https://www.opensanctions.org/datasets/default/"
     },
     "license": null,
     "snapshot_date": null,
@@ -925,8 +925,8 @@
   "opendata-lasvegas.jsonl": {
     "synopsis": "Las Vegas-area business locations, companies and the people linked to them, with names, addresses, map coordinates, websites, LinkedIn pages, and LEI and NPI numbers where known.",
     "primary_source": {
-      "name": "OpenData",
-      "url": null
+      "name": "OpenData.org",
+      "url": "https://opendata.org"
     },
     "license": null,
     "snapshot_date": null,
@@ -1002,8 +1002,8 @@
   "profound-lasvegas.jsonl": {
     "synopsis": "Las Vegas businesses identified by their website domain, with names, addresses, phone numbers, websites and social media accounts, plus web hosting, CMS, mail and cloud providers, domain registration dates and a website risk score.",
     "primary_source": {
-      "name": "Profound",
-      "url": null
+      "name": "Profound Networks",
+      "url": "https://www.profound.net/"
     },
     "license": null,
     "snapshot_date": null,
