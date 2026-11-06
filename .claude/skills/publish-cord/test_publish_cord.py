@@ -530,6 +530,13 @@ class ReleaseTest(unittest.TestCase):
                       self.catalog_page("index.html"))
         self.assertIn('href="cords.html"', self.catalog_page("index.html"))
 
+    def test_catalog_pages_link_the_terms_of_service(self):
+        self.release("catalog")
+        for name in ("index.html", "cords.html"):
+            page = self.catalog_page(name)
+            self.assertIn('<a href="https://senzing.com/terms-of-use/">Terms of Service</a>', page)
+            self.assertIn("evaluation, not operational use", page)
+
     def test_catalog_badges_only_non_zero_features(self):
         self.release("catalog")
         # NAME_FEATURES is 1, ADDRESS_FEATURES blank and PHONE_FEATURES 0.
