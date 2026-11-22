@@ -43,4 +43,4 @@ jobs:
       # --strict fails on any package pip-audit cannot audit, so an unresolvable
       # dependency cannot pass as "no known vulnerabilities".
       - name: Run pip-audit
-        run: ./audit-venv/bin/pip-audit --strict --desc .
+        run: ./audit-venv/bin/pip-audit --strict --desc on .
