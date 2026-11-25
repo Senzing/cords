@@ -41,6 +41,7 @@
     "setuptools",
     "stackoverflow",
     "Trailwood",
+    "venv",
     "violtd",
     "wght",
     "worktrees",

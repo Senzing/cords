@@ -7,6 +7,11 @@ This project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+### Added
+
+- `dependency-scan.yaml` runs `pip-audit` over the project dependencies on every pull request
+- Dependabot now opens pip updates as well as GitHub Actions updates
+
 ## [0.1.2] - 2026-11-05
 
 ### Added
